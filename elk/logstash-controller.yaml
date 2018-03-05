@@ -20,7 +20,7 @@ spec:
       serviceAccount: elk
       containers:
       - name: logstash
-        image: logstash
+        image: pires/logstash
         env:
         - name: KUBERNETES_TRUST_CERT
           value: "true"
