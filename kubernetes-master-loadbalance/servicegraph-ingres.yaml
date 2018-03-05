@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: servicegraph-ingress
+  labels: 
+    app: servicegraph
+  namespace: istio-system
+spec:
+  rules:
+  - host: servicegraph.demo
+    http:
+      paths:
+      - backend:
+          serviceName: servicegraph
+          servicePort: 8088

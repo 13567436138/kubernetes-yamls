@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: jenkins-mvn2-volume
+  labels:
+    name: docker
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteMany
+  glusterfs:
+    endpoints: "glusterfs-cluster"
+    path: "jenkins-mvn2-volume"
+    readOnly: false
+  storageClassName: standard  
