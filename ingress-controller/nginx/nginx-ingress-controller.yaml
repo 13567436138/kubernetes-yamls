@@ -21,7 +21,7 @@ spec:
       nodeSelector:
         nodetype: ingress-nginx
       containers:
-      - image: gcr.io/google_containers/nginx-ingress-controller:latest
+      - image: gcr.io/google_containers/nginx-ingress-controller:0.9.0-beta.15
         name: nginx-ingress-lb
         readinessProbe:
           httpGet:
@@ -35,6 +35,10 @@ spec:
             scheme: HTTP
           initialDelaySeconds: 10
           timeoutSeconds: 1
+        resources:
+          limits:
+            cpu: 500m
+            memory: 200Mi
         ports:
         - containerPort: 80
           hostPort: 80
@@ -51,6 +55,11 @@ spec:
                 fieldPath: metadata.namespace
           - name: KUBERNETES_MASTER
             value: https://172.22.156.174:6443
+          - name: KUBE_CONFIG
+            valueFrom:
+              configMapKeyRef:
+                name: kube-config
+                key: config
         args:
         - /nginx-ingress-controller
         - --default-backend-service=$(POD_NAMESPACE)/default-http-backend
@@ -59,5 +68,5 @@ spec:
         - --force-namespace-isolation
         - --http-port=80
         - --https-port=443
-        - --kubeconfig=/root/.kube/config
+        - --kubeconfig=${KUBE_CONFIG}
         - --watch-namespace=dev
