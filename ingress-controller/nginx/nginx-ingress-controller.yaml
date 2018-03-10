@@ -8,9 +8,6 @@ metadata:
 spec:
   replicas: 1
   template:
-    nodeSelector:
-      matchLabels:
-        nodetype: ingress-nginx
     metadata:
       labels:
         name: nginx-ingress-lb
@@ -21,6 +18,8 @@ spec:
       terminationGracePeriodSeconds: 60
       hostNetwork: true
       serviceAccountName: nginx-ingress-kube-master-lb
+      nodeSelector:
+        nodetype: ingress-nginx
       containers:
       - image: gcr.io/google_containers/nginx-ingress-controller:latest
         name: nginx-ingress-lb
