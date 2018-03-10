@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: kubernetes-ingress
+  namespace: dev
+  annotations:
+    kubernetes.io/ingress.class: "nginx-kubernetes"
+spec:
+  rules:
+  - host: kube-master.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: kubernetes
+          servicePort: 443

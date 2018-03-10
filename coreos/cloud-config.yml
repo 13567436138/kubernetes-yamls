@@ -1,0 +1,31 @@
+#cloud-config
+
+hostname: node2
+coreos:
+  update:
+    reboot-strategy: off
+  units:
+  - name: etcd2.service
+    command: start
+  - name: fleet.service
+    command: start
+  etcd2:
+    name: etcd1
+    # generate a new token for each unique cluster from https://discovery.etcd.io/new?size=3
+    discovery: "https://discovery.etcd.io/2cc211eb86644a1bc19dac67c757c65a"
+    # multi-region and multi-cloud deployments need to use $public_ipv4
+    advertise-client-urls: "http://$public_ipv4:2379"
+    initial-advertise-peer-urls: "http://$private_ipv4:2380"
+    # listen on both the official ports and the legacy ports
+    # legacy ports can be omitted if your application doesn't depend on them
+    listen-client-urls: "http://0.0.0.0:2379,http://0.0.0.0:4001"
+    listen-peer-urls: "http://$private_ipv4:2380,http://$private_ipv4:7001"
+
+users:  
+  - name: root
+    ssh-authorized-keys: 
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCkwuRppJ6BHXRsF5EW/SKNpgIbLqOkFslEkwuR7fT7FJF9I5mGaHctQzzUKXtHVIs7oKLjkwxBNfpit0zT/2aU16GU8YAV1CioGdV8aC9Bg0mxNtHSRPsO+/5+1NcALyGTN5T4JT4sEErwTHoRNjYbYTXBkfwzkmYd7nH80bwECDyBthb4UJKEEpkTjyMLMoh9abCqPSxXzR/aDEcIPTdKLfe7BfdlarcmCygq6l9VqUbB9nbK1tuu3ODMetpjHgYqwPxG0GWdZaIgULEdwhiw7cyn7g3Vdng1hQI0EGQCPwI/S7pVD9M0uTSy7aEK4VK9IKwXfcodNMCnau4/unPl
+ 
+  - groups:
+      - sudo
+      - docker
