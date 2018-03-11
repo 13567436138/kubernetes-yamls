@@ -9,15 +9,15 @@ spec:
       cpu: 1
       memory: 2Gi
     min:
-      cpu: 0.1
+      cpu: 0.01
       memory: 10Mi
   - type: Container
     max:
       cpu: 1
       memory: 2Gi
     min:
-      cpu: 0.1
+      cpu: 0.01
       memory: 10Mi
     default:
-      cpu: 0.1
+      cpu: 0.01
       memory: 20Mi
