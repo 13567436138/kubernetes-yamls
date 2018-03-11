@@ -21,7 +21,7 @@ spec:
       nodeSelector:
         nodetype: ingress-nginx
       containers:
-      - image: gcr.io/google_containers/nginx-ingress-controller:0.9.0-beta.15
+      - image: quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.10.2
         name: nginx-ingress-lb
         readinessProbe:
           httpGet:
@@ -36,6 +36,9 @@ spec:
           initialDelaySeconds: 10
           timeoutSeconds: 1
         resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
           limits:
             cpu: 500m
             memory: 200Mi
@@ -53,20 +56,44 @@ spec:
             valueFrom:
               fieldRef:
                 fieldPath: metadata.namespace
-          - name: KUBERNETES_MASTER
-            value: https://172.22.156.174:6443
           - name: KUBE_CONFIG
             valueFrom:
               configMapKeyRef:
                 name: kube-config
                 key: config
+        volumeMounts:
+        - name: kube-config
+          mountPath: /etc
+        - name: nginx-config
+          mountPath: /etc/nginx/template
+        - name: nginx-config-main
+          mountPath: /etc/nginx
         args:
         - /nginx-ingress-controller
         - --default-backend-service=$(POD_NAMESPACE)/default-http-backend
-        - --apiserver-host=$(KUBERNETES_MASTER)
         - '--ingress-class=nginx-kubernetes'
-        - --force-namespace-isolation
         - --http-port=80
         - --https-port=443
-        - --kubeconfig=${KUBE_CONFIG}
         - --watch-namespace=dev
+      
+      volumes:
+      - name: kube-config
+        configMap:
+          name: kube-config
+          items:
+          - key: config
+            path: config.yaml
+      - name: nginx-config
+        configMap:
+          name: nginx-config
+          items:
+          - key: config
+            path: nginx.tmpl
+      - name: nginx-config-main
+        configMap:
+          name: nginx-config
+          items:
+          - key: config
+            path: nginx.conf
+          - key: mime
+            path: mime.types
