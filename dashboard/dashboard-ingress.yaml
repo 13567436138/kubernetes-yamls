@@ -4,10 +4,10 @@ metadata:
   name: dashboard-ingress
   labels: 
     app: dashboard
-  namespace: ingress-nginx
+  namespace: kube-system
 spec:
   rules:
-  - host: dashboard.io
+  - host: dashboard.demo
     http:
       paths:
       - backend:
