@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: dashboard-ingress
+  labels: 
+    app: dashboard
+  namespace: ingress-nginx
+spec:
+  tls:
+    - secretName: testsecret
+  rules:
+  - host: dashboard.io
+    http:
+      paths:
+      - backend:
+          serviceName: kubernetes-dashboard
+          servicePort: 443

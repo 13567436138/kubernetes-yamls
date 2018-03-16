@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: bookinfo-ingress
+  labels: 
+    app: bookinfo
+spec:
+  rules:
+  - host: bookinfo.demo
+    http:
+      paths:
+      - backend:
+          serviceName: productpage
+          servicePort: 9080

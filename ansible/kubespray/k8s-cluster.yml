@@ -20,7 +20,7 @@ kube_users_dir: "{{ kube_config_dir }}/users"
 kube_api_anonymous_auth: true
 
 ## Change this to use another Kubernetes version, e.g. a current beta release
-kube_version: v1.9.3
+kube_version: v1.9.2
 
 # Where the binaries will be downloaded.
 # Note: ensure that you've enough disk space (about 1G)
@@ -37,7 +37,7 @@ kube_log_level: 2
 
 # Users to create for basic auth in Kubernetes API via HTTP
 # Optionally add groups for user
-kube_api_pwd: "{{ lookup('password', inventory_dir + '/credentials/kube_user length=15 chars=ascii_letters,digits') }}"
+kube_api_pwd: "{{ lookup('password', 'credentials/kube_user length=15 chars=ascii_letters,digits') }}"
 kube_users:
   kube:
     pass: "{{kube_api_pwd}}"
@@ -62,9 +62,9 @@ kube_token_auth: true
 # kube_oidc_groups_claim: groups
 
 
-# Choose network plugin (cilium, calico, contiv, weave or flannel)
+# Choose network plugin (calico, contiv, weave or flannel)
 # Can also be set to 'cloud', which lets the cloud provider setup appropriate routing
-kube_network_plugin: calico
+kube_network_plugin: flannel
 
 # weave's network password for encryption
 # if null then no network encryption
@@ -83,11 +83,8 @@ weave_mode_seed: false
 weave_seed: uninitialized
 weave_peers: uninitialized
 
-# Set the MTU of Weave (default 1376, Jumbo Frames: 8916)
-weave_mtu: 1376
-
 # Enable kubernetes network policies
-enable_network_policy: true
+enable_network_policy: false
 
 # Kubernetes internal network for services, unused block of space.
 kube_service_addresses: 10.233.0.0/18
@@ -108,10 +105,6 @@ kube_apiserver_port: 6443 # (https)
 kube_apiserver_insecure_port: 8080 # (http)
 # Set to 0 to disable insecure port - Requires RBAC in authorization_modes and kube_api_anonymous_auth: true
 #kube_apiserver_insecure_port: 0 # (disabled)
-
-# Kube-proxy proxyMode configuration.
-# Can be ipvs, iptables
-kube_proxy_mode: iptables 
 
 # DNS configuration.
 # Kubernetes cluster name, also will be used as DNS domain
@@ -157,51 +150,19 @@ k8s_image_pull_policy: IfNotPresent
 dashboard_enabled: true
 
 # Monitoring apps for k8s
-efk_enabled: true
+efk_enabled: false
 
 # Helm deployment
-helm_enabled: true
+helm_enabled: false
 
 # Istio deployment
-istio_enabled: true
-
-# Registry deployment
-registry_enabled: true
+istio_enabled: false
 
 # Local volume provisioner deployment
-local_volume_provisioner_enabled: true
-local_volume_provisioner_namespace: "{{ system_namespace }}"
-local_volume_provisioner_base_dir: /data
-local_volume_provisioner_mount_dir: /data
-local_volume_provisioner_storage_class: local-storage
-
-# CephFS provisioner deployment
-cephfs_provisioner_enabled: true
-# cephfs_provisioner_namespace: "{{ system_namespace }}"
-# cephfs_provisioner_cluster: ceph
-# cephfs_provisioner_monitors:
-#   - 172.24.0.1:6789
-#   - 172.24.0.2:6789
-#   - 172.24.0.3:6789
-# cephfs_provisioner_admin_id: admin
-# cephfs_provisioner_secret: secret
-# cephfs_provisioner_storage_class: cephfs
-
-# Nginx ingress controller deployment
-ingress_nginx_enabled: true
-ingress_nginx_namespace: "ingress-nginx"
-ingress_nginx_insecure_port: 80
-ingress_nginx_secure_port: 443
-# ingress_nginx_configmap:
-#   map-hash-bucket-size: "128"
-#   ssl-protocols: "SSLv2"
-# ingress_nginx_configmap_tcp_services:
-#   9000: "default/example-go:8080"
-# ingress_nginx_configmap_udp_services:
-#   53: "kube-system/kube-dns:53"
+local_volumes_enabled: true
 
 # Add Persistent Volumes Storage Class for corresponding cloud provider ( OpenStack is only supported now )
-persistent_volumes_enabled: true
+persistent_volumes_enabled: false
 
 # Make a copy of kubeconfig on the host that runs Ansible in GITDIR/artifacts
 # kubeconfig_localhost: false
