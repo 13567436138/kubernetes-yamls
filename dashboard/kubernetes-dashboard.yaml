@@ -112,6 +112,8 @@ spec:
       labels:
         k8s-app: kubernetes-dashboard
     spec:
+      nodeSelector:
+        deploy:app
       containers:
       - name: kubernetes-dashboard
         image: k8s.gcr.io/kubernetes-dashboard-amd64:v1.8.3
