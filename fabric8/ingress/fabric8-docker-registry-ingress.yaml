@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: registry-ingress
+  labels: 
+    app: registry
+spec:
+  rules:
+  - host: registry.youben.demo
+    http:
+      paths:
+      - backend:
+          serviceName: fabric8-docker-registry
+          servicePort: 80

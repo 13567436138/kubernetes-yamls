@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: jenkinshift-ingress
+  labels: 
+    app: jenkinshift
+spec:
+  rules:
+  - host: jenkinshift.youben.demo
+    http:
+      paths:
+      - backend:
+          serviceName: jenkinshift
+          servicePort: 80

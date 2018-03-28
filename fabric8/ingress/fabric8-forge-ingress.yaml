@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: fabric8-forge-ingress
+  labels: 
+    app: fabric8-forge
+spec:
+  rules:
+  - host: fabric8-forge.youben.demo
+    http:
+      paths:
+      - backend:
+          serviceName: fabric8-forge
+          servicePort: 80

@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nexus-ingress
+  labels: 
+    app: nexus
+spec:
+  rules:
+  - host: nexus.youben.demo
+    http:
+      paths:
+      - backend:
+          serviceName: nexus
+          servicePort: 80

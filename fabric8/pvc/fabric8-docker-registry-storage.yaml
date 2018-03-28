@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  labels:
+    group: io.fabric8.devops.apps
+    project: fabric8-docker-registry
+    provider: fabric8
+    version: 2.2.311
+  name: fabric8-docker-registry-storage
+  namespace: default
+spec:
+  storageClassName: glusterfs-storage
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi

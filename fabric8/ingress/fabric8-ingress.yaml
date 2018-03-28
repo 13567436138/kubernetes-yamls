@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: fabric8-ingress
+  labels: 
+    app: fabric8
+spec:
+  rules:
+  - host: fabric8.youben.demo
+    http:
+      paths:
+      - backend:
+          serviceName: fabric8
+          servicePort: 80

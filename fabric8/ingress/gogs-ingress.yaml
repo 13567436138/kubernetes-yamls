@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: gogs-ingress
+  labels: 
+    app: gogs
+spec:
+  rules:
+  - host: gogs.youben.demo
+    http:
+      paths:
+      - backend:
+          serviceName: gogs
+          servicePort: 80

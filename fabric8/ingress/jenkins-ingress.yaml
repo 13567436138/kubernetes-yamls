@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: jenkins-ingress
+  labels: 
+    app: jenkins
+spec:
+  rules:
+  - host: jenkins.youben.demo
+    http:
+      paths:
+      - backend:
+          serviceName: jenkins
+          servicePort: 80
