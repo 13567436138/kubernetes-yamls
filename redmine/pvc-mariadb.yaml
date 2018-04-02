@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  labels:
+    app: pvc-mariadb
+  name: pvc-mariadb
+spec:
+  accessModes:
+  - ReadWriteMany
+  storageClassName: glusterfs-storage
+  resources:
+    requests:
+      storage: 8Gi

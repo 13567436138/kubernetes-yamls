@@ -1,0 +1,6 @@
+apiVersion: v1
+data:
+  aa: aa
+kind: ConfigMap
+metadata:
+  name: fabric8-pipelines

@@ -1,14 +1,14 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: gogs-ingress
+  name: redmine-ingress
   labels: 
-    app: gogs
+    app: redmine
 spec:
   rules:
-  - host: gogs
+  - host: redmine.youben.demo
     http:
       paths:
       - backend:
-          serviceName: gogs
+          serviceName: redmine
           servicePort: 80
