@@ -1,0 +1,8 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: glusterfs-storage
+parameters:
+  resturl: http://10.233.50.46:8080
+provisioner: kubernetes.io/glusterfs
+reclaimPolicy: Retain

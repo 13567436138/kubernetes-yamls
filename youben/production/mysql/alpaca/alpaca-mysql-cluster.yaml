@@ -1,0 +1,30 @@
+apiVersion: "mysql.oracle.com/v1"
+kind: MySQLCluster
+metadata:
+  name: alpaca
+  namespace: mysql-operator
+spec:
+  replicas: 2
+  multiMaster: true
+  secretRef:
+    name: alpaca-root-password
+  volumeClaimTemplate:
+    metadata:
+      name: data
+    spec:
+      storageClassName: glusterfs-storage-dv
+      accessModes:
+        - ReadWriteMany
+      resources:
+        requests:
+          storage: 50Gi
+  backupVolumeClaimTemplate:
+    metadata:
+      name: backup-data
+    spec:
+      storageClassName: glusterfs-storage-dv
+      accessModes:
+        - ReadWriteMany
+      resources:
+        requests:
+          storage: 50Gi

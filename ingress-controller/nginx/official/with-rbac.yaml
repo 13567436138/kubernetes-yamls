@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: nginx-ingress-controller
   namespace: ingress-nginx 
+  annotations:
+    kubernetes.io/ingress.class: "system"
 spec:
   replicas: 1
   selector:

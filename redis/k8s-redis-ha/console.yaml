@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: console
+spec:
+  restartPolicy: Always
+  nodeSelector:
+    deploy: app
+  containers:
+    - name: console
+      image: registry.cn-hangzhou.aliyuncs.com/youben/ha-console:3.2
