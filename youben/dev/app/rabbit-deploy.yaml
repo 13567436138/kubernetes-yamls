@@ -1,0 +1,70 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: rabbit-web
+  labels:
+    app: rabbit
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: rabbit
+    spec:
+      terminationGracePeriodSeconds: 60
+      nodeSelector:
+        deploy: app
+      containers:
+      - name: rabbit-web
+        image: harbor.youben.demo/youben/rabbit-web:latest
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            cpu: 100m
+            memory: 100Mi
+          requests:
+            cpu: 200m
+            memory: 300Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rabbit-web
+  labels:
+    app: rabbit
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+  selector:
+    app: rabbit
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: rabbit-ingress
+  labels: 
+    app: rabbit
+spec:
+  rules:
+  - host: s.ybdata.net
+    http:
+      paths:
+      - backend:
+          serviceName: rabbit-web
+          servicePort: 8080

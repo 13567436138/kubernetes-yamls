@@ -1,0 +1,70 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: orange-web
+  labels:
+    app: orange
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: orange
+    spec:
+      terminationGracePeriodSeconds: 60
+      nodeSelector:
+        deploy: app
+      containers:
+      - name: orange-web
+        image: harbor.youben.demo/youben/orange-web:latest
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            cpu: 100m
+            memory: 100Mi
+          requests:
+            cpu: 200m
+            memory: 300Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: orange-web
+  labels:
+    app: orange
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+  selector:
+    app: orange
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: orange-ingress
+  labels: 
+    app: orange
+spec:
+  rules:
+  - host: resume.lie100.net
+    http:
+      paths:
+      - backend:
+          serviceName: orange-web
+          servicePort: 8080

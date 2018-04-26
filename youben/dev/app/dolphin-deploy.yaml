@@ -1,0 +1,70 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: dolphin-web
+  labels:
+    app: dolphin
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: dolphin
+    spec:
+      terminationGracePeriodSeconds: 60
+      nodeSelector:
+        deploy: app
+      containers:
+      - name: dolphin-web
+        image: harbor.youben.demo/youben/dolphin-web:latest
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            cpu: 100m
+            memory: 100Mi
+          requests:
+            cpu: 200m
+            memory: 300Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dolphin-web
+  labels:
+    app: dolphin
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+  selector:
+    app: dolphin
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: dolphin-ingress
+  labels: 
+    app: dolphin
+spec:
+  rules:
+  - host: member.lie100.net
+    http:
+      paths:
+      - backend:
+          serviceName: dolphin-web
+          servicePort: 8080

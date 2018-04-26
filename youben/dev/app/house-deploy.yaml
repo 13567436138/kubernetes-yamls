@@ -1,0 +1,70 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: horse-web
+  labels:
+    app: horse
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: horse
+    spec:
+      terminationGracePeriodSeconds: 60
+      nodeSelector:
+        deploy: app
+      containers:
+      - name: horse-web
+        image: harbor.youben.demo/youben/horse-web:latest
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            cpu: 100m
+            memory: 100Mi
+          requests:
+            cpu: 200m
+            memory: 300Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: horse-web
+  labels:
+    app: horse
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+  selector:
+    app: horse
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: horse-ingress
+  labels: 
+    app: horse
+spec:
+  rules:
+  - host: member.ybdata.net
+    http:
+      paths:
+      - backend:
+          serviceName: horse-web
+          servicePort: 8080
