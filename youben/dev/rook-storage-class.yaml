@@ -1,0 +1,10 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: rook-block
+parameters:
+  clusterNamespace: rook
+  pool: replicapool
+provisioner: rook.io/block
+reclaimPolicy: Retain
+allowVolumeExpansion: true
