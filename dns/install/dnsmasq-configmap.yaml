@@ -4,8 +4,8 @@ metadata:
   name: dnsmasq-configmap
 data:
   dnsmasq.conf: |
-    resolv-file=/etc/resolv.dnsmasq
-    addn-hosts=/etc/dnsmasqhosts
+    resolv-file=/etc/dnsmasq.d/resolv.dnsmasq
+    addn-hosts=/etc/dnsmasq.d/dnsmasqhosts
   dnsmasqhosts: |
     192.168.1.225 gw.api.taobao.com
   resolv.dnsmasq: |

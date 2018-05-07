@@ -36,16 +36,21 @@ spec:
           name: dns-udp
         - containerPort: 53
           protocol: TCP
-          name: dns-tcp  
-        
+          name: dns-tcp       
         volumeMounts:
         - name: config-volume
-          mountPath: /etc
-        
+          mountPath: /etc/dnsmasq.d/ 
       volumes:
         - name: config-volume
           configMap:
             name: dnsmasq-configmap
+            items:
+            - key: dnsmasqhosts
+              path: dnsmasqhosts
+            - key: resolv.dnsmasq
+              path: resolv.dnsmasq
+            - key: dnsmasq.conf
+              path: dnsmasq.conf
 ---
 apiVersion: v1
 kind: Service
