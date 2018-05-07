@@ -11,12 +11,11 @@ spec:
       labels:
         app: alpaca
     spec:
-      terminationGracePeriodSeconds: 60
       nodeSelector:
         deploy: app
       containers:
       - name: alpaca-web
-        image: harbor.youben.demo/youben/alpaca-web:latest
+        image: 192.168.1.225:5000/youben/alpaca-web:1.0-SNAPSHOT
         readinessProbe:
           httpGet:
             path: /
@@ -39,4 +38,4 @@ spec:
             memory: 100Mi
           limits:
             cpu: 200m
-            memory: 300Mi
+            memory: 1024Mi

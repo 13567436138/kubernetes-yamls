@@ -1,0 +1,9 @@
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: taobao-sms
+subsets:
+  - addresses:
+      - ip: 140.205.76.86
+    ports:
+      - port: 80
