@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: hxpwangyi-ingress
+  labels: 
+    app: hxpwangyi
+  annotations:
+    kubernetes.io/ingress.class: "app"
+spec:
+  rules:
+  - host: hxpwangyi.lie100.net
+    http:
+      paths:
+      - backend:
+          serviceName: dolphin-web
+          servicePort: 8080

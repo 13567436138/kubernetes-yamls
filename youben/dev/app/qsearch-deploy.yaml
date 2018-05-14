@@ -16,28 +16,27 @@ spec:
         deploy: app
       containers:
       - name: qsearch-web
-        image: harbor.youben.demo/youben/qsearch-web:latest
+        image: 192.168.1.225:5000/youben/qsearch-web:1.0-SNAPSHOT
+        imagePullPolicy: Always
         readinessProbe:
           httpGet:
-            path: /
+            path: /adminx/index.htm
             port: 8080
             scheme: HTTP
           initialDelaySeconds: 30
           timeoutSeconds: 5
         livenessProbe:
           httpGet:
-            path: /
+            path: /adminx/index.htm
             port: 8080
             scheme: HTTP
           initialDelaySeconds: 30
           timeoutSeconds: 5
         ports:
         - containerPort: 8080
-        resources:
-          limits:
-            cpu: 100m
-            memory: 100Mi
-          requests:
-            cpu: 200m
-            memory: 300Mi
+          name: http
+        - containerPort: 8888
+          name: dobbo
+      imagePullSecrets:
+      - name: regcred
 

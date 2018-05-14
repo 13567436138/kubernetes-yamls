@@ -1,0 +1,35 @@
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: dev-resume-parse
+subsets:
+  - addresses:
+      - ip: 101.201.118.70
+    ports:
+      - port: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dev-resume-parse
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: dev-resume-parse-ingress
+  labels: 
+    app: orange
+  annotations:
+    kubernetes.io/ingress.class: "app"
+spec:
+  rules:
+  - host: service.ygys.net
+    http:
+      paths:
+      - backend:
+          serviceName: dev-resume-parse
+          servicePort: 80

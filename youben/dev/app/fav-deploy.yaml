@@ -16,30 +16,29 @@ spec:
         deploy: app
       containers:
       - name: fav-web
-        image: harbor.youben.demo/youben/fav-web:latest
+        image: 192.168.1.225:5000/youben/fav-web:1.0-SNAPSHOT
+        imagePullPolicy: Always
         readinessProbe:
           httpGet:
-            path: /
+            path: /index.htm
             port: 8080
             scheme: HTTP
           initialDelaySeconds: 30
           timeoutSeconds: 5
         livenessProbe:
           httpGet:
-            path: /
+            path: /index.htm
             port: 8080
             scheme: HTTP
           initialDelaySeconds: 30
           timeoutSeconds: 5
         ports:
         - containerPort: 8080
-        resources:
-          limits:
-            cpu: 100m
-            memory: 100Mi
-          requests:
-            cpu: 200m
-            memory: 300Mi
+          name: http
+        - containerPort: 8888
+          name: dobbo
+      imagePullSecrets:
+      - name: regcred
 ---
 apiVersion: v1
 kind: Service
@@ -60,6 +59,8 @@ metadata:
   name: fav-ingress
   labels: 
     app: fav
+  annotations:
+    kubernetes.io/ingress.class: "app"
 spec:
   rules:
   - host: fav.lie100.net
