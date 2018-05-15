@@ -1,0 +1,61 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: dubbo-admin
+  labels:
+    app: dubbo-admin
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: dubbo-admin
+    spec:
+      nodeSelector:
+        deploy: app
+      containers:
+      - name: dubbo-admin
+        image: 192.168.1.225:5000/youben/dubbo-admin:2.3.5
+        imagePullPolicy: Always
+        env:
+        - name: dubbo.registry.address
+          value: zookeeper://zookeeper-zookeeper.dev-zookeeper.svc.cluster.local:2181
+        - name: dubbo.admin.root.password
+          value: root
+        - name: dubbo.admin.guest.password
+          value: guest
+        ports:
+        - containerPort: 8080
+          name: http
+      imagePullSecrets:
+      - name: regcred
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dubbo-admin
+  labels:
+    app: dubbo-admin
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+  selector:
+    app: dubbo-admin
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: dubbo-admin
+  labels: 
+    app: dubbo-admin
+  annotations:
+    kubernetes.io/ingress.class: "app"
+spec:
+  rules:
+  - host: admin.dubbo
+    http:
+      paths:
+      - backend:
+          serviceName: dubbo-admin
+          servicePort: 8080
