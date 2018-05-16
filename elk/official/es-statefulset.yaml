@@ -73,7 +73,7 @@ spec:
     spec:
       serviceAccountName: elasticsearch-logging
       containers:
-      - image: registry.cn-hangzhou.aliyuncs.com/hxpdocke/elasticsearch:v5.6.4
+      - image: registry.cn-hangzhou.aliyuncs.com/hxpdocker/elasticsearch:v5.6.4
         name: elasticsearch-logging
         resources:
           # need more cpu upon initialization, therefore burstable class
