@@ -1,0 +1,58 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: geelybi-web
+  labels:
+    app: geelybi
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: geelybi
+    spec:
+      terminationGracePeriodSeconds: 60
+      nodeSelector:
+        deploy: app
+      containers:
+      - name: geelybi-web
+        image: 192.168.1.225:5000/youben/geelybi-web:1.0-SNAPSHOT
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+          name: http
+        - containerPort: 8888
+          name: dobbo
+      imagePullSecrets:
+      - name: regcred
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: geelybi-web
+  labels:
+    app: geelybi
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+  selector:
+    app: geelybi
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: geelybi-ingress
+  labels: 
+    app: geelybi
+  annotations:
+    kubernetes.io/ingress.class: "app"
+spec:
+  rules:
+  - host: bi.lie100.net
+    http:
+      paths:
+      - backend:
+          serviceName: geelybi-web
+          servicePort: 8080
+

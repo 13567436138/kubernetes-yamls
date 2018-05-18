@@ -1,0 +1,72 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: liward-web
+  labels:
+    app: liward
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: liward
+    spec:
+      terminationGracePeriodSeconds: 60
+      nodeSelector:
+        deploy: app
+      containers:
+      - name: liward-web
+        image: 192.168.1.225:5000/youben/liward-web:1.0-SNAPSHOT
+        imagePullPolicy: Always
+        readinessProbe:
+          httpGet:
+            path: /test/sms-test.htm
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /test/sms-test.htm
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        ports:
+        - containerPort: 8080
+          name: http
+        - containerPort: 8888
+          name: dobbo
+      imagePullSecrets:
+      - name: regcred
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: liward-web
+  labels:
+    app: liward
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+  selector:
+    app: liward
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: liward-ingress
+  labels: 
+    app: liward
+  annotations:
+    kubernetes.io/ingress.class: "app"
+spec:
+  rules:
+  - host: validate.lie100.net
+    http:
+      paths:
+      - backend:
+          serviceName: liward-web
+          servicePort: 8080
+

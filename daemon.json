@@ -1,0 +1,4 @@
+{
+  "registry-mirrors": ["https://jzbtfwo9.mirror.aliyuncs.com"],
+   "insecure-registries":["192.168.1.225:5000"]
+}

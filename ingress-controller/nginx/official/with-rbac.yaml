@@ -3,8 +3,6 @@ kind: Deployment
 metadata:
   name: nginx-ingress-controller
   namespace: ingress-nginx 
-  annotations:
-    kubernetes.io/ingress.class: "system"
 spec:
   replicas: 1
   selector:
@@ -32,6 +30,7 @@ spec:
             - --tcp-services-configmap=$(POD_NAMESPACE)/tcp-services
             - --udp-services-configmap=$(POD_NAMESPACE)/udp-services
             - --annotations-prefix=nginx.ingress.kubernetes.io
+            - --ingress-class=app
           env:
             - name: POD_NAME
               valueFrom:

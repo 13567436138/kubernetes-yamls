@@ -1,0 +1,85 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: fluentd-es-config-nginx
+  labels:
+    addonmanager.kubernetes.io/mode: Reconcile
+data:
+  system.conf: |-
+    <system>
+      root_dir /tmp/fluentd-buffers/
+    </system>
+
+  input.conf: |- 
+    <source>
+      @id nginx.access.log
+      @type tail
+      path /var/log/nginx/access.log
+      pos_file /var/log/nginx.access.log.pos
+      time_format %Y-%m-%dT%H:%M:%S.%NZ
+      tag nginx.access
+      format json
+      read_from_head true
+    </source>
+    <source>
+      @type tail
+      @id nginx.error.log
+      path /var/log/nginx/error.log
+      pos_file /var/log/nginx.error.log.pos
+      tag nginx.error
+      read_from_head true
+      format /^(?<time>\d{4}/\d{2}/\d{2} \d{2}:\d{2}:\d{2}) \[(?<log_level>\w+)\] (?<pid>\d+).(?<tid>\d+): (?<message>.*)$/
+    </source>
+    
+  output.conf: |-
+    <match nginx.access>
+      @id elasticsearch.access
+      @type elasticsearch
+      @log_level info
+      include_tag_key true
+      host elasticsearch-logging.kube-system.svc.cluster.local
+      port 9200
+      logstash_format true
+      logstash_prefix docker.nginx.access
+      logstash_dateformat %Y-%m-%d
+      type_name docker_container_nginx_access_log
+      <buffer>
+        @type file
+        path /var/log/fluentd-buffers/nginx.access.buffer
+        flush_mode interval
+        retry_type exponential_backoff
+        flush_thread_count 2
+        flush_interval 5s
+        retry_forever
+        retry_max_interval 30
+        chunk_limit_size 2M
+        queue_limit_length 8
+        overflow_action block
+      </buffer>
+    </match>
+    
+    <match nginx.error>
+      @id elasticsearch.error
+      @type elasticsearch
+      @log_level info
+      include_tag_key true
+      host elasticsearch-logging.kube-system.svc.cluster.local
+      port 9200
+      logstash_format true
+      logstash_prefix docker.nginx.error
+      logstash_dateformat %Y-%m-%d
+      type_name docker_container_nginx_error_log
+      <buffer>
+        @type file
+        path /var/log/fluentd-buffers/nginx.error.buffer
+        flush_mode interval
+        retry_type exponential_backoff
+        flush_thread_count 2
+        flush_interval 5s
+        retry_forever
+        retry_max_interval 30
+        chunk_limit_size 2M
+        queue_limit_length 8
+        overflow_action block
+      </buffer>
+    </match>

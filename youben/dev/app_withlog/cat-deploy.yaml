@@ -1,0 +1,42 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: cat-web
+  labels:
+    app: cat
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cat
+    spec:
+      terminationGracePeriodSeconds: 60
+      nodeSelector:
+        deploy: app
+      containers:
+      - name: cat-web
+        image: 192.168.1.225:5000/youben/cat-web:1.0-SNAPSHOT
+        imagePullPolicy: Always
+        readinessProbe:
+          httpGet:
+            path: /index.htm
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /index.htm
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        ports:
+        - containerPort: 8080
+          name: http
+        - containerPort: 8888
+          name: dobbo
+      imagePullSecrets:
+      - name: regcred
+

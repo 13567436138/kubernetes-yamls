@@ -1,0 +1,90 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nginx-ingress-controller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ingress-nginx
+  template:
+    metadata:
+      labels:
+        app: ingress-nginx
+      annotations:
+        prometheus.io/port: '10254'
+        prometheus.io/scrape: 'true'
+    spec:
+      serviceAccountName: nginx-ingress-serviceaccount
+      hostNetwork: true
+      nodeSelector:
+        nginx: app
+      initContainers:
+      - name: init-dns
+        image: busybox
+        command: ['sh', '-c', 'echo -e "nameserver 10.96.0.10\nsearch nginx-app.svc.cluster.local svc.cluster.local cluster.local\noptions ndots:5" > /etc/resolv.conf']
+      containers:
+        - name: nginx-ingress-controller
+          image: registry.cn-hangzhou.aliyuncs.com/hxpdocker/nginx-ingress-controller:0.11.0_youben
+          args:
+            - /nginx-ingress-controller
+            - --default-backend-service=$(POD_NAMESPACE)/default-http-backend
+            - --configmap=$(POD_NAMESPACE)/nginx-configuration
+            - --tcp-services-configmap=$(POD_NAMESPACE)/tcp-services
+            - --udp-services-configmap=$(POD_NAMESPACE)/udp-services
+            - --annotations-prefix=nginx.ingress.kubernetes.io
+            - --ingress-class=app
+          env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+          ports:
+          - name: http
+            containerPort: 80
+          - name: https
+            containerPort: 443
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /healthz
+              port: 10254
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /healthz
+              port: 10254
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          volumeMounts:
+          - name: shared-data
+            mountPath: /var/log/nginx
+        - name: fluentd-es
+          image: registry.cn-hangzhou.aliyuncs.com/hxpdocker/fluentd-elasticsearch:v2.0.4
+          env:
+          - name: FLUENTD_ARGS
+            value: --no-supervisor -q
+          volumeMounts:
+          - name: shared-data
+            mountPath: /var/log/nginx
+          - name: config-volume
+            mountPath: /etc/fluent/config.d
+      volumes:
+      - name: config-volume
+        configMap:
+          name: fluentd-es-config-nginx
+      - name: shared-data
+        emptyDir: {}
+
+        

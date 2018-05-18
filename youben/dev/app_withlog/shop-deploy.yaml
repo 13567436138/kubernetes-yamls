@@ -1,0 +1,71 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: shop-web
+  labels:
+    app: shop
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: shop
+    spec:
+      terminationGracePeriodSeconds: 60
+      nodeSelector:
+        deploy: app
+      containers:
+      - name: shop-web
+        image: 192.168.1.225:5000/youben/shop-web:1.0-SNAPSHOT
+        imagePullPolicy: Always
+        readinessProbe:
+          httpGet:
+            path: /error.htm
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /error.htm
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        ports:
+        - containerPort: 8080
+          name: http
+        - containerPort: 8888
+          name: dobbo
+      imagePullSecrets:
+      - name: regcred
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: shop-web
+  labels:
+    app: shop
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+  selector:
+    app: shop
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: shop-ingress
+  labels: 
+    app: shop
+  annotations:
+    kubernetes.io/ingress.class: "app"
+spec:
+  rules:
+  - host: trade.lie100.net
+    http:
+      paths:
+      - backend:
+          serviceName: shop-web
+          servicePort: 8080

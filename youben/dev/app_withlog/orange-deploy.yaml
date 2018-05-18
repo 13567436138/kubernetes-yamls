@@ -1,0 +1,92 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: orange-web
+  labels:
+    app: orange
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: orange
+    spec:
+      terminationGracePeriodSeconds: 60
+      nodeSelector:
+        deploy: app
+      containers:
+      - name: orange-web
+        image: 192.168.1.225:5000/youben/orange-web:1.0-SNAPSHOT
+        imagePullPolicy: Always
+        readinessProbe:
+          httpGet:
+            path: /error.htm
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /error.htm
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        ports:
+        - containerPort: 8080
+          name: http
+        - containerPort: 8888
+          name: dobbo
+        volumeMounts:
+        - name: shared-data
+          mountPath: /var/lib/jetty/logs
+      - name: fluentd-es
+        image: registry.cn-hangzhou.aliyuncs.com/hxpdocker/fluentd-elasticsearch:v2.0.4
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: FLUENTD_ARGS
+          value: --no-supervisor -q
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/fluent/config.d
+        - name: shared-data
+          mountPath: /var/lib/jetty/logs
+      volumes:
+      - name: config-volume
+        configMap:
+          name: fluentd-es-config-jetty-orange
+      - name: shared-data
+        emptyDir: {}
+      imagePullSecrets:
+      - name: regcred
+      
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: orange-web
+  labels:
+    app: orange
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+  selector:
+    app: orange
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: orange-ingress
+  labels: 
+    app: orange
+  annotations:
+    kubernetes.io/ingress.class: "app"
+spec:
+  rules:
+  - host: resume.lie100.net
+    http:
+      paths:
+      - backend:
+          serviceName: orange-web
+          servicePort: 8080

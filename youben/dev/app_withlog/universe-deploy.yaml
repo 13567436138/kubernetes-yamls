@@ -1,0 +1,60 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: universe-web
+  labels:
+    app: universe
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: universe
+    spec:
+      terminationGracePeriodSeconds: 60
+      nodeSelector:
+        deploy: app
+      containers:
+      - name: universe-web
+        image: 192.168.1.225:5000/youben/universe-web:1.0-SNAPSHOT
+        imagePullPolicy: Always
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        ports:
+        - containerPort: 8080
+          name: http
+        - containerPort: 8888
+          name: dobbo
+      imagePullSecrets:
+      - name: regcred
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: universe-query-info
+subsets:
+  - addresses:
+      - ip: 123.56.226.203
+    ports:
+      - port: 7134
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: universe-query-info
+spec:
+  ports:
+  - port: 7134
+    targetPort: 7134
