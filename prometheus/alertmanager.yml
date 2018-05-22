@@ -1,0 +1,26 @@
+    global:
+      smtp_smarthost: 'smtp.163.com:25' 
+      smtp_from: 'hxp195446040@163.com' 
+      smtp_auth_username: 'hxp195446040@163.com' 
+      smtp_auth_password: '19840827' 
+      smtp_require_tls: false
+    templates: 
+      - '/etc/alertmanager/template/*.tmpl'
+    receivers:
+      - name: default-receiver
+        email_configs:
+          to: hxp195446040@163.com
+          html: '{{ template "email.tmpl" . }}'
+          headers: { Subject: "[WARN] 报警邮件test" }
+
+    route:
+      group_wait: 10s
+      group_interval: 5m
+      receiver: default-receiver
+      repeat_interval: 3h
+      
+      group_by: ['alertname', 'cluster', 'service']
+      
+      - match:
+        severity: critical
+        receiver: default-receiver
