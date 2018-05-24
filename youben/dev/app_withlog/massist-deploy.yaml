@@ -10,6 +10,10 @@ spec:
     metadata:
       labels:
         app: massist
+      annotations:
+        prometheus.io/scrape: 'true'
+        prometheus.io/port: '7101'
+        prometheus.io/path: '/metrics'
     spec:
       terminationGracePeriodSeconds: 60
       nodeSelector:
@@ -37,6 +41,28 @@ spec:
           name: http
         - containerPort: 8888
           name: dobbo
+        - containerPort: 7101
+          name: jmx-export
+        volumeMounts:
+        - name: shared-data
+          mountPath: /var/lib/jetty/logs
+      - name: fluentd-es
+        image: registry.cn-hangzhou.aliyuncs.com/hxpdocker/fluentd-elasticsearch:v2.0.4
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: FLUENTD_ARGS
+          value: --no-supervisor -q
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/fluent/config.d
+        - name: shared-data
+          mountPath: /var/lib/jetty/logs
+      volumes:
+      - name: config-volume
+        configMap:
+          name: fluentd-es-config-jetty-massist
+      - name: shared-data
+        emptyDir: {}
       imagePullSecrets:
       - name: regcred
 

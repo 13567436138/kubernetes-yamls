@@ -1,0 +1,50 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: fluentd-es-config-jetty-whale
+  labels:
+    addonmanager.kubernetes.io/mode: Reconcile
+data:
+  system.conf: |-
+    <system>
+      root_dir /tmp/fluentd-buffers/
+    </system>
+
+  input.conf: |- 
+    <source>
+      @id jetty.log
+      @type tail
+      path /var/lib/jetty/logs/whale.log
+      pos_file /root/jetty.log.pos
+      time_format %Y-%m-%dT%H:%M:%S.%NZ
+      tag jetty_whale
+      format json
+      read_from_head true
+    </source>
+    
+  output.conf: |-
+    <match **>
+      @id elasticsearch
+      @type elasticsearch
+      @log_level info
+      include_tag_key true
+      host elasticsearch-logging.kube-system.svc.cluster.local
+      port 9200
+      logstash_format true
+      logstash_prefix docker.jetty
+      logstash_dateformat %Y-%m-%d
+      type_name docker_container_whale_log
+      <buffer>
+        @type file
+        path /var/log/fluentd-buffers/kubernetes.system.buffer
+        flush_mode interval
+        retry_type exponential_backoff
+        flush_thread_count 2
+        flush_interval 5s
+        retry_forever
+        retry_max_interval 30
+        chunk_limit_size 2M
+        queue_limit_length 8
+        overflow_action block
+      </buffer>
+    </match>
