@@ -12,12 +12,12 @@ data:
     - name: default-receiver
       email_configs:
       - to: 'hxp195446040@163.com'
-        html: '{{ template "email.hxp.html"}}'
+        html: '{{ template "email.hxp.html" .}}'
         headers: { Subject: "[WARN] 报警邮件test" }
     - name: admin-receiver
       email_configs:
       - to: 'hxp195446040@163.com'
-        html: '{{ template "email.hxp.html"}}'
+        html: '{{ template "email.hxp.html" .}}'
         headers: { Subject: "[WARN] 报警邮件test" }
     templates: 
     - '/etc/config/*.tmpl'
@@ -63,11 +63,16 @@ data:
   hxp.tmpl: |
     {{ define "email.hxp.html" }}
     <table>
-        <tr><td>报警名</td><td>开始时间</td></tr>
+        <tr><td>报警名</td><td>实例</td><td>开始时间</td><td>摘要</td><td>详情</td></tr>
         {{ range $i, $alert := .Alerts }}
-            <tr><td>{{ index $alert.Labels "alertname" }}</td><td>{{ $alert.StartsAt }}</td></tr>
+            <tr><td>{{ index $alert.Labels "alertname" }}</td><td>{{index $alert.Labels "instance"}}</td><td>{{ $alert.StartsAt }}</td><td>{{index $alert.Annotations "summary"}}</td><td>{{index $alert.Annotations "description"}}</td></tr>
         {{ end }}
     </table>
+    {{ end }}
+    {{ define "email.hxp.title.html" }}
+        {{ range $i, $alert := .Alerts }}
+            {{index $alert.Annotations "summary"}}|
+        {{ end }}
     {{ end }}
 kind: ConfigMap
 metadata:

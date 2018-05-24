@@ -10,6 +10,10 @@ spec:
     metadata:
       labels:
         app: orange
+      annotations:
+        prometheus.io/scrape: 'true'
+        prometheus.io/port: '7101'
+        prometheus.io/path: '/metrics'
     spec:
       terminationGracePeriodSeconds: 60
       nodeSelector:
@@ -37,6 +41,8 @@ spec:
           name: http
         - containerPort: 8888
           name: dobbo
+        - containerPort: 7101
+          name: jmx-export
         volumeMounts:
         - name: shared-data
           mountPath: /var/lib/jetty/logs
