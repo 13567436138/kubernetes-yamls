@@ -124,11 +124,11 @@ data:
       - source_labels:
         - __address__
         target_label: __param_target
-      - replacement: blackbox
-        target_label: __address__
       - source_labels:
         - __param_target
         target_label: instance
+      - replacement: blackbox-exporter.monitor.svc.cluster.local:9115
+        target_label: __address__
       - action: labelmap
         regex: __meta_kubernetes_service_label_(.+)
       - source_labels:
@@ -167,6 +167,29 @@ data:
         source_labels:
         - __meta_kubernetes_pod_name
         target_label: kubernetes_pod_name
+    - job_name: 'kubernetes-ingresses'
+      metrics_path: /probe
+      params:
+        module: [http_2xx]
+      kubernetes_sd_configs:
+      - role: ingress
+      relabel_configs:
+      - source_labels: [__meta_kubernetes_ingress_annotation_prometheus_io_probe]
+        action: keep
+        regex: true
+      - source_labels: [__meta_kubernetes_ingress_scheme,__address__,__meta_kubernetes_ingress_path]
+        replacement: ${1}://${2}/${3}
+        target_label: __param_target
+      - target_label: __address__
+        replacement: blackbox-exporter.monitor.svc.cluster.local:9115
+      - source_labels: [__param_target]
+        target_label: instance
+      - action: labelmap
+        regex: __meta_kubernetes_ingress_label_(.+)
+      - source_labels: [__meta_kubernetes_namespace]
+        target_label: kubernetes_namespace
+      - source_labels: [__meta_kubernetes_ingress_name]
+        target_label: kubernetes_name
     alerting:
       alertmanagers:
       - kubernetes_sd_configs:

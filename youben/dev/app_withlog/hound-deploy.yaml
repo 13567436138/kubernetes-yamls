@@ -72,6 +72,8 @@ metadata:
   name: hound-web
   labels:
     app: hound
+  annotations:
+    prometheus.io/probe: "true"
 spec:
   ports:
   - port: 8080
@@ -85,6 +87,10 @@ metadata:
   name: hound-ingress
   labels: 
     app: hound
+  annotations:
+    prometheus.io/probe: "true"
+    kubernetes.io/ingress.class: "app"
+    nginx.ingress.kubernetes.io/vts-filter-key: $uri $server_name
 spec:
   rules:
   - host: s.lie100.net

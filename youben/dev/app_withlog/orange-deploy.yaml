@@ -73,6 +73,8 @@ metadata:
   name: orange-web
   labels:
     app: orange
+  annotations:
+    prometheus.io/probe: "true"
 spec:
   ports:
   - port: 8080
@@ -87,7 +89,9 @@ metadata:
   labels: 
     app: orange
   annotations:
+    prometheus.io/probe: "true"
     kubernetes.io/ingress.class: "app"
+    nginx.ingress.kubernetes.io/vts-filter-key: $uri $server_name
 spec:
   rules:
   - host: resume.lie100.net

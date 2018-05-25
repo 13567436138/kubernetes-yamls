@@ -72,6 +72,8 @@ metadata:
   name: rabbit-web
   labels:
     app: rabbit
+  annotations:
+    prometheus.io/probe: "true"
 spec:
   ports:
   - port: 8080
@@ -85,6 +87,10 @@ metadata:
   name: rabbit-ingress
   labels: 
     app: rabbit
+  annotations:
+    prometheus.io/probe: "true"
+    kubernetes.io/ingress.class: "app"
+    nginx.ingress.kubernetes.io/vts-filter-key: $uri $server_name
 spec:
   rules:
   - host: s.ybdata.net

@@ -48,6 +48,8 @@ spec:
             containerPort: 80
           - name: https
             containerPort: 443
+          - name: vts
+            containerPort: 18080
           livenessProbe:
             failureThreshold: 3
             httpGet:
@@ -86,5 +88,25 @@ spec:
           name: fluentd-es-config-nginx
       - name: shared-data
         emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-ingress-svc
+  labels:
+    app: nginx-ingress-svc
+spec:
+  ports:
+  - port: 80
+    targetPort: 8080
+    name：http
+  - port: 443
+    targetPort: 443
+    name: https
+  - port: 18080
+    targetPort: 18080
+    name: vts
+  selector:
+    app: ingress-nginx
 
         

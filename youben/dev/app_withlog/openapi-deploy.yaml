@@ -72,6 +72,8 @@ metadata:
   name: openapi-web
   labels:
     app: openapi
+  annotations:
+    prometheus.io/probe: "true"
 spec:
   ports:
   - port: 8080
@@ -86,7 +88,9 @@ metadata:
   labels: 
     app: openapi
   annotations:
+    prometheus.io/probe: "true"
     kubernetes.io/ingress.class: "app"
+    nginx.ingress.kubernetes.io/vts-filter-key: $uri $server_name
 spec:
   rules:
   - host: ybapi.lie100.net

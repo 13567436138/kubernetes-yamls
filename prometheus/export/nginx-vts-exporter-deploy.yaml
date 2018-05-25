@@ -1,0 +1,39 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nginx-vts-export
+  labels:
+    app: nginx-vts-export
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nginx-vts-export
+    spec:
+      nodeSelector:
+        deploy: app
+      containers:
+      - name: nginx-vts-export
+        image: sophos/nginx-vts-exporter:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9913
+        env:
+        - name: NGINX_STATUS
+          value: nginx-ingress-svc.nginx-app.svc.cluster.local:18080/nginx_status/format/json
+        - name: METRICS_NS
+          value: ""
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-vts-export
+  labels:
+    app: nginx-vts-export
+spec:
+  ports:
+  - port: 9913
+    targetPort: 9913
+  selector:
+    app: nginx-vts-export
