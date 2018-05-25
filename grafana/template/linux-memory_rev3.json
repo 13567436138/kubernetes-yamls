@@ -1,0 +1,539 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_PROMETHEUS",
+      "label": "Prometheus",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "4.4.1"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph",
+      "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    }
+  ],
+  "annotations": {
+    "list": []
+  },
+  "editable": true,
+  "gnetId": 2747,
+  "graphTooltip": 0,
+  "hideControls": false,
+  "id": null,
+  "links": [],
+  "refresh": "5s",
+  "rows": [
+    {
+      "collapse": false,
+      "height": 369,
+      "panels": [
+        {
+          "aliasColors": {
+            "Anonymous": "#447EBC",
+            "Buffers": "#FCEACA",
+            "Cached": "#3F2B5B",
+            "Free": "#3F6833",
+            "Hugepages Free": "#B7DBAB",
+            "Hugepages Reserved": "#F2C96D",
+            "Hugepages Used": "#BF1B00",
+            "Kernel Stack": "#70DBED",
+            "Mapped or Cached": "#BF1B00",
+            "Page Tables": "#E5A8E2",
+            "Shared memory smallpages": "#962D82",
+            "Slab": "#EAB839",
+            "Unaccounted For": "#F29191"
+          },
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "${DS_PROMETHEUS}",
+          "decimals": 0,
+          "fill": 1,
+          "id": 1,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": false,
+            "min": false,
+            "rightSide": true,
+            "show": true,
+            "sideWidth": 250,
+            "sort": "current",
+            "sortDesc": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "span": 12,
+          "stack": true,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "node_memory_MemTotal-node_memory_MemFree-node_memory_KernelStack-node_memory_AnonPages-node_memory_PageTables-node_memory_Slab-node_memory_Cached-node_memory_SwapCached-node_memory_Buffers-(node_memory_HugePages_Total*2097152)",
+              "format": "time_series",
+              "interval": "",
+              "intervalFactor": 2,
+              "legendFormat": "Unaccounted For",
+              "metric": "node_memory_MemTotal",
+              "refId": "N",
+              "step": 2
+            },
+            {
+              "expr": "node_memory_Buffers",
+              "format": "time_series",
+              "interval": "",
+              "intervalFactor": 2,
+              "legendFormat": "Buffers",
+              "metric": "node_memory_Buffers",
+              "refId": "A",
+              "step": 2
+            },
+            {
+              "expr": "node_memory_SwapCached",
+              "format": "time_series",
+              "interval": "",
+              "intervalFactor": 2,
+              "legendFormat": "Swap Cached",
+              "metric": "node_memory_SwapCached",
+              "refId": "K",
+              "step": 2
+            },
+            {
+              "expr": "node_memory_KernelStack",
+              "format": "time_series",
+              "interval": "",
+              "intervalFactor": 2,
+              "legendFormat": "Kernel Stack",
+              "metric": "node_memory_KernelStack",
+              "refId": "D",
+              "step": 2
+            },
+            {
+              "expr": "node_memory_Slab",
+              "format": "time_series",
+              "interval": "",
+              "intervalFactor": 2,
+              "legendFormat": "Slab",
+              "metric": "node_memory_Slab",
+              "refId": "I",
+              "step": 2
+            },
+            {
+              "expr": "node_memory_PageTables",
+              "format": "time_series",
+              "interval": "",
+              "intervalFactor": 2,
+              "legendFormat": "Page Tables",
+              "metric": "node_memory_PageTables",
+              "refId": "F",
+              "step": 2
+            },
+            {
+              "expr": "node_memory_AnonPages",
+              "format": "time_series",
+              "intervalFactor": 2,
+              "legendFormat": "Anonymous",
+              "metric": "node_memory_AnonPages",
+              "refId": "E",
+              "step": 2
+            },
+            {
+              "expr": "node_memory_Shmem",
+              "format": "time_series",
+              "interval": "",
+              "intervalFactor": 2,
+              "legendFormat": "Shared memory smallpages",
+              "metric": "node_memory_Shmem",
+              "refId": "L",
+              "step": 2
+            },
+            {
+              "expr": "node_memory_Cached-node_memory_Shmem",
+              "format": "time_series",
+              "interval": "",
+              "intervalFactor": 2,
+              "legendFormat": "Mapped or Cached",
+              "metric": "node_memory_Cached",
+              "refId": "C",
+              "step": 2
+            },
+            {
+              "expr": "node_memory_MemFree",
+              "format": "time_series",
+              "interval": "",
+              "intervalFactor": 2,
+              "legendFormat": "Free",
+              "metric": "node_memory_MemFree",
+              "refId": "B",
+              "step": 2
+            },
+            {
+              "expr": "(node_memory_HugePages_Free-node_memory_HugePages_Rsvd)*2097152",
+              "format": "time_series",
+              "interval": "",
+              "intervalFactor": 2,
+              "legendFormat": "Hugepages Free",
+              "metric": "node_memory_HugePages_Free",
+              "refId": "H",
+              "step": 2
+            },
+            {
+              "expr": "node_memory_HugePages_Rsvd*2097152",
+              "format": "time_series",
+              "intervalFactor": 2,
+              "legendFormat": "Hugepages Reserved",
+              "metric": "node_memory_HugePages_Rsvd",
+              "refId": "G",
+              "step": 2
+            },
+            {
+              "expr": "(node_memory_HugePages_Total-node_memory_HugePages_Free)*2097152",
+              "format": "time_series",
+              "interval": "",
+              "intervalFactor": 2,
+              "legendFormat": "Hugepages Used",
+              "metric": "node_memory_HugePages_Total",
+              "refId": "M",
+              "step": 2
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Linux memory distribution",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "decbytes",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": "0",
+              "show": true
+            },
+            {
+              "format": "decbytes",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": "0",
+              "show": true
+            }
+          ]
+        }
+      ],
+      "repeat": null,
+      "repeatIteration": null,
+      "repeatRowId": null,
+      "showTitle": false,
+      "title": "Dashboard Row",
+      "titleSize": "h6"
+    },
+    {
+      "collapse": false,
+      "height": 131,
+      "panels": [
+        {
+          "aliasColors": {
+            "Used": "#BF1B00"
+          },
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "${DS_PROMETHEUS}",
+          "decimals": 0,
+          "fill": 1,
+          "id": 2,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": false,
+            "min": false,
+            "rightSide": true,
+            "show": true,
+            "sideWidth": 250,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "span": 12,
+          "stack": true,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "node_memory_SwapFree",
+              "format": "time_series",
+              "interval": "",
+              "intervalFactor": 2,
+              "legendFormat": "Free",
+              "metric": "node_memory_SwapFree",
+              "refId": "A",
+              "step": 2
+            },
+            {
+              "expr": "node_memory_SwapTotal-node_memory_SwapFree",
+              "format": "time_series",
+              "intervalFactor": 2,
+              "legendFormat": "Used",
+              "metric": "node_memory_SwapTotal",
+              "refId": "B",
+              "step": 2
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Swap usage",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "decbytes",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": "0",
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ],
+      "repeat": null,
+      "repeatIteration": null,
+      "repeatRowId": null,
+      "showTitle": false,
+      "title": "Dashboard Row",
+      "titleSize": "h6"
+    },
+    {
+      "collapse": false,
+      "height": 115,
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "${DS_PROMETHEUS}",
+          "fill": 1,
+          "id": 3,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": false,
+            "min": false,
+            "rightSide": true,
+            "show": true,
+            "sideWidth": 250,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "span": 12,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "increase(node_vmstat_pswpin[5s])",
+              "format": "time_series",
+              "intervalFactor": 2,
+              "legendFormat": "Swap in pages",
+              "metric": "node_vmstat_pswpin",
+              "refId": "A",
+              "step": 2
+            },
+            {
+              "expr": "increase(node_vmstat_pswpout[5s])",
+              "format": "time_series",
+              "intervalFactor": 2,
+              "legendFormat": "Swap out pages",
+              "metric": "node_vmstat_pswpout",
+              "refId": "B",
+              "step": 2
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Swapping",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "iops",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": "0",
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ],
+      "repeat": null,
+      "repeatIteration": null,
+      "repeatRowId": null,
+      "showTitle": false,
+      "title": "Dashboard Row",
+      "titleSize": "h6"
+    },
+    {
+      "collapse": false,
+      "height": 250,
+      "panels": [],
+      "repeat": null,
+      "repeatIteration": null,
+      "repeatRowId": null,
+      "showTitle": false,
+      "title": "Dashboard Row",
+      "titleSize": "h6"
+    },
+    {
+      "collapse": false,
+      "height": 250,
+      "panels": [],
+      "repeat": null,
+      "repeatIteration": null,
+      "repeatRowId": null,
+      "showTitle": false,
+      "title": "Dashboard Row",
+      "titleSize": "h6"
+    }
+  ],
+  "schemaVersion": 14,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-5m",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+  },
+  "timezone": "",
+  "title": "Linux memory",
+  "version": 56,
+  "description": "This dashboard details memory area's as seen in linux' /proc/meminfo together with swap information. This allows you to get an overview of actual current usage."
+}
