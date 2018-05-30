@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: elasticsearch-ingress
+  labels:
+    app: elasticsearch
+spec:
+  rules:
+  - host: elasticsearch.demo
+    http:
+      paths:
+      - backend:
+          serviceName: elasticsearch
+          servicePort: 9200

@@ -1,0 +1,1 @@
+ mount -t glusterfs 10.0.21.241:/gv0 /mnt/glusterfs

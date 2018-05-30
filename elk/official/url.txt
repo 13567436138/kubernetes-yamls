@@ -1,1 +1,2 @@
 https://192.168.1.41:6443/api/v1/namespaces/kube-system/services/kibana-logging/proxy/app/kibana#/management/kibana/index?_g=()
+必须安装在kube-system下

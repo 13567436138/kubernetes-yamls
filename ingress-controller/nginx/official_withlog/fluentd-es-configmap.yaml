@@ -37,7 +37,7 @@ data:
       @type elasticsearch
       @log_level info
       include_tag_key true
-      host elasticsearch-logging.kube-system.svc.cluster.local
+      host elasticsearch-logging.elk.svc.cluster.local
       port 9200
       logstash_format true
       logstash_prefix docker.nginx.access
@@ -63,7 +63,7 @@ data:
       @type elasticsearch
       @log_level info
       include_tag_key true
-      host elasticsearch-logging.kube-system.svc.cluster.local
+      host elasticsearch-logging.elk.svc.cluster.local
       port 9200
       logstash_format true
       logstash_prefix docker.nginx.error

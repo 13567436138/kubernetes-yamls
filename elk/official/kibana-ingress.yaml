@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: elk-ingress
+  labels:
+    app: elk
+  annotations:
+    kubernetes.io/ingress.class: "app"
+spec:
+  rules:
+  - host: elasticsearch.demo
+    http:
+      paths:
+      - backend:
+          serviceName: elasticsearch-logging
+          servicePort: 9200
+  - host: kibana.demo
+    http:
+      paths:
+      - backend:
+          serviceName: kibana-logging
+          servicePort: 5601

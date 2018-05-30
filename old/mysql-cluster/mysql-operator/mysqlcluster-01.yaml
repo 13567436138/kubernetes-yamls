@@ -1,0 +1,8 @@
+apiVersion: "mysql.oracle.com/v1"
+kind: MySQLCluster
+metadata:
+  name: alpaca-mysql
+  namespace: mysql-operator
+spec:
+  multiMaster: true
+  replicas: 2

@@ -1,0 +1,101 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  creationTimestamp: 2018-04-12T12:03:22Z
+  generation: 1
+  labels:
+    app: harbor
+    chart: harbor-0.1.1
+    component: adminserver
+    heritage: Tiller
+    release: harbor
+  name: harbor-harbor-adminserver
+  namespace: default
+  resourceVersion: "266220"
+  selfLink: /apis/apps/v1/namespaces/default/statefulsets/harbor-harbor-adminserver
+  uid: 7f23e71e-3e49-11e8-a8e9-001e9098365d
+spec:
+  podManagementPolicy: OrderedReady
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: harbor
+      component: adminserver
+      release: harbor
+  serviceName: harbor-harbor-adminserver
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: harbor
+        chart: harbor-0.1.1
+        component: adminserver
+        heritage: Tiller
+        release: harbor
+    spec:
+      containers:
+      - env:
+        - name: PORT
+          value: "8080"
+        - name: JSON_CFG_STORE_PATH
+          value: /etc/adminserver/config/config.json
+        - name: KEY_PATH
+          value: /etc/adminserver/key
+        envFrom:
+        - configMapRef:
+            name: harbor-harbor-adminserver
+        - secretRef:
+            name: harbor-harbor-adminserver
+        image: vmware/harbor-adminserver:v1.4.0
+        imagePullPolicy: IfNotPresent
+        name: adminserver
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /etc/adminserver/config
+          name: a
+        - mountPath: /etc/adminserver/key
+          name: adminserver-key
+          subPath: key
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: adminserver-key
+        secret:
+          defaultMode: 420
+          items:
+          - key: secretKey
+            path: key
+          secretName: harbor-harbor-adminserver
+  updateStrategy:
+    rollingUpdate:
+      partition: 0
+    type: RollingUpdate
+  volumeClaimTemplates:
+  - metadata:
+      creationTimestamp: null
+      name: a
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 1Gi
+      storageClassName: glusterfs-storage-dv
+    status:
+      phase: Pending
+status:
+  collisionCount: 0
+  currentReplicas: 1
+  currentRevision: harbor-harbor-adminserver-d977cf4b5
+  observedGeneration: 1
+  replicas: 1
+  updateRevision: harbor-harbor-adminserver-d977cf4b5

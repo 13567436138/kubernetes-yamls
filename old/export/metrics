@@ -1,0 +1,3 @@
+# HELP nginx_vts_exporter_build_info A metric with a constant '1' value labeled by version, revision, branch, and goversion from which nginx_vts_exporter was built.
+# TYPE nginx_vts_exporter_build_info gauge
+nginx_vts_exporter_build_info{branch="HEAD",goversion="go1.9.4",revision="43b45563691a369b8fa12f7383d185a6b28d18ea",version="0.10.3"} 1

@@ -1,0 +1,355 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: adminserver
+  labels:
+    app: adminserver
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: adminserver
+    spec:
+      containers:
+      - name: adminserver
+        image: vmware/harbor-adminserver:v1.4.0
+        imagePullPolicy: IfNotPresent
+        env:
+          - name: ADMIRAL_URL
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: ADMIRAL_URL
+
+          - name: AUTH_MODE
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: AUTH_MODE
+
+          - name: CFG_EXPIRATION
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: CFG_EXPIRATION
+
+          - name: CLAIR_DB
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: CLAIR_DB
+
+          - name: CLAIR_DB_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: CLAIR_DB_HOST
+
+          - name: CLAIR_DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: adminserver-secrets
+                key: CLAIR_DB_PASSWORD
+
+          - name: CLAIR_DB_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: CLAIR_DB_PORT
+
+          - name: CLAIR_DB_USERNAME
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: CLAIR_DB_USERNAME
+
+          - name: DATABASE_TYPE
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: DATABASE_TYPE
+
+          - name: EMAIL_FROM
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: EMAIL_FROM
+
+          - name: EMAIL_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: EMAIL_HOST
+
+          - name: EMAIL_IDENTITY
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: EMAIL_IDENTITY
+
+          - name: EMAIL_INSECURE
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: EMAIL_INSECURE
+
+          - name: EMAIL_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: EMAIL_PORT
+
+          - name: EMAIL_PWD
+            valueFrom:
+              secretKeyRef:
+                name: adminserver-secrets
+                key: EMAIL_PWD
+
+          - name: EMAIL_SSL
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: EMAIL_SSL
+
+          - name: EMAIL_USR
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: EMAIL_USR
+
+          - name: EXT_ENDPOINT
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: EXT_ENDPOINT
+
+          - name: GODEBUG
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: GODEBUG
+
+          - name: HARBOR_ADMIN_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: adminserver-secrets
+                key: HARBOR_ADMIN_PASSWORD
+
+          - name: JOBSERVICE_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: jobservice-secrets
+                key: JOBSERVICE_SECRET
+
+          - name: JOBSERVICE_URL
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: JOBSERVICE_URL
+
+          - name: LDAP_BASE_DN
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: LDAP_BASE_DN
+
+          - name: LDAP_FILTER
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: LDAP_FILTER
+
+          - name: LDAP_SCOPE
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: LDAP_SCOPE
+
+          - name: LDAP_SEARCH_DN
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: LDAP_SEARCH_DN
+
+          - name: LDAP_SEARCH_PWD
+            valueFrom:
+              secretKeyRef:
+                name: adminserver-secrets
+                key: LDAP_SEARCH_PWD
+
+          - name: LDAP_TIMEOUT
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: LDAP_TIMEOUT
+
+          - name: LDAP_UID
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: LDAP_UID
+
+          - name: LDAP_URL
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: LDAP_URL
+
+          - name: LDAP_VERIFY_CERT
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: LDAP_VERIFY_CERT
+
+          - name: LOG_LEVEL
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: LOG_LEVEL
+
+          - name: MAX_JOB_WORKERS
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: MAX_JOB_WORKERS
+
+          - name: MYSQL_DATABASE
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: MYSQL_DATABASE
+
+          - name: MYSQL_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: MYSQL_HOST
+
+          - name: MYSQL_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: MYSQL_PORT
+
+          - name: MYSQL_PWD
+            valueFrom:
+              secretKeyRef:
+                name: mysql-config
+                key: MYSQL_ROOT_PASSWORD
+
+          - name: MYSQL_USR
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: MYSQL_USR
+
+          - name: PORT
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: PORT
+
+          - name: PROJECT_CREATION_RESTRICTION
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: PROJECT_CREATION_RESTRICTION
+
+          - name: REGISTRY_STORAGE_PROVIDER_NAME
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: REGISTRY_STORAGE_PROVIDER_NAME
+
+          - name: REGISTRY_URL
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: REGISTRY_URL
+
+          - name: RESET
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: RESET
+
+          - name: SELF_REGISTRATION
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: SELF_REGISTRATION
+
+          - name: TOKEN_EXPIRATION
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: TOKEN_EXPIRATION
+
+          - name: TOKEN_SERVICE_URL
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: TOKEN_SERVICE_URL
+
+          - name: UAA_CLIENTID
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: UAA_CLIENTID
+
+          - name: UAA_CLIENTSECRET
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: UAA_CLIENTSECRET
+
+          - name: UAA_ENDPOINT
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: UAA_ENDPOINT
+
+          - name: UAA_VERIFY_CERT
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: UAA_VERIFY_CERT
+
+          - name: UI_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: ui-secrets
+                key: UI_SECRET
+
+          - name: UI_URL
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: UI_URL
+
+          - name: WITH_CLAIR
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: WITH_CLAIR
+
+          - name: WITH_NOTARY
+            valueFrom:
+              configMapKeyRef:
+                name: adminserver-config
+                key: WITH_NOTARY
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: adminserver-data
+          mountPath: /data
+        - name: adminserver-secrets
+          mountPath: /etc/adminserver/key
+          subPath: key
+      volumes:
+      - name: adminserver-data
+        emptyDir: {}
+      - name: adminserver-secrets
+        secret:
+          secretName: adminserver-secrets

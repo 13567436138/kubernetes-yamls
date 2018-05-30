@@ -99,7 +99,7 @@ spec:
   ports:
   - port: 80
     targetPort: 8080
-    name：http
+    name: http
   - port: 443
     targetPort: 443
     name: https
