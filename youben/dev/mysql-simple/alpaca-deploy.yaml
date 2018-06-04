@@ -1,0 +1,56 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: alpaca
+  labels:
+    app: alpaca
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: alpaca
+    spec:
+      terminationGracePeriodSeconds: 60
+      nodeSelector:
+        deploy: app
+      containers:
+      - name: alpaca
+        image: 192.168.1.225:5000/mysql:5.7-youben
+        imagePullPolicy: Always
+        readinessProbe:
+          tcpSocket:
+            port: 3306
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        livenessProbe:
+          tcpSocket:
+            port: 3306
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: root
+        ports:
+        - containerPort: 3306
+          name: tcp
+        volumeMounts:
+        - name: alpaca
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: alpaca
+        persistentVolumeClaim:
+          claimName: pvc-alpaca
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: alpaca
+  labels:
+    app: alpaca
+spec:
+  ports:
+  - port: 3306
+    targetPort: 3306
+  selector:
+    app: alpaca

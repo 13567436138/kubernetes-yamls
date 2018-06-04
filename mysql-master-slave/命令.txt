@@ -1,0 +1,2 @@
+kubectl run mysql-client2 --image=mysql:5.7 -it --rm --restart=Never -- mysql -h mysql-0.mysql.dev-mysql
+kubectl run mysql-client --image=mysql:5.7 -it --rm --restart=Never -- mysql -h mysql-read.dev-mysql.svc.cluster.local -uroot

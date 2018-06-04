@@ -1,1 +1,4 @@
  mount -t glusterfs 10.0.21.241:/gv0 /mnt/glusterfs
+SET GLOBAL innodb_lru_scan_depth=256;
+SHOW VARIABLES LIKE 'innodb%'; 
+max_allowed_packet=500M

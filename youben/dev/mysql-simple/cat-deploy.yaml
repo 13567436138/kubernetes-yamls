@@ -1,0 +1,56 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: cat
+  labels:
+    app: cat
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cat
+    spec:
+      terminationGracePeriodSeconds: 60
+      nodeSelector:
+        deploy: app
+      containers:
+      - name: cat
+        image: 192.168.1.225:5000/mysql:5.7-youben
+        imagePullPolicy: Always
+        readinessProbe:
+          tcpSocket:
+            port: 3306
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        livenessProbe:
+          tcpSocket:
+            port: 3306
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: root
+        ports:
+        - containerPort: 3306
+          name: tcp
+        volumeMounts:
+        - name: cat
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: cat
+        persistentVolumeClaim:
+          claimName: pvc-cat
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cat
+  labels:
+    app: cat
+spec:
+  ports:
+  - port: 3306
+    targetPort: 3306
+  selector:
+    app: cat

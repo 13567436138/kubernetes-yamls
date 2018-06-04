@@ -1,0 +1,3 @@
+SET GLOBAL innodb_lru_scan_depth=256;
+SHOW VARIABLES LIKE 'innodb%';
+mapping 调http接口，不要迁数据，生产环境开http服务给测试环境，包括mapping和mssist

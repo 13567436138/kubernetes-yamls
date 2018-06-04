@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  labels:
+    app: pvc-panda
+  name: pvc-panda
+spec:
+  accessModes:
+  - ReadWriteMany
+  storageClassName: glusterfs-storage-dv
+  resources:
+    requests:
+      storage: 30Gi
