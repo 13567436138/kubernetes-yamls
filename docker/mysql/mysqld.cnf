@@ -18,6 +18,8 @@
 #
 # For explanations see
 # http://dev.mysql.com/doc/mysql/en/server-system-variables.html
+[client]
+default-character-set=utf8
 
 [mysqld]
 pid-file	= /var/run/mysqld/mysqld.pid
@@ -30,3 +32,4 @@ datadir		= /var/lib/mysql
 #bind-address	= 127.0.0.1
 # Disabling symbolic-links is recommended to prevent assorted security risks
 symbolic-links=0
+character-set-server=utf8
