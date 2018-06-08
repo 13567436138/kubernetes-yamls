@@ -65,4 +65,38 @@ spec:
         emptyDir: {}
       imagePullSecrets:
       - name: regcred
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: qsearch-web
+  labels:
+    app: qsearch
+  annotations:
+    prometheus.io/probe: "true"
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+  selector:
+    app: qsearch
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: qsearch-ingress
+  labels: 
+    app: qsearch
+  annotations:
+    prometheus.io/probe: "true"
+    kubernetes.io/ingress.class: "app"
+    nginx.ingress.kubernetes.io/vts-filter-key: $uri $server_name
+spec:
+  rules:
+  - host: qsearch.net
+    http:
+      paths:
+      - backend:
+          serviceName: qsearch-web
+          servicePort: 8080
 
