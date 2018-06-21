@@ -1,0 +1,75 @@
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: jenkins
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 2
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: jenkins
+    spec:
+      imagePullSecrets:
+      - name: myregistrykey
+      containers:
+      - name: jenkins
+        image: jenkins:2.7.2
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+          name: web
+          protocol: TCP
+        - containerPort: 50000
+          name: agent
+          protocol: TCP
+        volumeMounts:
+        - name: jenkinshome
+          mountPath: /var/jenkins_home
+        env:
+        - name: JAVA_OPTS
+          value: "-Duser.timezone=Asia/Shanghai"
+      volumes:
+      - name: jenkinshome
+        persistentVolumeClaim:
+          claimName: pvc-jenkins
+---
+kind: Service
+apiVersion: v1
+metadata:
+  labels:
+      app: jenkins
+  name: jenkins
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+    name: web
+  - port: 50000
+    targetPort: 50000
+    name: agent
+  selector:
+    app: jenkins
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: jenkins-ingress
+  labels: 
+    app: jenkins
+  annotations:
+    prometheus.io/probe: "true"
+    kubernetes.io/ingress.class: "app"
+    nginx.ingress.kubernetes.io/vts-filter-key: $uri $server_name
+spec:
+  rules:
+  - host: jenkins.demo2
+    http:
+      paths:
+      - backend:
+          serviceName: jenkins
+          servicePort: 8080

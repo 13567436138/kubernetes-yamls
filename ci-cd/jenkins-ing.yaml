@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: jenkins-ingress
+  labels: 
+    app: jenkins
+  annotations:
+    prometheus.io/probe: "true"
+    kubernetes.io/ingress.class: "app"
+    nginx.ingress.kubernetes.io/vts-filter-key: $uri $server_name
+spec:
+  rules:
+  - host: jenkins.demo
+    http:
+      paths:
+      - backend:
+          serviceName: jenkins
+          servicePort: 8080

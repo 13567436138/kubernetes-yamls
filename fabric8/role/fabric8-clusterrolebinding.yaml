@@ -5,7 +5,7 @@ metadata:
 subjects:
 - kind: ServiceAccount
   name: fabric8
-  namespace: default
+  namespace: fabric8
 roleRef:
   kind: ClusterRole
   name: cluster-admin

@@ -5,7 +5,7 @@ metadata:
 subjects:
 - kind: ServiceAccount
   name: gogs
-  namespace: default
+  namespace: fabric8
 roleRef:
   kind: ClusterRole
   name: cluster-admin

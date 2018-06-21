@@ -1,0 +1,1 @@
+192.168.1.225:5000/fluentd-elasticsearch:v2.0.4-youben

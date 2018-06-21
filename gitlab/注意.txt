@@ -1,0 +1,3 @@
+helm install --name gitlab --namespace cicd --set externalUrl=http://gitlab.demo/ stable/gitlab-ce
+
+必须指定externalUrl

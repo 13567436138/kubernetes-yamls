@@ -4,9 +4,13 @@ metadata:
   name: gogs-ingress
   labels: 
     app: gogs
+  annotations:
+    prometheus.io/probe: "true"
+    kubernetes.io/ingress.class: "app"
+    nginx.ingress.kubernetes.io/vts-filter-key: $uri $server_name
 spec:
   rules:
-  - host: gogs
+  - host: gogs.youben.demo
     http:
       paths:
       - backend:
