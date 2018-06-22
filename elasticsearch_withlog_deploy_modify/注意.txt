@@ -1,0 +1,2 @@
+1index slowlog有待验证
+2logging配置文件configmap需要移除，然后修改docker镜像
