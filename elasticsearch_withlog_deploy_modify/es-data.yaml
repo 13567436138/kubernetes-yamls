@@ -1,0 +1,179 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: elasticsearch
+    chart: elasticsearch-0.4.9
+    component: data
+    heritage: Tiller
+    release: es
+  name: es-elasticsearch-data
+  namespace: dev-es
+spec:
+  podManagementPolicy: OrderedReady
+  replicas: 2
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: elasticsearch
+      component: data
+      release: es
+  serviceName: es-elasticsearch-data
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: elasticsearch
+        component: data
+        release: es
+    spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - podAffinityTerm:
+              labelSelector:
+                matchLabels:
+                  app: elasticsearch
+                  component: data
+                  release: es
+              topologyKey: kubernetes.io/hostname
+            weight: 1
+      containers:
+      - env:
+        - name: SERVICE
+          value: es-elasticsearch-master
+        - name: KUBERNETES_MASTER
+          value: kubernetes.default.svc.cluster.local
+        - name: KUBERNETES_NAMESPACE
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+        - name: NODE_MASTER
+          value: "false"
+        - name: PROCESSORS
+          valueFrom:
+            resourceFieldRef:
+              divisor: "0"
+              resource: limits.cpu
+        - name: ES_JAVA_OPTS
+          value: -Djava.net.preferIPv4Stack=true -Xms1536m -Xmx1536m
+        - name: MINIMUM_MASTER_NODES
+          value: "2"
+        image: 192.168.1.225:5000/elasticsearch:2.4-youben
+        imagePullPolicy: Always
+        lifecycle:
+          preStop:
+            exec:
+              command:
+              - /bin/bash
+              - /pre-stop-hook.sh
+        name: elasticsearch
+        ports:
+        - containerPort: 9300
+          name: transport
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /_cluster/health?local=true
+            port: 9200
+            scheme: HTTP
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          successThreshold: 1
+          timeoutSeconds: 1
+        resources:
+          limits:
+            cpu: "1"
+          requests:
+            cpu: 25m
+            memory: 1536Mi
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /usr/share/elasticsearch/data
+          name: data
+        - mountPath: /usr/share/elasticsearch/config/logging.yml
+          name: config
+          subPath: logging.yml
+        - mountPath: /pre-stop-hook.sh
+          name: config
+          subPath: pre-stop-hook.sh
+        - name: shared-data
+          mountPath: /usr/share/elasticsearch/logs
+      - name: fluentd-es
+        image: 192.168.1.225:5000/fluentd-elasticsearch:v2.0.4-youben
+        imagePullPolicy: Always
+        command: ["/bin/sh"]
+        args: ["-c", "/run.sh $FLUENTD_ARGS"]
+        env:
+        - name: FLUENTD_ARGS
+          value: --no-supervisor -q
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/fluent/config.d
+        - name: shared-data
+          mountPath: /usr/share/elasticsearch/logs
+      dnsPolicy: ClusterFirst
+      initContainers:
+      - command:
+        - sysctl
+        - -w
+        - vm.max_map_count=262144
+        image: busybox
+        imagePullPolicy: Always
+        name: sysctl
+        resources: {}
+        securityContext:
+          privileged: true
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      - command:
+        - /bin/bash
+        - -c
+        - chown -R elasticsearch:elasticsearch /usr/share/elasticsearch/data && chown
+          -R elasticsearch:elasticsearch /usr/share/elasticsearch/logs
+        image: 192.168.1.225:5000/elasticsearch:2.4-youben
+        imagePullPolicy: Always
+        name: chown
+        resources: {}
+        securityContext:
+          runAsUser: 0
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /usr/share/elasticsearch/data
+          name: data
+      nodeSelector:
+        deploy: app
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: es-elasticsearch
+      serviceAccountName: es-elasticsearch
+      terminationGracePeriodSeconds: 3600
+      volumes:
+      - configMap:
+          defaultMode: 420
+          name: es-elasticsearch
+        name: config
+      - name: config-volume
+        configMap:
+          name: fluentd-es-config-es-slow
+      - name: shared-data
+        emptyDir: {}
+  updateStrategy:
+    type: OnDelete
+  volumeClaimTemplates:
+  - metadata:
+      creationTimestamp: null
+      name: data
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 30Gi
+      storageClassName: glusterfs-storage-dv
+

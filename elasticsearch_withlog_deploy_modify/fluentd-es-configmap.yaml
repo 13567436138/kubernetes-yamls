@@ -1,0 +1,50 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: fluentd-es-config-es-slow
+  labels:
+    addonmanager.kubernetes.io/mode: Reconcile
+data:
+  system.conf: |-
+    <system>
+      root_dir /tmp/fluentd-buffers/
+    </system>
+
+  input.conf: |- 
+    <source>
+      @type tail
+      path /usr/share/elasticsearch/logs/elasticsearch_index_search_slowlog.log
+      tag elasticsearch.search_slowlog_query
+      pos_file /usr/share/elasticsearch/logs/elasticsearch-search-slow.pos
+      format /^\[(?<time>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2},\d{3})\]\[(?<severity>[a-zA-Z]+\s*)\]\[(?<source>\S+)\] \[(?<node>\S+)\] \[(?<index>.+)\]\[(?<shard>\d+)\] took\[(?<took>.+)\], took_millis\[(?<took_millis>\d+)\], types\[(?<types>.*)\], stats\[(?<stats>.*)\], search_type\[(?<search_type>.*)\], total_shards\[(?<total_shards>\d+)\], source\[(?<source_body>.*)\], extra_source\[(?<extra_source>.*)\], /
+    </source>
+
+    
+    
+  output.conf: |-
+    <match elasticsearch.*>
+      @id elasticsearch.es
+      @type elasticsearch
+      @log_level info
+      include_tag_key true
+      host elasticsearch-logging.kube-system.svc.cluster.local
+      port 9200
+      logstash_format true
+      logstash_prefix docker.es.slow
+      logstash_dateformat %Y-%m-%d
+      type_name docker_es_slow
+      <buffer>
+        @type file
+        path /var/log/fluentd-buffers/kubernetes.system.buffer
+        flush_mode interval
+        retry_type exponential_backoff
+        flush_thread_count 2
+        flush_interval 5s
+        retry_forever
+        retry_max_interval 30
+        chunk_limit_size 2M
+        queue_limit_length 8
+        overflow_action block
+      </buffer>
+    </match>
+    

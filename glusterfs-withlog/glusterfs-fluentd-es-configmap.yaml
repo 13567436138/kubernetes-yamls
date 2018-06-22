@@ -1,0 +1,76 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: fluentd-es-config-glusterfs
+  labels:
+    addonmanager.kubernetes.io/mode: Reconcile
+data:
+  system.conf: |-
+    <system>
+      root_dir /tmp/fluentd-buffers/
+    </system>
+
+  input.conf: |- 
+    <source>
+      @type glusterfs_log
+      path /var/log/glusterfs/glusterd.log
+      pos_file /var/log/fluent/glusterd.log.pos
+      tag glusterfs_log.glusterd
+      format /^(?<message>.*)$/
+      refresh_interval 1800
+    </source>
+
+    <source>
+      @type glusterfs_log
+      path /var/log/glusterfs/mnt-*.log
+      pos_file /var/log/fluent/mnt.log.pos
+      tag glusterfs_log.mnt
+      format /^(?<message>.*)$/
+      refresh_interval 1800
+    </source>
+
+    <source>
+      @type glusterfs_log
+      path /var/log/glusterfs/glustershd.log
+      pos_file /var/log/fluent/glustershd.log.pos
+      tag glusterfs_log.glustershd
+      format /^(?<message>.*)$/
+      refresh_interval 1800
+    </source>
+
+    <source>
+      @type glusterfs_log
+      path /var/log/glusterfs/cli.log
+      pos_file /var/log/fluent/cli.log.pos
+      tag glusterfs_log.cli
+      format /^(?<message>.*)$/
+      refresh_interval 1800
+    </source>
+    
+  output.conf: |-
+    <match glusterfs_log.*>
+      @id elasticsearch.glusterfs
+      @type elasticsearch
+      @log_level info
+      include_tag_key true
+      host elasticsearch-logging.kube-system.svc.cluster.local
+      port 9200
+      logstash_format true
+      logstash_prefix docker.glusterfs
+      logstash_dateformat %Y-%m-%d
+      type_name docker_glusterfs
+      <buffer>
+        @type file
+        path /var/log/fluentd-buffers/kubernetes.system.buffer
+        flush_mode interval
+        retry_type exponential_backoff
+        flush_thread_count 2
+        flush_interval 5s
+        retry_forever
+        retry_max_interval 30
+        chunk_limit_size 2M
+        queue_limit_length 8
+        overflow_action block
+      </buffer>
+    </match>
+    

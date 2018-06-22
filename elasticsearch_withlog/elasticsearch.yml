@@ -1,0 +1,99 @@
+
+cluster.name: elasticsearch
+
+node.data: ${NODE_DATA:true}
+node.master: ${NODE_MASTER:true}
+node.name: ${HOSTNAME}
+
+network.host: 0.0.0.0
+
+bootstrap.mlockall: ${BOOTSTRAP_MLOCKALL:false}
+
+cloud:
+  kubernetes:
+    service: ${SERVICE}
+    namespace: ${KUBERNETES_NAMESPACE}
+    
+discovery:
+  type: kubernetes
+  zen:
+    minimum_master_nodes: ${MINIMUM_MASTER_NODES:2}
+
+index.analysis.analyzer.default.type: starfish
+index.similarity.default.type: ybSimilarity
+
+index.number_of_shards: 6
+index.number_of_replicas: 1
+index.store.type: mmapfs
+index.refresh_interval: 3600s
+index.mapper.dynamic: false
+
+path.conf: /etc/elasticsearch
+
+index.search.slowlog.threshold.query.warn: 10s  
+index.search.slowlog.threshold.query.info: 5s  
+index.search.slowlog.threshold.query.debug: 2s  
+index.search.slowlog.threshold.query.trace: 500ms  
+  
+index.search.slowlog.threshold.fetch.warn: 1s  
+index.search.slowlog.threshold.fetch.info: 800ms  
+index.search.slowlog.threshold.fetch.debug:500ms  
+index.search.slowlog.threshold.fetch.trace: 200ms 
+
+index.search.slowlog.threshold.index.warn: 10s
+index.search.slowlog.threshold.index.info: 5s
+index.search.slowlog.threshold.index.debug: 2s
+index.search.slowlog.threshold.index.trace: 500ms
+index.search.slowlog.level: trace
+index.search.slowlog.source: 1000
+
+monitor.jvm.gc.ParNew.info: 700ms
+monitor.jvm.gc.ConcurrentMarkSweep.info: 5s
+
+index:
+  analysis:
+    analyzer:
+      starfish_small_query_syno:
+          type: custom
+          tokenizer: starfish_small_query
+          filter: [my_synonym_small]
+    filter:
+      my_synonym_small:
+          type: synonym
+          ignore_case: true
+          synonyms_path: analysis/synonym.txt
+
+index:
+  analysis:
+    analyzer:
+      starfish_syno:
+          type: custom
+          tokenizer: starfish_query
+          filter: [my_synonym]
+    filter:
+      my_synonym:
+          type: synonym
+          ignore_case: true
+          synonyms_path: analysis/synonym.txt
+
+threadpool:
+    index:
+        type: fixed
+        size: 100
+        queue_size: 2000
+
+threadpool:
+    search:
+        type: fixed
+        size: 500
+        queue_size: 1000
+
+# see https://github.com/elastic/elasticsearch-definitive-guide/pull/679
+processors: ${PROCESSORS:}
+
+# avoid split-brain w/ a minimum consensus of two masters plus a data node
+gateway.expected_master_nodes: ${EXPECTED_MASTER_NODES:2}
+gateway.expected_data_nodes: ${EXPECTED_DATA_NODES:1}
+gateway.recover_after_time: ${RECOVER_AFTER_TIME:5m}
+gateway.recover_after_master_nodes: ${RECOVER_AFTER_MASTER_NODES:2}
+gateway.recover_after_data_nodes: ${RECOVER_AFTER_DATA_NODES:1}
