@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: elasticsearch-ingress
+  labels:
+    app: elasticsearch
+  annotations:
+    kubernetes.io/ingress.class: "app"
+spec:
+  rules:
+  - host: elasticsearch.app.demo
+    http:
+      paths:
+      - backend:
+          serviceName: es-elasticsearch-client
+          servicePort: 9200

@@ -11,3 +11,4 @@ ADD  logging2.yml /usr/share/elasticsearch/config/logging.yml
 ADD  logging2.yml /etc/elasticsearch/logging.yml
 ADD  elasticsearch.yml config/elasticsearch.yml
 ADD  elasticsearch.yml /etc/elasticsearch/elasticsearch.yml
+ADD  head/ /usr/share/elasticsearch/plugins/head/
