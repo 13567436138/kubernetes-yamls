@@ -1,0 +1,80 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: alpaca-web
+  labels:
+    app: alpaca
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: alpaca
+      annotations:
+        prometheus.io/scrape: 'true'
+        prometheus.io/port: '7101'
+        prometheus.io/path: '/metrics'
+    spec:
+      nodeSelector:
+        deploy: app
+      containers:
+      - name: alpaca-web
+        image: 192.168.1.225:5000/youben/alpaca-web:1.0-SNAPSHOT
+        imagePullPolicy: Always
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        ports:
+        - containerPort: 8080
+          name: http
+        - containerPort: 8888
+          name: dobbo
+        - containerPort: 7101
+          name: jmx-export
+        resources:
+          requests:
+            cpu: 0.1
+            memory: 512Mi
+          limits:
+            cpu: 1
+            memory: 1Gi
+        volumeMounts:
+        - name: shared-data
+          mountPath: /var/lib/jetty/logs
+      - name: fluentd-es
+        image: registry.cn-hangzhou.aliyuncs.com/hxpdocker/fluentd-elasticsearch:v2.0.4
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: FLUENTD_ARGS
+          value: --no-supervisor -q
+        volumeMounts:
+        - name: config-volume
+          mountPath: /etc/fluent/config.d
+        - name: shared-data
+          mountPath: /var/lib/jetty/logs
+        resources:
+          requests:
+            cpu: 0.1
+            memory: 128Mi
+          limits:
+            cpu: 0.5
+            memory: 512Mi
+      volumes:
+      - name: config-volume
+        configMap:
+          name: fluentd-es-config-jetty-alpaca
+      - name: shared-data
+        emptyDir: {}
+      imagePullSecrets:
+      - name: regcred

@@ -1,4 +1,4 @@
- mount -t glusterfs 10.0.21.241:/gv0 /mnt/glusterfs
+mount -t glusterfs 192.168.1.42:/vol_0be16e06735b4099d90fe5c9fdc4fb00 /mnt/aa
 SET GLOBAL innodb_lru_scan_depth=256;
 SHOW VARIABLES LIKE 'innodb%'; 
 max_allowed_packet=500M

@@ -37,5 +37,5 @@ character-set-server=utf8
 slow_query_log = on
 slow-query-log-file=/var/lib/mysql/slow_query.log
 long_query_time = 5
-log-warnings=2
-log-error	= /var/log/mysql/error.log
+#log-warnings=2
+#log-error	= /var/log/mysql/error.log
