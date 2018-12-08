@@ -4,7 +4,7 @@ kind: ConfigMap
 metadata:
   annotations:
     fabric8.io/git-commit: 2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3
-    fabric8.io/iconUrl: https://cdn.rawgit.com/fabric8io/fabric8-devops/master/chaos-monkey/src/main/fabric8/icon.png
+    fabric8.io/iconUrl: https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/chaos-monkey/src/main/fabric8/icon.png
     fabric8.io/git-branch: release-v2.2.311
     maven.fabric8.io/app-catalog: "true"
   labels:
@@ -22,7 +22,7 @@ data:
     metadata:
       annotations:
         fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-        fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/chaos-monkey/src/main/fabric8/icon.png"
+        fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/chaos-monkey/src/main/fabric8/icon.png"
         fabric8.io/git-branch: "release-v2.2.311"
       finalizers: []
       labels:
@@ -39,7 +39,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/chaos-monkey/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/chaos-monkey/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -69,7 +69,7 @@ data:
           fabric8.chaos-monkey/summary: "Kills random pods for chaos fun!"
           description: "Randomly kills pods to help check your environment can withstand\
             \ failures"
-          fabric8.chaos-monkey/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/chaos-monkey/src/main/fabric8/icon.png"
+          fabric8.chaos-monkey/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/chaos-monkey/src/main/fabric8/icon.png"
           fabric8.io/json-schema: "{\n  \"type\" : \"object\",\n  \"properties\" : {\n\
             \    \"CHAOS_MONKEY_INCLUDES\" : {\n      \"type\" : \"string\",\n      \"\
             description\" : \"Comma separated list of patterns for pods which should be\
@@ -98,7 +98,7 @@ data:
       kind: "Deployment"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/chaos-monkey/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/chaos-monkey/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=chaos-monkey&var-version=2.2.311"
@@ -121,7 +121,7 @@ data:
         template:
           metadata:
             annotations:
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/chaos-monkey/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/chaos-monkey/src/main/fabric8/icon.png"
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=chaos-monkey&var-version=2.2.311"

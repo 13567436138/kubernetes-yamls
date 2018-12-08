@@ -4,7 +4,7 @@ kind: ConfigMap
 metadata:
   annotations:
     fabric8.io/git-commit: 2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3
-    fabric8.io/iconUrl: https://cdn.rawgit.com/fabric8io/fabric8-devops/master/hubot-slack/src/main/fabric8/icon.png
+    fabric8.io/iconUrl: https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/hubot-slack/src/main/fabric8/icon.png
     fabric8.io/git-branch: release-v2.2.311
     maven.fabric8.io/app-catalog: "true"
   labels:
@@ -24,7 +24,7 @@ data:
     metadata:
       annotations:
         fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-        fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/hubot-slack/src/main/fabric8/icon.png"
+        fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/hubot-slack/src/main/fabric8/icon.png"
         fabric8.io/git-branch: "release-v2.2.311"
       finalizers: []
       labels:
@@ -44,7 +44,7 @@ data:
         annotations:
           fabric8.io/app-menu: "development"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/hubot-slack/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/hubot-slack/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -72,7 +72,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/hubot-notifier/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/hubot-notifier/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -103,7 +103,7 @@ data:
             \ Hubot of events such as builds completing or failing"
           description: "Watches the OpenShift environment and notifies Hubot of events\
             \ such as builds completing or failing."
-          fabric8.hubot-notifier/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/hubot-notifier/src/main/fabric8/icon.png"
+          fabric8.hubot-notifier/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/hubot-notifier/src/main/fabric8/icon.png"
           fabric8.io/json-schema: "{\n  \"type\" : \"object\",\n  \"properties\" : {\n\
             \    \"HUBOT_USERNAME\" : {\n      \"type\" : \"string\",\n      \"description\"\
             \ : \"The username for Hubot to login to the chat service\",\n      \"default\"\
@@ -158,7 +158,7 @@ data:
       kind: "Deployment"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/hubot-notifier/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/hubot-notifier/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=hubot-notifier&var-version=2.2.311"
@@ -181,7 +181,7 @@ data:
         template:
           metadata:
             annotations:
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/hubot-notifier/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/hubot-notifier/src/main/fabric8/icon.png"
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=hubot-notifier&var-version=2.2.311"
@@ -240,7 +240,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/hubot-slack/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/hubot-slack/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=hubot-slack&var-version=2.2.311"
         finalizers: []
@@ -265,7 +265,7 @@ data:
           metadata:
             annotations:
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/hubot-slack/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/hubot-slack/src/main/fabric8/icon.png"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=hubot-slack&var-version=2.2.311"
             finalizers: []
