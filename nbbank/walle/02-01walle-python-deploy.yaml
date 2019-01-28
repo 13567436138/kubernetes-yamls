@@ -1,0 +1,49 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: walle-python
+  labels:
+    app: walle-python
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: walle-python
+    spec:
+      terminationGracePeriodSeconds: 60
+      nodeSelector:
+        deploy: deploy-machine
+      containers:
+      - name: walle-python
+        image: alenx/walle-python:2.0
+        imagePullPolicy: Always
+        command: ["bash","-c","'cd /opt/walle-web/ && /bin/bash admin.sh migration && python waller.py'"]
+        ports:
+        - containerPort: 5000
+          name: flask
+        env:
+        - name: MYSQL_USER
+          value: "root"
+        - name: MYSQL_PASSWORD
+          value: "walle"
+        - name: MYSQL_DATABASE
+          value: "walle"
+        - name: MYSQL_ROOT_PASSWORD
+          value: "walle"
+        volumeMounts:
+        - name: codebase
+          mountPath: /tmp/walle/codebase/
+        - name: ssh
+          mountPath: /root/.ssh
+        - name: logs
+          mountPath: /tmp/walle/logs/
+      volumes:
+      - name: codebase
+        emptyDir: {}
+      - name: ssh
+        hostPath:
+          path: /root/.ssh
+      - name: logs
+        emptyDir: {}
+

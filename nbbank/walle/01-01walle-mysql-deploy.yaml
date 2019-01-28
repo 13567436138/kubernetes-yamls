@@ -1,0 +1,40 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: walle-mysql
+  labels:
+    app: walle-mysql
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: walle-mysql
+    spec:
+      terminationGracePeriodSeconds: 60
+      nodeSelector:
+        deploy: app
+      containers:
+      - name: walle-mysql
+        image: mysql
+        imagePullPolicy: Always
+        command: ['--default-authentication-plugin=mysql_native_password']
+        ports:
+        - containerPort: 3306
+          name: mysql
+        env:
+        - name: MYSQL_USER
+          value: "root"
+        - name: MYSQL_PASSWORD
+          value: "walle"
+        - name: MYSQL_DATABASE
+          value: "walle"
+        - name: MYSQL_ROOT_PASSWORD
+          value: "walle"
+        volumeMounts:
+        - name: lib
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: lib
+        emptyDir: {}
+

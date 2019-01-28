@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: walle-nginx-ingress
+  labels: 
+    app: walle-nginx-ingress
+  namespace: walle
+  annotations:
+    kubernetes.io/ingress.class: app
+spec:
+  rules:
+  - host: www.walle.com
+    http:
+      paths:
+      - backend:
+          serviceName: walle-nginx
+          servicePort: 80

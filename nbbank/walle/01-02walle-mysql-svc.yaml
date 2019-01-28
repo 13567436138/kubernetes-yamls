@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: walle-mysql
+  namespace: walle
+spec:
+  ports:
+  - port: 3306
+    targetPort: 3306

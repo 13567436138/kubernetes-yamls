@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: github-ingress
+  namespace: walle
+  labels: 
+    app: github-ingress
+  annotations:
+    kubernetes.io/ingress.class: "app"
+spec:
+  rules:
+  - host: github.com
+    http:
+      paths:
+      - backend:
+          serviceName: github-svc
+          servicePort: 433

@@ -1,0 +1,9 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: nginx-configuration
+  namespace: walle
+  labels:
+    app: ingress-nginx
+data:
+  proxy-body-size: "100m"
