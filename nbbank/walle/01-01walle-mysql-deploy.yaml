@@ -2,6 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: walle-mysql
+  namespace: walle
   labels:
     app: walle-mysql
 spec:
@@ -12,8 +13,6 @@ spec:
         app: walle-mysql
     spec:
       terminationGracePeriodSeconds: 60
-      nodeSelector:
-        deploy: app
       containers:
       - name: walle-mysql
         image: mysql

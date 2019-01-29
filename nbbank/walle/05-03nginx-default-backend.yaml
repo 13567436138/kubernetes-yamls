@@ -16,8 +16,6 @@ spec:
         app: default-http-backend
     spec:
       terminationGracePeriodSeconds: 60
-      nodeSelector:
-        nodetype: ingress-nginx
       containers:
       - name: default-http-backend
         # Any image is permissible as long as:
