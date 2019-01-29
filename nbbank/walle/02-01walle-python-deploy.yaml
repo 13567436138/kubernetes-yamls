@@ -19,7 +19,7 @@ spec:
       - name: walle-python
         image: alenx/walle-python:2.0
         imagePullPolicy: Always
-        command: ["bash","-c","'cd /opt/walle-web/ && /bin/bash admin.sh migration && python waller.py'"]
+        command: ["/bin/sh","-c","cd /opt/walle-web/;/bin/bash admin.sh migration;python waller.py"]
         ports:
         - containerPort: 5000
           name: flask

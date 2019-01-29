@@ -42,9 +42,7 @@ spec:
                   fieldPath: metadata.namespace
           ports:
           - name: http
-            containerPort: 80
-          - name: https
-            containerPort: 443
+            containerPort: 8082
           livenessProbe:
             failureThreshold: 3
             httpGet:

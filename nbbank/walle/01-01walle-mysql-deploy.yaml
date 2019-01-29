@@ -33,7 +33,15 @@ spec:
         volumeMounts:
         - name: lib
           mountPath: /var/lib/mysql
+        - name: config
+          mountPath: /etc/mysql/my.cnf
+          subPath: /etc/mysql/my.cnf
       volumes:
       - name: lib
         emptyDir: {}
+      - name: config  
+        valueFrom:
+          configMapKeyRef:
+            name: mysql-config
+            key: my.cnf
 
