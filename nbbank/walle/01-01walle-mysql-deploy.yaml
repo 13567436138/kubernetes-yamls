@@ -34,13 +34,14 @@ spec:
           mountPath: /var/lib/mysql
         - name: config
           mountPath: /etc/mysql/my.cnf
-          subPath: /etc/mysql/my.cnf
+          subPath: my.cnf
       volumes:
       - name: lib
         emptyDir: {}
       - name: config  
         configMap:
+          name: mysql-config
           items:
-          - key: mysql-config
+          - key: my.cnf
             path: my.cnf
 

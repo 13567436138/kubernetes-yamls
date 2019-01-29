@@ -4,6 +4,8 @@ metadata:
   name: db
   namespace: walle
 spec:
+  selector:
+    app: walle-mysql
   ports:
   - port: 3306
     targetPort: 3306

@@ -4,6 +4,8 @@ metadata:
   name: python
   namespace: walle
 spec:
+  selector:
+    app: walle-python
   ports:
   - port: 5000
     targetPort: 5000
