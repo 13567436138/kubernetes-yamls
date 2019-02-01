@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: zipkin-ingress
+  labels: 
+    app: zipkin-ingress
+  namespace: istio-system
+  annotations:
+    kubernetes.io/ingress.class: app
+spec:
+  rules:
+  - host: www.zipkin.com
+    http:
+      paths:
+      - backend:
+          serviceName: zipkin
+          servicePort: 9411

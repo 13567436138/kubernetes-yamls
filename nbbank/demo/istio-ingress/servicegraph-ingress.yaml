@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: servicegraph-ingress
+  labels: 
+    app: servicegraph-ingress
+  namespace: istio-system
+  annotations:
+    kubernetes.io/ingress.class: app
+spec:
+  rules:
+  - host: www.servicegraph.com
+    http:
+      paths:
+      - backend:
+          serviceName: servicegraph
+          servicePort: 8088

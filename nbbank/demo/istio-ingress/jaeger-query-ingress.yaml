@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: jaeger-query-ingress
+  labels: 
+    app: jaeger-query-ingress
+  namespace: istio-system
+  annotations:
+    kubernetes.io/ingress.class: app
+spec:
+  rules:
+  - host: www.jaeger-query.com
+    http:
+      paths:
+      - backend:
+          serviceName: jaeger-query
+          servicePort: 16686

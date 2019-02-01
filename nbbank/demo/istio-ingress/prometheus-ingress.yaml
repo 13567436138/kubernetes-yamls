@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: prometheus-ingress
+  labels: 
+    app: prometheus-ingress
+  namespace: istio-system
+  annotations:
+    kubernetes.io/ingress.class: app
+spec:
+  rules:
+  - host: www.prometheus.com
+    http:
+      paths:
+      - backend:
+          serviceName: prometheus
+          servicePort: 9090
