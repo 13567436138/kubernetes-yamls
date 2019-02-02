@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: rook-ceph-mgr-dashboard-ingress
+  labels: 
+    app: rook-ceph-mgr-dashboard-ingress
+  namespace: rook-ceph
+  annotations:
+    kubernetes.io/ingress.class: app
+spec:
+  rules:
+  - host: www.ceph.com
+    http:
+      paths:
+      - backend:
+          serviceName: rook-ceph-mgr-dashboard
+          servicePort: 8443
