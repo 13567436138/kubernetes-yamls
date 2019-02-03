@@ -1,0 +1,100 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: openvpn
+spec:
+  revisionHistoryLimit: 1
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        openvpn: ${OVPN_CN}
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9176"
+    spec:
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 60
+      containers:
+      - name: openvpn
+        image: quay.io/plange/openvpn:latest
+        securityContext:
+          capabilities:
+            add:
+            - NET_ADMIN
+        resources:
+          limits:
+            cpu: 200m
+            memory: 100Mi
+          requests:
+            cpu: 100m
+            memory: 50Mi
+        volumeMounts:
+        - mountPath: /etc/openvpn/pki
+          name: openvpn-pki
+        - mountPath: /etc/openvpn/crl
+          name: openvpn-crl
+        - mountPath: /etc/openvpn/ccd
+          name: openvpn-ccd
+        - mountPath: /etc/openvpn/portmapping
+          name: openvpn-portmapping
+        - mountPath: /etc/openvpn/status
+          name: openvpn-status
+        ports:
+        - name: openvpn
+          containerPort: 1194
+        env:
+        - name: PODIPADDR
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        - name: OVPN_SERVER_URL
+          valueFrom:
+            configMapKeyRef:
+              name: openvpn-settings
+              key: serverurl
+        - name: OVPN_K8S_SERVICE_NETWORK
+          valueFrom:
+            configMapKeyRef:
+              name: openvpn-settings
+              key: servicecidr
+        - name: OVPN_K8S_POD_NETWORK
+          valueFrom:
+            configMapKeyRef:
+              name: openvpn-settings
+              key: podcidr
+        - name: OVPN_K8S_DOMAIN
+          valueFrom:
+            configMapKeyRef:
+              name: openvpn-settings
+              key: domain
+        - name: OVPN_STATUS
+          valueFrom:
+            configMapKeyRef:
+              name: openvpn-settings
+              key: statusfile
+      - name: metrics
+        image: quay.io/plange/openvpn_exporter:latest
+        ports:
+        - name: openvpn
+          containerPort: 9176
+        volumeMounts:
+        - mountPath: /etc/openvpn_exporter/
+          name: openvpn-status
+      volumes:
+      - name: openvpn-pki
+        secret:
+          secretName: openvpn-pki
+          defaultMode: 0400
+      - name: openvpn-ccd
+        configMap:
+          name: openvpn-ccd
+      - name: openvpn-crl
+        configMap:
+          defaultMode: 0555
+          name: openvpn-crl
+      - name: openvpn-portmapping
+        configMap:
+          name: openvpn-portmapping
+      - name: openvpn-status
+        emptyDir: {}
