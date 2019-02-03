@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: rook-ceph-mgr-dashboard-ingress
+  labels: 
+    app: rook-ceph-mgr-dashboard-ingress
+  namespace: rook-ceph
+  annotations:
+    kubernetes.io/ingress.class: app
+spec:
+  rules:
+  - host: vpn.my.fqdn
+    http:
+      paths:
+      - backend:
+          serviceName: openvpn
+          servicePort: 1194
