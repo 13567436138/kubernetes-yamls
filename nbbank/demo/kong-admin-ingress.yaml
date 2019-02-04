@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: kong-admin-ingress
+  namespace: kong
+  annotations:
+    kubernetes.io/ingress.class: kong
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+spec:
+  rules:
+  - host: www.kong.com
+    http:
+      paths:
+      - backend:
+          serviceName: kong-kong-admin
+          servicePort: 8444

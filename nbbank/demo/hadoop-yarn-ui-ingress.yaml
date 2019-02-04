@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: hadoop-yarn-ui-ingress
+  namespace: hadoop
+  annotations:
+    kubernetes.io/ingress.class: app
+spec:
+  rules:
+  - host: www.hadoop.com
+    http:
+      paths:
+      - backend:
+          serviceName: hadoop-hadoop-yarn-ui
+          servicePort: 8088
