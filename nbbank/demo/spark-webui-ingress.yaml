@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: spark-webui-ingress
+  labels:
+    chart: spark-0.2.1
+    component: spark-webui
+    heritage: Tiller
+    release: spar
+  namespace: spark
+  annotations:
+    kubernetes.io/ingress.class: app
+spec:
+  rules:
+  - host: www.webui.com
+    http:
+      paths:
+      - backend:
+          serviceName: spark-webui
+          servicePort: 8080
