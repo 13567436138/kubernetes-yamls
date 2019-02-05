@@ -1,0 +1,8 @@
+--cloud-provider=external
+curl -s http://100.100.100.200/latest/meta-data/region-id
+curl -s http://100.100.100.200/latest/meta-data/instance-id
+--provider-id=us-west-1.i-rj99trg57f2gfn4ydcdp
+--provider-id=us-west-1.i-rj99trg57f2gfn4ydcdq
+--provider-id=us-west-1.i-rj99trg57f2gfn4ydcdo
+--provider-id=us-west-1.i-rj99trg57f2gfn4ydcdn
+

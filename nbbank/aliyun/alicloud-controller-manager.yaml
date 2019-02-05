@@ -1,0 +1,50 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: alicloud-controller-manager
+  namespace: kube-system
+spec:
+  replicas: 1
+  revisionHistoryLimit: 2
+  template:
+    metadata:
+      labels:
+        app: alicloud-controller-manager
+    spec:
+      dnsPolicy: Default
+      tolerations:
+        # this taint is set by all kubelets running `--cloud-provider=external`
+        - key: "node.cloudprovider.kubernetes.io/uninitialized"
+          value: "true"
+          effect: "NoSchedule"
+      containers:
+      - image: registry.cn-hangzhou.aliyuncs.com/kube-test/alicloud-controller-manager:v0.1.0
+        name: alicloud-controller-manager
+        command:
+          - /alicloud-controller-manager
+          # set leader-elect=true if you have more that one replicas
+          - --leader-elect=false
+          - --allocate-node-cidrs=true
+          # set this to what you set to controller-manager or kube-proxy
+          - --cluster-cidr=10.233.64.0/18
+          # if you want to use a secure endpoint or deploy in a kubeadm deployed cluster, you need to use a kubeconfig instead.
+          - --kubeconfig=/etc/kubernetes/config
+        env:
+        - name: ACCESS_KEY_ID
+          valueFrom:
+            secretKeyRef:
+              name: alicloud-config
+              key: access-key-id
+        - name: ACCESS_KEY_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: alicloud-config
+              key: access-key-secret
+        volumeMounts:
+        - name: config
+          mountPath: /etc/kubernetes
+          readOnly: true
+      volumes:
+      - name: config
+        hostPath:
+          path: /etc/kubernetes
