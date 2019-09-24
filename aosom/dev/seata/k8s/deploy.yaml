@@ -1,0 +1,46 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: seata
+  labels:
+    app: seata
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: seata
+    spec:
+      terminationGracePeriodSeconds: 60
+      containers:
+      - name: seata
+        image: 10.1.53.65:5000/aosom-pop/seata:0.8.1-aosom
+        imagePullPolicy: Always
+        readinessProbe:
+          tcpSocket:
+            port: 8091
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        livenessProbe:
+          tcpSocket:
+            port: 8091
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        ports:
+        - containerPort: 8091
+          name: tcp
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: seata
+  labels:
+    app: seata
+spec:
+  ports:
+  - port: 8091
+    targetPort: 8091
+    nodePort: 33391
+  selector:
+    app: seata
+  type: NodePort

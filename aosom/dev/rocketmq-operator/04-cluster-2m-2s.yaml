@@ -1,0 +1,15 @@
+---
+apiVersion: "rocketmq.huanwei.io/v1alpha1"
+kind: BrokerCluster
+metadata:
+  name: mybrokercluster
+  namespace : rocketmq-operator
+spec:
+  brokerImage: huanwei/rocketmq-broker-k8s:4.3.2
+  nameServers: 192.168.70.15:9876;192.168.70.17:9876
+  allMaster: false
+  replicationMode: SYNC
+  groupReplica: 2
+  membersPerGroup: 2
+  emptyDir: true
+  #storageClassName: demo-nfs-storage
