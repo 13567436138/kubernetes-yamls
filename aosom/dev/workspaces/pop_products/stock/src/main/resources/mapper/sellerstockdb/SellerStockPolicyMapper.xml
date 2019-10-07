@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aosom.mapper.sellerstockdb.SellerStockPolicyMapper">
+  <resultMap id="BaseResultMap" type="com.aosom.model.SellerStockPolicy">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="sellerid" jdbcType="BIGINT" property="sellerid" />
+    <result column="siteid" jdbcType="INTEGER" property="siteid" />
+    <result column="countrycode" jdbcType="VARCHAR" property="countrycode" />
+    <result column="statecode" jdbcType="VARCHAR" property="statecode" />
+    <result column="countycode" jdbcType="VARCHAR" property="countycode" />
+    <result column="stockidlist" jdbcType="VARCHAR" property="stockidlist" />
+    <result column="ct" jdbcType="TIMESTAMP" property="ct" />
+    <result column="ut" jdbcType="TIMESTAMP" property="ut" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from seller_stockpolicy
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.aosom.model.SellerStockPolicy">
+    insert into seller_stockpolicy (id,sellerid, siteid, countrycode,
+      statecode, countycode, stockidlist, 
+      ct, ut)
+    values (#{id,jdbcType=BIGINT},#{sellerid,jdbcType=BIGINT}, #{siteid,jdbcType=INTEGER}, #{countrycode,jdbcType=VARCHAR},
+      #{statecode,jdbcType=VARCHAR}, #{countycode,jdbcType=VARCHAR}, #{stockidlist,jdbcType=VARCHAR}, 
+      #{ct,jdbcType=TIMESTAMP}, #{ut,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.aosom.model.SellerStockPolicy">
+    update seller_stockpolicy
+    set sellerid = #{sellerid,jdbcType=BIGINT},
+      siteid = #{siteid,jdbcType=INTEGER},
+      countrycode = #{countrycode,jdbcType=VARCHAR},
+      statecode = #{statecode,jdbcType=VARCHAR},
+      countycode = #{countycode,jdbcType=VARCHAR},
+      stockidlist = #{stockidlist,jdbcType=VARCHAR},
+      ct = #{ct,jdbcType=TIMESTAMP},
+      ut = #{ut,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, sellerid, siteid, countrycode, statecode, countycode, stockidlist, ct, 
+    ut
+    from seller_stockpolicy
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, sellerid, siteid, countrycode, statecode, countycode, stockidlist, ct, 
+    ut
+    from seller_stockpolicy
+  </select>
+  <select id="getBySelleridAndSiteidAndCountrycodeAndStateCodeAndCountyCode" parameterType="map" resultMap="BaseResultMap">
+    select id, sellerid, siteid, countrycode, statecode, countycode, stockidlist, ct, ut
+    from seller_stockpolicy where sellerid=#{sellerid} and siteid=#{siteid}
+    and countrycode=#{countrycode} and statecode=#{statecode} and countycode=#{countycode}
+
+  </select>
+
+  <select id="findByCondition" parameterType="com.aosom.model.SellerStockPolicy" resultMap="BaseResultMap">
+    select id, sellerid, siteid, countrycode, statecode, countycode, stockidlist, ct,
+    ut
+    from seller_stockpolicy
+    <where>
+      1=1
+      <if test="sellerid!=null and sellerid!=0">
+        and sellerid=#{sellerid}
+      </if>
+      <if test="siteid!=null and siteid!=0">
+        and siteid=#{siteid}
+      </if>
+      <if test="countrycode!=null and countrycode!=''">
+        and countrycode-#{countrycode}
+      </if>
+      <if test="statecode!=null and statecode!=''">
+        and statecode=#{statecode}
+      </if>
+      <if test="countycode!=null and countycode!=''">
+        and countycode=#{countycode}
+      </if>
+    </where>
+  </select>
+</mapper>

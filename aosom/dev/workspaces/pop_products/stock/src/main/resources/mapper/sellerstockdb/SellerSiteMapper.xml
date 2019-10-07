@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aosom.mapper.sellerstockdb.SellerSiteMapper">
+  <resultMap id="BaseResultMap" type="com.aosom.model.SellerSite">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="sellerid" jdbcType="BIGINT" property="sellerid" />
+    <result column="siteid" jdbcType="INTEGER" property="siteid" />
+    <result column="mode" jdbcType="INTEGER" property="mode" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from seller_sites
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.aosom.model.SellerSite">
+    insert into seller_sites (id,sellerid, siteid, mode
+      )
+    values (#{id,jdbcType=BIGINT},#{sellerid,jdbcType=BIGINT}, #{siteid,jdbcType=INTEGER}, #{mode,jdbcType=INTEGER}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.aosom.model.SellerSite">
+    update seller_sites
+    set sellerid = #{sellerid,jdbcType=BIGINT},
+      siteid = #{siteid,jdbcType=INTEGER},
+      mode = #{mode,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, sellerid, siteid, mode
+    from seller_sites
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, sellerid, siteid, mode
+    from seller_sites
+  </select>
+  <select id="getBySiteidAndSellerid" parameterType="map" resultMap="BaseResultMap">
+        select  id,sellerid,siteid,mode from seller_sites
+        where sellerid=#{sellerid} and siteid=#{siteid}
+  </select>
+
+  <select id="findByCondition" parameterType="com.aosom.model.SellerSite" resultMap="BaseResultMap">
+        select  id,sellerid,siteid,mode from seller_sites
+       <where>
+         1=1
+         <if test="sellerid!=null and sellerid!=0">
+           and sellerid=#{sellerid}
+         </if>
+         <if test="siteid!=null and siteid!=0">
+           and siteid=#{siteid}
+         </if>
+         <if test="mode!=null and mode!=0">
+           and mode=#{mode}
+         </if>
+       </where>
+
+  </select>
+</mapper>

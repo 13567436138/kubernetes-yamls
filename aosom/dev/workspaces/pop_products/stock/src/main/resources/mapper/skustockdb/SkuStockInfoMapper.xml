@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aosom.mapper.skustockdb.SkuStockInfoMapper">
+  <resultMap id="BaseResultMap" type="com.aosom.model.SkuStockInfo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="skuid" jdbcType="BIGINT" property="skuid" />
+    <result column="stockid" jdbcType="BIGINT" property="stockid" />
+    <result column="sellerid" jdbcType="BIGINT" property="sellerid" />
+    <result column="realnum" jdbcType="INTEGER" property="realnum" />
+    <result column="locknum" jdbcType="INTEGER" property="locknum" />
+    <result column="ut" jdbcType="TIMESTAMP" property="ut" />
+    <result column="ct" jdbcType="TIMESTAMP" property="ct" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from sku_stockinfos
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.aosom.model.SkuStockInfo">
+    insert into sku_stockinfos (id,skuid, stockid, sellerid,
+      realnum, locknum, ut, 
+      ct)
+    values (#{id,jdbcType=BIGINT},#{skuid,jdbcType=BIGINT}, #{stockid,jdbcType=BIGINT}, #{sellerid,jdbcType=BIGINT},
+      #{realnum,jdbcType=INTEGER}, #{locknum,jdbcType=INTEGER}, #{ut,jdbcType=TIMESTAMP}, 
+      #{ct,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.aosom.model.SkuStockInfo">
+    update sku_stockinfos
+    set skuid = #{skuid,jdbcType=BIGINT},
+      stockid = #{stockid,jdbcType=BIGINT},
+      sellerid = #{sellerid,jdbcType=BIGINT},
+      realnum = #{realnum,jdbcType=INTEGER},
+      locknum = #{locknum,jdbcType=INTEGER},
+      ut = #{ut,jdbcType=TIMESTAMP},
+      ct = #{ct,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, skuid, stockid, sellerid, realnum, locknum, ut, ct
+    from sku_stockinfos
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, skuid, stockid, sellerid, realnum, locknum, ut, ct
+    from sku_stockinfos
+  </select>
+  <select id="getBySeleridAndSkuidAndStockid" parameterType="map" resultMap="BaseResultMap">
+    select id, skuid, stockid, sellerid, realnum, locknum, ut, ct
+    from sku_stockinfos where sellerid=#{sellerid} and skuid=#{skuid} and stockid=#{stockid}
+  </select>
+  <select id="checkIfHaveEnoughSkuStockInfo" parameterType="map" resultType="Boolean">
+    select case when #{num}&lt;= (b.n-a.safenum) then true
+                else false
+                end
+    from sku_safenums a,
+    (select sum(realnum-locknum) n, sellerid,skuid
+    from sku_stockinfos where skuid=#{skuid} and sellerid=#{sellerid}
+        and stockid in <foreach item="item" index="index" collection="stockIds" open="(" separator="," close=")">#{item}</foreach>
+    group by sellerid,skuid)b where a.skuid=b.skuid
+  </select>
+<!--  <select id="findSkuStocksOrderedByDistance" parameterType="map" resultMap="BaseStockResultMap">
+    select b.id, b.name, b.sellerid, b.pri, b.country, b.countrycode, b.statename, b.statecode, b.countyname,
+    b.countycode, b.cityname, b.citycode, b.zipcode, b.address, b.lat, b.lng, b.ct, b.ut
+    from sku_stockinfos a,stocks b where a.stockid=b.id and  a.sellerid=#{sellerid} and a.skuid=#{skuid}
+    order by   ROUND(6378.138 * 2 * ASIN(SQRT(POW(SIN((#{lat} * PI() / 180 - b.lat * PI() / 180) / 2),
+     2) + COS(#{lat} * PI() / 180) * COS(b.lat * PI() / 180) * POW(SIN((#{lng} * PI() / 180 - b.lng * PI() / 180) / 2), 2))) * 1000) asc
+  </select>-->
+
+  <select id="findBySkuIdAndSelleridAndStockIds" parameterType="map" resultType="Long">
+    select stockid
+    from sku_stockinfos where sellerid=#{sellerid} and skuid=#{skuid} and stockid in\
+          <foreach item="item" index="index" collection="stockIds" open="(" separator="," close=")">
+      　　　　#{item}
+      　　</foreach>
+  </select>
+
+  <update id="unLockNum" parameterType="map" >
+        update sku_stockinfos set locknum=locknum-#{locknum}
+        where skuid=#{skuid}, stockid=#{stockid}, sellerid=#{sellerid}
+  </update>
+
+  <update id="deduct" parameterType="map">
+        update sku_stockinfos set realnum=realnum-#{locknum} , locknum=locknum-#{locknum}
+        where skuid=#{skuid}, stockid=#{stockid}, sellerid=#{sellerid}
+
+  </update>
+
+  <update id="restore" parameterType="map">
+    update sku_stockinfos set realnum=realnum+#{restorenum}
+    where skuid=#{skuid}, stockid=#{stockid}, sellerid=#{sellerid}
+  </update>
+
+  <select id="findByCondition" parameterType="com.aosom.model.SkuStockInfo" resultMap="BaseResultMap">
+    select id, skuid, stockid, sellerid, realnum, locknum, ut, ct
+    from sku_stockinfos
+    <where>
+    1=1
+        <if test="sellerid!=null and sellerid！=0">
+           and sellerid=#{sellerid}
+        </if>
+        <if test="skuid!=null and skuid!=0">
+          and skuid=#{skuid}
+        </if>
+        <if test="stockid!=null and stockid!=0">
+          and stockid=#{stockid}
+        </if>
+    </where>
+  </select>
+</mapper>

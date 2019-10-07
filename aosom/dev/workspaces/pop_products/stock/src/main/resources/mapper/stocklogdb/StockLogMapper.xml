@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aosom.mapper.stocklogdb.StockLogMapper">
+  <resultMap id="BaseResultMap" type="com.aosom.model.StockLog">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="uid" jdbcType="BIGINT" property="uid" />
+    <result column="orderid" jdbcType="BIGINT" property="orderid" />
+    <result column="siteid" jdbcType="INTEGER" property="siteid" />
+    <result column="from" jdbcType="TINYINT" property="from" />
+    <result column="optype" jdbcType="TINYINT" property="optype" />
+    <result column="skustockinfo" jdbcType="VARCHAR" property="skustockinfo" />
+    <result column="ct" jdbcType="TIMESTAMP" property="ct" />
+    <result column="ut" jdbcType="TIMESTAMP" property="ut" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from stock_logs
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.aosom.model.StockLog">
+    insert into stock_logs (id,uid, orderid, siteid,
+      `from`, optype, skustockinfo,
+      ct, ut)
+    values (#{id,jdbcType=BIGINT},#{uid,jdbcType=BIGINT}, #{orderid,jdbcType=BIGINT}, #{siteid,jdbcType=INTEGER},
+      #{from,jdbcType=TINYINT}, #{optype,jdbcType=TINYINT}, #{skustockinfo,jdbcType=VARCHAR}, 
+      #{ct,jdbcType=TIMESTAMP}, #{ut,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.aosom.model.StockLog">
+    update stock_logs
+    set uid = #{uid,jdbcType=BIGINT},
+      orderid = #{orderid,jdbcType=BIGINT},
+      siteid = #{siteid,jdbcType=INTEGER},
+      `from` = #{from,jdbcType=TINYINT},
+      optype = #{optype,jdbcType=TINYINT},
+      skustockinfo = #{skustockinfo,jdbcType=VARCHAR},
+      ct = #{ct,jdbcType=TIMESTAMP},
+      ut = #{ut,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, uid, orderid, siteid, `from`, optype, skustockinfo, ct, ut
+    from stock_logs
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, uid, orderid, siteid, `from`, optype, skustockinfo, ct, ut
+    from stock_logs
+  </select>
+
+  <select id="findByCondition" parameterType="com.aosom.model.StockLog" resultMap="BaseResultMap">
+    select id, uid, orderid, siteid, `from`, optype, skustockinfo, ct, ut
+    from stock_logs
+    <where>
+      1=1
+      <if test="uid!=null and uid!=0">
+        and uid=#{uid}
+      </if>
+      <if test="orderid!=null and orderid!=0">
+        and orderid=#{orderid}
+      </if>
+      <if test="siteid!=null and siteid!=0">
+        and siteid=#{siteid}
+      </if>
+      <if test="from!=null and from!=0">
+        and `from`=#{from}
+      </if>
+      <if test="optype!=null and optype!=0">
+        and optype=#{optype}
+      </if>
+    </where>
+  </select>
+</mapper>

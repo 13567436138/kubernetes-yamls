@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+import public "google/protobuf/timestamp.proto";
+option java_multiple_files = true;
+package com.aosom.service.stock;
+
+message SkuStockInfoRequest {
+  int64 id=1;
+  int64 skuid=2;
+  int64 stockid=3;
+  int64 sellerid=4;
+  int32 realnum=5;
+  int32 locknum=6;
+  int32 pageSize=7;
+  int32 currentPage=8;
+}
+
+message SkuStockInfoImportRequest {
+  repeated SkuStockInfoEntity data=1;
+}
+
+message SkuStockInfoExportResponse {
+  repeated SkuStockInfoEntity data=1;
+}
+
+message SkuStockInfoResponse {
+  bool isSuccess=1;
+  string msg=2;
+  SkuStockInfoRequest obj=3;
+}
+
+message SkuStockInfoEntity{
+  int64 id=1;
+  int64 skuid=2;
+  int64 stockid=3;
+  int64 sellerid=4;
+  int32 realnum=5;
+  int32 locknum=6;
+}
+
+message SkuStockInfoPageResponse{
+  bool isSuccess=1;
+  string msg=2;
+  int64 total=3;
+  int32 currentPage=4;
+  int32 pageSize=5;
+  repeated SkuStockInfoEntity data=6;
+}
+
+service SkuStockInfoService {
+  rpc delete(SkuStockInfoRequest) returns (SkuStockInfoResponse);
+  rpc add (SkuStockInfoRequest) returns (SkuStockInfoResponse);
+  rpc update (SkuStockInfoRequest) returns (SkuStockInfoResponse);
+  rpc get (SkuStockInfoRequest) returns (SkuStockInfoEntity);
+  rpc findPage (SkuStockInfoRequest) returns (SkuStockInfoPageResponse);
+  rpc importStockInfo (SkuStockInfoImportRequest) returns (SkuStockInfoResponse);
+  rpc exportStockInfo (SkuStockInfoRequest) returns (SkuStockInfoExportResponse);
+}

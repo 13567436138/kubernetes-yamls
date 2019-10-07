@@ -1,0 +1,8 @@
+# AutoConfigureCache auto-configuration imports
+org.springframework.context.ApplicationContextInitializer=\
+com.aosom.aosombase.nacos.MoreSiteConfigInitializer
+
+#org.springframework.context.ApplicationListener=\
+
+
+#org.springframework.boot.SpringApplicationRunListener=\

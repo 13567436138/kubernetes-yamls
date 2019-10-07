@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aosom.mapper.sellerstockdb.StocksMapper">
+  <resultMap id="BaseResultMap" type="com.aosom.model.Stocks">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="sellerid" jdbcType="BIGINT" property="sellerid" />
+    <result column="pri" jdbcType="INTEGER" property="pri" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="countrycode" jdbcType="VARCHAR" property="countrycode" />
+    <result column="statename" jdbcType="VARCHAR" property="statename" />
+    <result column="statecode" jdbcType="VARCHAR" property="statecode" />
+    <result column="countyname" jdbcType="VARCHAR" property="countyname" />
+    <result column="countycode" jdbcType="VARCHAR" property="countycode" />
+    <result column="cityname" jdbcType="VARCHAR" property="cityname" />
+    <result column="citycode" jdbcType="VARCHAR" property="citycode" />
+    <result column="zipcode" jdbcType="VARCHAR" property="zipcode" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="lat" jdbcType="DECIMAL" property="lat" />
+    <result column="lng" jdbcType="DECIMAL" property="lng" />
+    <result column="ct" jdbcType="TIMESTAMP" property="ct" />
+    <result column="ut" jdbcType="TIMESTAMP" property="ut" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from stocks
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.aosom.model.Stocks">
+    insert into stocks (id,name, sellerid, pri,
+      country, countrycode, statename, 
+      statecode, countyname, countycode, 
+      cityname, citycode, zipcode, 
+      address, lat, lng, 
+      ct, ut)
+    values (#{id,jdbcType=BIGINT},#{name,jdbcType=VARCHAR}, #{sellerid,jdbcType=BIGINT}, #{pri,jdbcType=INTEGER},
+      #{country,jdbcType=VARCHAR}, #{countrycode,jdbcType=VARCHAR}, #{statename,jdbcType=VARCHAR}, 
+      #{statecode,jdbcType=VARCHAR}, #{countyname,jdbcType=VARCHAR}, #{countycode,jdbcType=VARCHAR}, 
+      #{cityname,jdbcType=VARCHAR}, #{citycode,jdbcType=VARCHAR}, #{zipcode,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{lat,jdbcType=DECIMAL}, #{lng,jdbcType=DECIMAL}, 
+      #{ct,jdbcType=TIMESTAMP}, #{ut,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.aosom.model.Stocks">
+    update stocks
+    set name = #{name,jdbcType=VARCHAR},
+      sellerid = #{sellerid,jdbcType=BIGINT},
+      pri = #{pri,jdbcType=INTEGER},
+      country = #{country,jdbcType=VARCHAR},
+      countrycode = #{countrycode,jdbcType=VARCHAR},
+      statename = #{statename,jdbcType=VARCHAR},
+      statecode = #{statecode,jdbcType=VARCHAR},
+      countyname = #{countyname,jdbcType=VARCHAR},
+      countycode = #{countycode,jdbcType=VARCHAR},
+      cityname = #{cityname,jdbcType=VARCHAR},
+      citycode = #{citycode,jdbcType=VARCHAR},
+      zipcode = #{zipcode,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      lat = #{lat,jdbcType=DECIMAL},
+      lng = #{lng,jdbcType=DECIMAL},
+      ct = #{ct,jdbcType=TIMESTAMP},
+      ut = #{ut,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, name, sellerid, pri, country, countrycode, statename, statecode, countyname, 
+    countycode, cityname, citycode, zipcode, address, lat, lng, ct, ut
+    from stocks
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, name, sellerid, pri, country, countrycode, statename, statecode, countyname, 
+    countycode, cityname, citycode, zipcode, address, lat, lng, ct, ut
+    from stocks
+  </select>
+
+  <select id="findSellerStocks" parameterType="Long" resultMap="BaseResultMap">
+    select id, name, sellerid, pri, country, countrycode, statename, statecode, countyname,
+    countycode, cityname, citycode, zipcode, address, lat, lng, ct, ut
+    from stocks where sellerid=#{sellerid}
+  </select>
+
+  <select id="findByCondition" parameterType="com.aosom.model.Stocks" resultMap="BaseResultMap">
+    select id, name, sellerid, pri, country, countrycode, statename, statecode, countyname,
+    countycode, cityname, citycode, zipcode, address, lat, lng, ct, ut
+    from stocks
+    <where>
+      1=1
+      <if test="name!=null and name!=''">
+        and name like '%${name}%'
+      </if>
+      <if test="countyname!=null and countyname!=''">
+        and countyname=#{countyname}
+      </if>
+      <if test="countycode!=null and countycode!=''">
+        and countycode=#{countycode}
+      </if>
+      <if test="countrycode!=null and countrycode!=''">
+        and countrycode=#{countrycode}
+      </if>
+      <if test="country!=null and country!=''">
+        and country=#{country}
+      </if>
+      <if test="statename!=null and statename!=''">
+        and statename=#{statename}
+      </if>
+      <if test="statecode!=null and statecode!=''">
+        and statecode=#{statecode}
+      </if>
+      <if test="cityname!=null and cityname!=''">
+        and cityname=#{cityname}
+      </if>
+      <if test="citycode!=null and citycode!=''">
+        and citycode=#{citycode}
+      </if>
+      <if test="sellerid!=null">
+        and sellerid=#{sellerid}
+      </if>
+    </where>
+  </select>
+</mapper>

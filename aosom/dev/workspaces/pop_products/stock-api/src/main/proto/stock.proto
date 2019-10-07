@@ -1,0 +1,75 @@
+syntax = "proto3";
+
+import public "google/protobuf/timestamp.proto";
+option java_multiple_files = true;
+package com.aosom.service.stock;
+
+message StockRequest {
+  int64  id=1;
+  string name = 2;
+  int64  sellerid=3;
+  int32  pri=4;
+  string country=5;
+  string countrycode=6;
+  string statename=7;
+  string statecode=8;
+  string countyname=9;
+  string countycode=10;
+  string cityname=11;
+  string citycode=12;
+  string zipcode=13;
+  string address=14;
+  double lat=15;
+  double lng=16;
+  int32 pageSize=17;
+  int32 currentPage=18;
+}
+
+message StockResponse {
+  bool isSuccess=1;
+  string msg=2;
+  StockRequest obj=3;
+}
+
+message StockPageResponse{
+  bool isSuccess=1;
+  string msg=2;
+  int64 total=3;
+  int32 currentPage=4;
+  int32 pageSize=5;
+  repeated StockEntity data=6;
+}
+message StockListResponse{
+  bool isSuccess=1;
+  string msg=2;
+  repeated StockEntity stockEntity=3;
+}
+
+message StockEntity {
+  int64  id=1;
+  string name = 2;
+  int64  sellerid=3;
+  int32  pri=4;
+  string country=5;
+  string countrycode=6;
+  string statename=7;
+  string statecode=8;
+  string countyname=9;
+  string countycode=10;
+  string cityname=11;
+  string citycode=12;
+  string zipcode=13;
+  string address=14;
+  double lat=15;
+  double lng=16;
+}
+
+
+service StocksService {
+  rpc delete(StockRequest) returns (StockResponse);
+  rpc add (StockRequest) returns (StockResponse);
+  rpc update (StockRequest) returns (StockResponse);
+  rpc get (StockRequest) returns (StockEntity);
+  rpc findAll (StockRequest) returns (StockListResponse);
+  rpc findPage (StockRequest) returns (StockPageResponse);
+}

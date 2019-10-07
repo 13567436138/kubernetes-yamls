@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aosom.mapper.sellerstockdb.SellerSiteStockMapper">
+  <resultMap id="BaseResultMap" type="com.aosom.model.SellerSiteStock">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="sellerid" jdbcType="BIGINT" property="sellerid" />
+    <result column="siteid" jdbcType="INTEGER" property="siteid" />
+    <result column="stockid" jdbcType="BIGINT" property="stockid" />
+    <result column="pri" jdbcType="TINYINT" property="pri" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from seller_sitestocks
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.aosom.model.SellerSiteStock">
+    insert into seller_sitestocks (id,sellerid, siteid, stockid,
+      pri)
+    values (#{id,jdbcType=BIGINT},#{sellerid,jdbcType=BIGINT}, #{siteid,jdbcType=INTEGER}, #{stockid,jdbcType=BIGINT},
+      #{pri,jdbcType=TINYINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.aosom.model.SellerSiteStock">
+    update seller_sitestocks
+    set sellerid = #{sellerid,jdbcType=BIGINT},
+      siteid = #{siteid,jdbcType=INTEGER},
+      stockid = #{stockid,jdbcType=BIGINT},
+      pri = #{pri,jdbcType=TINYINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, sellerid, siteid, stockid, pri
+    from seller_sitestocks
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, sellerid, siteid, stockid, pri
+    from seller_sitestocks
+  </select>
+  <select id="findBySiteidAndSelleridOrdered" parameterType="map" resultMap="BaseResultMap">
+    select id, sellerid, siteid, stockid, pri
+    from seller_sitestocks where sellerid=#{sellerid} and siteid=#{siteid}
+    order by pri desc
+  </select>
+
+  <select id="findByCondition" parameterType="com.aosom.model.SellerSiteStock" resultMap="BaseResultMap">
+    select id, sellerid, siteid, stockid, pri
+    from seller_sitestocks
+    <where>
+      1=1
+      <if test="sellerid!=null and sellerid!=0">
+        and sellerid=#{sellerid}
+      </if>
+      <if test="siteid!=null and siteid!=0">
+        and siteid=#{siteid}
+      </if>
+      <if test="stockid!=null and stockid!=0">
+        and stockid=#{stockid}
+      </if>
+    </where>
+  </select>
+</mapper>

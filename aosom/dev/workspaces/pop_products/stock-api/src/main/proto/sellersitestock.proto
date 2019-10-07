@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+import public "google/protobuf/timestamp.proto";
+option java_multiple_files = true;
+package com.aosom.service.stock;
+
+message SellerSiteStockRequest {
+  int64 id=1;
+  int64 sellerid=2;
+  int32 siteid=3;
+  int64 stockid=4;
+  int32 pri=5;
+  int32 pageSize=6;
+  int32 currentPage=7;
+}
+
+message SellerSiteStockResponse {
+  bool isSuccess=1;
+  string msg=2;
+  SellerSiteStockRequest obj=3;
+}
+
+message SellerSiteStockEntity{
+  int64 id=1;
+  int64 sellerid=2;
+  int32 siteid=3;
+  int64 stockid=4;
+  int32 pri=5;
+}
+
+message SellerSiteStockPageResponse{
+  bool isSuccess=1;
+  string msg=2;
+  int64 total=3;
+  int32 currentPage=4;
+  int32 pageSize=5;
+  repeated SellerSiteStockEntity data=6;
+}
+
+service SellerSiteStockService {
+  rpc delete(SellerSiteStockRequest) returns (SellerSiteStockResponse);
+  rpc add (SellerSiteStockRequest) returns (SellerSiteStockResponse);
+  rpc update (SellerSiteStockRequest) returns (SellerSiteStockResponse);
+  rpc get (SellerSiteStockRequest) returns (SellerSiteStockEntity);
+  rpc findPage (SellerSiteStockRequest) returns (SellerSiteStockPageResponse);
+}

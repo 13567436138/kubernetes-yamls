@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+import public "google/protobuf/timestamp.proto";
+option java_multiple_files = true;
+package com.aosom.service.stock;
+
+message SellerStockPolicyRequest {
+  int64 id=1;
+  int64 sellerid=2;
+  int32 siteid=3;
+  string countrycode=4;
+  string statecode=5;
+  string countycode=6;
+  string stockidlist=7;
+  int32 pageSize=8;
+  int32 currentPage=9;
+
+}
+
+message SellerStockPolicyResponse {
+  bool isSuccess=1;
+  string msg=2;
+  SellerStockPolicyEntity obj=3;
+}
+
+message SellerStockPolicyEntity{
+  int64 id=1;
+  int64 sellerid=2;
+  int32 siteid=3;
+  string countrycode=4;
+  string statecode=5;
+  string countycode=6;
+  string stockidlist=7;
+}
+
+message SellerStockPolicyPageResponse{
+  bool isSuccess=1;
+  string msg=2;
+  int64 total=3;
+  int32 currentPage=4;
+  int32 pageSize=5;
+  repeated SellerStockPolicyEntity data=6;
+}
+
+service SellerStockPolicyService {
+  rpc delete(SellerStockPolicyRequest) returns (SellerStockPolicyResponse);
+  rpc add (SellerStockPolicyRequest) returns (SellerStockPolicyResponse);
+  rpc update (SellerStockPolicyRequest) returns (SellerStockPolicyResponse);
+  rpc get (SellerStockPolicyRequest) returns (SellerStockPolicyEntity);
+  rpc findPage (SellerStockPolicyRequest) returns (SellerStockPolicyPageResponse);
+}

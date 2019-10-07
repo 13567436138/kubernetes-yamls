@@ -1,0 +1,64 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: stock-grpc
+  labels:
+    app: stock
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: stock
+    spec:
+      terminationGracePeriodSeconds: 60
+      containers:
+      - name: stock-grpc
+        image: 10.1.53.65:5000/aosom-pop/stock:1.0.0-SNAPSHOT
+        imagePullPolicy: Always
+        readinessProbe:
+          tcpSocket:
+            port: 9090
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        livenessProbe:
+          tcpSocket:
+            port: 9090
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        ports:
+        - containerPort: 9090
+          name: grpc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: stock-grpc
+  labels:
+    app: stock
+spec:
+  ports:
+  - port: 9090
+    targetPort: 9090
+  selector:
+    app: stock
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: stock-ingress
+  labels: 
+    app: stock
+  annotations:
+    kubernetes.io/ingress.class: "app"
+    nginx.ingress.kubernetes.io/backend-protocol: "GRPC"
+spec:
+  rules:
+  - host: stock.aosom.com
+    http:
+      paths:
+      - backend:
+          serviceName: stock-grpc
+          servicePort: 9090
+
+

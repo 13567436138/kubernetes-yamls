@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aosom.mapper.skustockdb.SkuSafeNumMapper">
+  <resultMap id="BaseResultMap" type="com.aosom.model.SkuSafeNum">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="siteid" jdbcType="INTEGER" property="siteid" />
+    <result column="skuid" jdbcType="BIGINT" property="skuid" />
+    <result column="safenum" jdbcType="INTEGER" property="safenum" />
+    <result column="ct" jdbcType="TIMESTAMP" property="ct" />
+    <result column="ut" jdbcType="TIMESTAMP" property="ut" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from sku_safenums
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.aosom.model.SkuSafeNum">
+    insert into sku_safenums (id,siteid, skuid, safenum,
+      ct, ut)
+    values ( #{id,jdbcType=BIGINT},#{siteid,jdbcType=INTEGER}, #{skuid,jdbcType=BIGINT}, #{safenum,jdbcType=INTEGER},
+      #{ct,jdbcType=TIMESTAMP}, #{ut,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.aosom.model.SkuSafeNum">
+    update sku_safenums
+    set siteid = #{siteid,jdbcType=INTEGER},
+      skuid = #{skuid,jdbcType=BIGINT},
+      safenum = #{safenum,jdbcType=INTEGER},
+      ct = #{ct,jdbcType=TIMESTAMP},
+      ut = #{ut,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, siteid, skuid, safenum, ct, ut
+    from sku_safenums
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, siteid, skuid, safenum, ct, ut
+    from sku_safenums
+  </select>
+  <select id="findByCondition" parameterType="com.aosom.dto.SkuSafeNumDto" resultMap="BaseResultMap">
+    select id, siteid, skuid, safenum, ct, ut
+    from sku_safenums
+    <where>
+      1=1
+      <if test="id!=null">
+        and id=#{id}
+      </if>
+      <if test="skuid!=null">
+        and skuid=#{skuid}
+      </if>
+      <if test="siteid!=null">
+        and siteid=#{siteid}
+      </if>
+      <if test="safenumStart!=null">
+        and safenum&gt;=#{safenumStart}
+      </if>
+      <if test="safenumEnd!=null">
+        and safenum&lt;=#{safenumEnd}
+      </if>
+    </where>
+  </select>
+</mapper>

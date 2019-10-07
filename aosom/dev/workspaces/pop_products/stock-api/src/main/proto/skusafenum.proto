@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+import public "google/protobuf/timestamp.proto";
+option java_multiple_files = true;
+package com.aosom.service.stock;
+
+message SkuSafeNumRequest {
+  int32 siteid=1;
+  int32 safenumStart=2;
+  int32 safenumEnd=3;
+  int64 skuid=4;
+  int32 safenum=5;
+  int64 id=6;
+  int32 pageSize=7;
+  int32 currentPage=8;
+}
+
+
+message SkuSafeNumResponse {
+  bool isSuccess=1;
+  string msg=2;
+  SkuSafeNumRequest obj=3;
+}
+
+message SkuSafeNumEntity {
+  int64 id=1;
+  int32 siteid=2;
+  int64 skuid=3;
+  int32 safenum=4;
+}
+
+message SkuSafeNumEntityListResponse{
+  bool isSuccess=1;
+  string msg=2;
+  repeated SkuSafeNumEntity skuSafeNumEntity=3;
+}
+
+message SkuSafeNumPageResponse{
+  bool isSuccess=1;
+  string msg=2;
+  int64 total=3;
+  int32 currentPage=4;
+  int32 pageSize=5;
+  repeated SkuSafeNumEntity data=6;
+}
+
+service SkuSafeNumService {
+  rpc delete(SkuSafeNumRequest) returns (SkuSafeNumResponse);
+  rpc add (SkuSafeNumRequest) returns (SkuSafeNumResponse);
+  rpc update (SkuSafeNumRequest) returns (SkuSafeNumResponse);
+  rpc get (SkuSafeNumRequest) returns (SkuSafeNumEntity);
+  rpc findAll (SkuSafeNumRequest) returns (SkuSafeNumEntityListResponse);
+  rpc findPage (SkuSafeNumRequest) returns (SkuSafeNumPageResponse);
+}

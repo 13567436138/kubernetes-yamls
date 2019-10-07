@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+import public "google/protobuf/timestamp.proto";
+option java_multiple_files = true;
+package com.aosom.service.stock;
+
+message SkuLockInfoListRequest{
+    int64 uid=1;
+    int64 orderid=2;
+    int32 siteid=3;
+    repeated SkuLockInfoRequest skuLockInfoRequest=4;
+    double lat=5;
+    double lng=6;
+}
+message SkuLockInfoRequest {
+  int64 id=1;
+  int64 skuid=2;
+  int32 locknum=3;
+  int64 sellerid=4;
+  string countrycode=5;
+  string statecode=6;
+  string countycode=7;
+  repeated int64 manualStockIds=8;
+}
+
+message OrderUnlockRequest{
+    int64 orderid=1;
+    int64 uid=2;
+    int32 siteid=3;
+}
+
+message SkuLockInfoResponse {
+  bool isSuccess=1;
+  string msg=2;
+  SkuLockInfoRequest obj=3;
+}
+
+message RestoreRequest{
+    int64 skuid=1;
+    int32 restoreNum=2;
+    int64 sellerid=3;
+    int64 stockid=4;
+}
+
+message RestoreListRequest{
+    int64 uid=1;
+    int64 orderid=2;
+    int32 siteid=3;
+    repeated RestoreRequest restoreRequest=4;
+}
+
+message OrderDeductRequest{
+    int64 orderid=1;
+    int64 uid=2;
+    int32 siteid=3;
+}
+
+service SkuLockInfoService {
+  rpc lock (SkuLockInfoListRequest) returns (SkuLockInfoResponse);
+  rpc unlock (OrderUnlockRequest) returns (SkuLockInfoResponse);
+  rpc deduct (OrderDeductRequest) returns (SkuLockInfoResponse);
+  rpc restore (RestoreListRequest) returns (SkuLockInfoResponse);
+}

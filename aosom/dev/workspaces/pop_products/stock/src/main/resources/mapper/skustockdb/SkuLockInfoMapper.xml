@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aosom.mapper.skustockdb.SkuLockInfoMapper">
+  <resultMap id="BaseResultMap" type="com.aosom.model.SkuLockInfo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="orderid" jdbcType="BIGINT" property="orderid" />
+    <result column="skuid" jdbcType="BIGINT" property="skuid" />
+    <result column="stockid" jdbcType="BIGINT" property="stockid" />
+    <result column="locknum" jdbcType="INTEGER" property="locknum" />
+    <result column="ct" jdbcType="TIMESTAMP" property="ct" />
+    <result column="ut" jdbcType="TIMESTAMP" property="ut" />
+    <result column="sellerid" jdbcType="BIGINT" property="sellerid" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from sku_lockinfos
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.aosom.model.SkuLockInfo">
+    insert into sku_lockinfos (id,orderid, skuid, stockid,
+      locknum, ct, ut, 
+      sellerid)
+    values (#{id,jdbcType=BIGINT},#{orderid,jdbcType=BIGINT}, #{skuid,jdbcType=BIGINT}, #{stockid,jdbcType=BIGINT},
+      #{locknum,jdbcType=INTEGER}, #{ct,jdbcType=TIMESTAMP}, #{ut,jdbcType=TIMESTAMP}, 
+      #{sellerid,jdbcType=BIGINT})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.aosom.model.SkuLockInfo">
+    update sku_lockinfos
+    set orderid = #{orderid,jdbcType=BIGINT},
+      skuid = #{skuid,jdbcType=BIGINT},
+      stockid = #{stockid,jdbcType=BIGINT},
+      locknum = #{locknum,jdbcType=INTEGER},
+      ct = #{ct,jdbcType=TIMESTAMP},
+      ut = #{ut,jdbcType=TIMESTAMP},
+      sellerid = #{sellerid,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select id, orderid, skuid, stockid, locknum, ct, ut, sellerid
+    from sku_lockinfos
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, orderid, skuid, stockid, locknum, ct, ut, sellerid
+    from sku_lockinfos
+  </select>
+  <select id="findByOrderId" parameterType="Long" resultMap="BaseResultMap">
+    select id, orderid, skuid, stockid, locknum, ct, ut, sellerid
+    from sku_lockinfos where orderid=#{orderid}
+  </select>
+  <select id="findByOrderIdGroupBySkuid" parameterType="Long" resultMap="BaseResultMap">
+    select skuid, sum(locknum), sellerid
+    from sku_lockinfos where orderid=#{orderid}
+    group by sellerid,skuid
+  </select>
+
+  <select id="getByOrderidAndSellerIdAndSkuidAndStockId" parameterType="map" resultMap="BaseResultMap">
+    select id, orderid, skuid, stockid, locknum, ct, ut, sellerid
+    from sku_lockinfos where orderid=#{orderid} and sellerid=#{sellerid}
+    and skuid=#{skuid} and stockid=#{stockid}
+  </select>
+  <update id="updateLockNumById" parameterType="com.aosom.model.SkuLockInfo" >
+    update sku_lockinfos set locknum=locknum+#{locknum}
+    where id=#{id}
+  </update>
+</mapper>
