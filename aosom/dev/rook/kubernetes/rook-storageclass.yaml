@@ -17,6 +17,7 @@ kind: StorageClass
 metadata:
    name: rook-block
 provisioner: rook.io/block
+allowVolumeExpansion: true
 parameters:
   pool: replicapool
   # Specify the namespace of the rook cluster from which to create volumes.
