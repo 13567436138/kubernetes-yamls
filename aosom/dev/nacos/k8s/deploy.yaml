@@ -1,0 +1,44 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nacos
+  labels:
+    app: nacos
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nacos
+    spec:
+      terminationGracePeriodSeconds: 60
+      containers:
+      - name: nacos
+        image: 10.1.53.65:5000/aosom-pop/nacos:1.0.0-aosom
+        imagePullPolicy: Always
+        readinessProbe:
+          tcpSocket:
+            port: 8848
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        livenessProbe:
+          tcpSocket:
+            port: 8848
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        ports:
+        - containerPort: 8848
+          name: tcp
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nacos
+  labels:
+    app: nacos
+spec:
+  ports:
+  - port: 8848
+    targetPort: 8848
+  selector:
+    app: nacos
