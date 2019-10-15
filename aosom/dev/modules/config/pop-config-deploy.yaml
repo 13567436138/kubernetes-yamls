@@ -1,0 +1,73 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: pop-configs-grpc
+  labels:
+    app: pop-configs
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pop-configs
+    spec:
+      terminationGracePeriodSeconds: 60
+      containers:
+      - name: pop-configs-grpc
+        image: 10.1.53.65:5000/aosom-pop/pop_configs:1.0.0-SNAPSHOT
+        imagePullPolicy: Always
+        readinessProbe:
+          tcpSocket:
+            port: 8050
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        livenessProbe:
+          tcpSocket:
+            port: 8050
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+        ports:
+        - containerPort: 9090
+          name: grpc
+        - containerPort: 8050
+          name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pop-configs-grpc
+  labels:
+    app: pop-configs
+spec:
+  ports:
+  - port: 9090
+    name: grpc
+    targetPort: 9090
+    nodePort: 31090
+  - port: 8050
+    name: http
+    targetPort: 8050
+    nodePort: 31050
+  selector:
+    app: pop-configs
+  type: NodePort
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: pop-configs-ingress
+  labels: 
+    app: pop-configs
+  annotations:
+    kubernetes.io/ingress.class: "app"
+    nginx.ingress.kubernetes.io/backend-protocol: "GRPC"
+spec:
+  rules:
+  - host: pop-configs.aosom.com
+    http:
+      paths:
+      - backend:
+          serviceName: pop-configs-grpc
+          servicePort: 9090
+
+
