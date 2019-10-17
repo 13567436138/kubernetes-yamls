@@ -1,0 +1,6 @@
+FROM huanwei/rocketmq-broker-k8s:4.3.2
+MAINTAINER HXP
+
+COPY brokerStart.sh /opt/rocketmq-4.3.2/bin/
+
+ENTRYPOINT ["./brokerStart.sh"]

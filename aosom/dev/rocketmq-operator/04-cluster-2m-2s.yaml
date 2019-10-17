@@ -5,7 +5,7 @@ metadata:
   name: mybrokercluster
   namespace : rocketmq-operator
 spec:
-  brokerImage: huanwei/rocketmq-broker-k8s:4.3.2
+  brokerImage: 10.1.53.65:5000/aosom-pop/rocketmq-broker-k8s:4.3.2-aosom
   nameServers: 192.168.70.15:9876;192.168.70.17:9876
   allMaster: false
   replicationMode: SYNC
