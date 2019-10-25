@@ -1,0 +1,12 @@
+apiVersion: v1
+appVersion: "3.3"
+description: A Distributed JMeter Helm chart
+home: http://jmeter.apache.org/
+icon: http://jmeter.apache.org/images/logo.svg
+maintainers:
+- email: pedrocesar.ti@gmail.com
+  name: pedrocesar-ti
+name: distributed-jmeter
+sources:
+- https://github.com/pedrocesar-ti/distributed-jmeter-docker
+version: 1.0.1
