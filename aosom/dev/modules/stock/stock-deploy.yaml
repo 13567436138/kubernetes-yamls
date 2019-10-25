@@ -53,6 +53,10 @@ metadata:
     kubernetes.io/ingress.class: "app"
     nginx.ingress.kubernetes.io/backend-protocol: "GRPC"
 spec:
+  tls:
+  - hosts:
+    - stock.aosom.com
+    secretName: stock-tls
   rules:
   - host: stock.aosom.com
     http:
