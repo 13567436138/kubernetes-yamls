@@ -647,7 +647,7 @@ server:
 
     ## Prometheus server Ingress annotations
     ##
-    annotations: {}
+    annotations: 
       kubernetes.io/ingress.class: app
     #   kubernetes.io/tls-acme: 'true'
 
@@ -658,7 +658,7 @@ server:
     ## Prometheus server Ingress hostnames with optional path
     ## Must be provided if Ingress is enabled
     ##
-    hosts: []
+    hosts: 
     - prometheus.domain.com
     #   - domain.com/prometheus
 
@@ -867,14 +867,14 @@ pushgateway:
 
     ## pushgateway Ingress annotations
     ##
-    annotations: {}
+    annotations: 
       kubernetes.io/ingress.class: app
     #   kubernetes.io/tls-acme: 'true'
 
     ## pushgateway Ingress hostnames with optional path
     ## Must be provided if Ingress is enabled
     ##
-    hosts: []
+    hosts: 
     - pushgateway.domain.com
     #   - domain.com/pushgateway
 
