@@ -4,7 +4,7 @@ kind: ConfigMap
 metadata:
   annotations:
     fabric8.io/git-commit: 2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3
-    fabric8.io/iconUrl: https://cdn.rawgit.com/fabric8io/fabric8-devops/master/gerrit/src/main/fabric8/icon.png
+    fabric8.io/iconUrl: https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/gerrit/src/main/fabric8/icon.png
     fabric8.io/git-branch: release-v2.2.311
     maven.fabric8.io/app-catalog: "true"
   labels:
@@ -23,7 +23,7 @@ data:
     metadata:
       annotations:
         fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-        fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/gerrit/src/main/fabric8/icon.png"
+        fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/gerrit/src/main/fabric8/icon.png"
         fabric8.io/git-branch: "release-v2.2.311"
       finalizers: []
       labels:
@@ -40,7 +40,7 @@ data:
       kind: "ServiceAccount"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/gerrit/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/gerrit/src/main/fabric8/icon.png"
         finalizers: []
         labels:
           provider: "fabric8"
@@ -58,7 +58,7 @@ data:
       metadata:
         annotations:
           fabric8.io/app-menu: "development"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/gerrit/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/gerrit/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
@@ -87,7 +87,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/gerrit/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/gerrit/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -124,7 +124,7 @@ data:
             \ to the master Git repository, rather than requiring all approved changes\
             \ to be merged in by hand by the project maintainer. This functionality enables\
             \ a more centralized usage of Git.\n\n[https://www.gerritcodereview.com/](https://www.gerritcodereview.com/)"
-          fabric8.gerrit/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/gerrit/src/main/fabric8/icon.png"
+          fabric8.gerrit/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/gerrit/src/main/fabric8/icon.png"
           fabric8.io/json-schema: "{\n  \"type\" : \"object\",\n  \"properties\" : {\n\
             \    \"GERRIT_ADMIN_PWD\" : {\n      \"type\" : \"string\",\n      \"description\"\
             \ : \"Admin password\",\n      \"default\" : \"secret\"\n    },\n    \"GERRIT_INITIAL_COMMIT\"\
@@ -154,7 +154,7 @@ data:
       kind: "Deployment"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/gerrit/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/gerrit/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=gerrit&var-version=2.2.311"
@@ -177,7 +177,7 @@ data:
         template:
           metadata:
             annotations:
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/gerrit/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/gerrit/src/main/fabric8/icon.png"
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
               fabric8.io/secret-ssh-key: "gerrit-admin-ssh"
               fabric8.io/git-branch: "release-v2.2.311"

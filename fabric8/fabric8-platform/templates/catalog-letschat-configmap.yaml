@@ -372,7 +372,7 @@ data:
       kind: "ServiceAccount"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/gerrit/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/gerrit/src/main/fabric8/icon.png"
         finalizers: []
         labels:
           provider: "fabric8"
@@ -389,7 +389,7 @@ data:
       kind: "ServiceAccount"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/gogs/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/gogs/src/main/fabric8/icon.png"
         finalizers: []
         labels:
           provider: "fabric8"
@@ -404,7 +404,7 @@ data:
       kind: "ServiceAccount"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/gogs/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/gogs/src/main/fabric8/icon.png"
         finalizers: []
         labels:
           provider: "fabric8"
@@ -419,7 +419,7 @@ data:
       kind: "ServiceAccount"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/jenkins/src/main/fabric8/icon.svg"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/jenkins/src/main/fabric8/icon.svg"
         finalizers: []
         labels:
           provider: "fabric8"
@@ -437,7 +437,7 @@ data:
       kind: "ServiceAccount"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/jenkins/src/main/fabric8/icon.svg"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/jenkins/src/main/fabric8/icon.svg"
         finalizers: []
         labels:
           provider: "fabric8"
@@ -617,7 +617,7 @@ data:
           api.service.kubernetes.io/path: "apiman"
           api.service.kubernetes.io/protocol: "REST"
           api.service.kubernetes.io/description-path: "apiman/swagger.json"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-ipaas/master/apiman/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-ipaas/apiman/src/main/fabric8/icon.png"
           fabric8.io/app-menu: "development"
           fabric8.io/git-commit: "0b90360981bed67ebde7b71cc6a96d34cca3dcc6"
           fabric8.io/git-branch: "release-v2.2.168"
@@ -654,7 +654,7 @@ data:
           api.service.kubernetes.io/path: "apiman"
           api.service.kubernetes.io/protocol: "REST"
           api.service.kubernetes.io/description-path: "apiman/swagger.json"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-ipaas/master/apiman/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-ipaas/apiman/src/main/fabric8/icon.png"
           fabric8.io/app-menu: "development"
           fabric8.io/git-commit: "0b90360981bed67ebde7b71cc6a96d34cca3dcc6"
           fabric8.io/git-branch: "release-v2.2.168"
@@ -691,7 +691,7 @@ data:
           api.service.kubernetes.io/path: "api"
           api.service.kubernetes.io/protocol: "REST"
           api.service.kubernetes.io/description-path: "api/swagger.json"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-ipaas/master/apiman-gateway/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-ipaas/apiman-gateway/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "0b90360981bed67ebde7b71cc6a96d34cca3dcc6"
           fabric8.io/git-branch: "release-v2.2.168"
         finalizers: []
@@ -727,7 +727,7 @@ data:
           api.service.kubernetes.io/path: "api"
           api.service.kubernetes.io/protocol: "REST"
           api.service.kubernetes.io/description-path: "api/swagger.json"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-ipaas/master/apiman-gateway/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-ipaas/apiman-gateway/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "0b90360981bed67ebde7b71cc6a96d34cca3dcc6"
           fabric8.io/git-branch: "release-v2.2.168"
         finalizers: []
@@ -760,7 +760,7 @@ data:
       metadata:
         annotations:
           fabric8.io/app-menu: "development"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/artifactory/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/artifactory/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
@@ -791,7 +791,7 @@ data:
           prometheus.io/scrape: "true"
           prometheus.io/port: "9115"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/prometheus-blackbox-exporter/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/prometheus-blackbox-exporter/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -822,7 +822,7 @@ data:
           prometheus.io/scrape: "true"
           prometheus.io/port: "9115"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/prometheus-blackbox-exporter/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/prometheus-blackbox-exporter/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -853,7 +853,7 @@ data:
           prometheus.io/scrape: "true"
           prometheus.io/port: "9115"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/prometheus-blackbox-exporter/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/prometheus-blackbox-exporter/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -882,7 +882,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/chaos-monkey/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/chaos-monkey/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -909,7 +909,7 @@ data:
       kind: "Service"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/content-repository/src/main/fabric8/icon.svg"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/content-repository/src/main/fabric8/icon.svg"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
@@ -938,7 +938,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/elasticsearch/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/elasticsearch/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -967,7 +967,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/elasticsearch/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/elasticsearch/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -996,7 +996,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/elasticsearch/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/elasticsearch/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -1025,7 +1025,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/elasticsearch/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/elasticsearch/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -1054,7 +1054,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/elasticsearch/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/elasticsearch/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -1083,7 +1083,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/elasticsearch/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/elasticsearch/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -1112,7 +1112,7 @@ data:
       metadata:
         annotations:
           api.service.kubernetes.io/protocol: "REST"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-ipaas/master/elasticsearch/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-ipaas/elasticsearch/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "0b90360981bed67ebde7b71cc6a96d34cca3dcc6"
           fabric8.io/git-branch: "release-v2.2.168"
         finalizers: []
@@ -1141,7 +1141,7 @@ data:
       metadata:
         annotations:
           api.service.kubernetes.io/protocol: "REST"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-ipaas/master/elasticsearch/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-ipaas/elasticsearch/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "0b90360981bed67ebde7b71cc6a96d34cca3dcc6"
           fabric8.io/git-branch: "release-v2.2.168"
         finalizers: []
@@ -1170,7 +1170,7 @@ data:
       metadata:
         annotations:
           api.service.kubernetes.io/protocol: "REST"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-ipaas/master/elasticsearch/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-ipaas/elasticsearch/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "0b90360981bed67ebde7b71cc6a96d34cca3dcc6"
           fabric8.io/git-branch: "release-v2.2.168"
         finalizers: []
@@ -1200,7 +1200,7 @@ data:
       metadata:
         annotations:
           api.service.kubernetes.io/protocol: "REST"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-ipaas/master/elasticsearch/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-ipaas/elasticsearch/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "0b90360981bed67ebde7b71cc6a96d34cca3dcc6"
           fabric8.io/git-branch: "release-v2.2.168"
         finalizers: []
@@ -1229,7 +1229,7 @@ data:
       kind: "Service"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/fabric8-docker-registry/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/fabric8-docker-registry/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
@@ -1257,7 +1257,7 @@ data:
       kind: "Service"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/fabric8-docker-registry/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/fabric8-docker-registry/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
@@ -1285,7 +1285,7 @@ data:
       kind: "Service"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-forge/master/fabric8-forge/src/main/fabric8/icon.svg"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-forge/fabric8-forge/src/main/fabric8/icon.svg"
           fabric8.io/git-commit: "bad661f3285ecbcd6b7a9373e194bda075d832eb"
           fabric8.io/git-branch: "release-v2.3.88"
         finalizers: []
@@ -1314,7 +1314,7 @@ data:
       kind: "Service"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-forge/master/fabric8-forge/src/main/fabric8/icon.svg"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-forge/fabric8-forge/src/main/fabric8/icon.svg"
           fabric8.io/git-commit: "bad661f3285ecbcd6b7a9373e194bda075d832eb"
           fabric8.io/git-branch: "release-v2.3.88"
         finalizers: []
@@ -1344,7 +1344,7 @@ data:
       metadata:
         annotations:
           fabric8.io/app-menu: "development"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/gerrit/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/gerrit/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
@@ -1373,7 +1373,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/gerrit/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/gerrit/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -1430,7 +1430,7 @@ data:
         annotations:
           fabric8.io/app-menu: "development"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/gitlab/src/main/fabric8/icon.svg"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/gitlab/src/main/fabric8/icon.svg"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -1458,7 +1458,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/gitlab/src/main/fabric8/icon.svg"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/gitlab/src/main/fabric8/icon.svg"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -1485,7 +1485,7 @@ data:
       metadata:
         annotations:
           fabric8.io/app-menu: "development"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/gogs/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/gogs/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
@@ -1514,7 +1514,7 @@ data:
       metadata:
         annotations:
           fabric8.io/app-menu: "development"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/gogs/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/gogs/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
@@ -1542,7 +1542,7 @@ data:
       kind: "Service"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/gogs/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/gogs/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
@@ -1570,7 +1570,7 @@ data:
       kind: "Service"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/gogs/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/gogs/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
@@ -1600,7 +1600,7 @@ data:
         annotations:
           fabric8.io/app-menu: "development"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/grafana/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/grafana/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -1630,7 +1630,7 @@ data:
         annotations:
           fabric8.io/app-menu: "development"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/grafana/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/grafana/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -1660,7 +1660,7 @@ data:
         annotations:
           fabric8.io/app-menu: "development"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/grafana/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/grafana/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -1688,7 +1688,7 @@ data:
       kind: "Service"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/hubot-letschat/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/hubot-letschat/src/main/fabric8/icon.png"
           fabric8.io/app-menu: "development"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
@@ -1719,7 +1719,7 @@ data:
         annotations:
           fabric8.io/app-menu: "development"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/hubot-slack/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/hubot-slack/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -1746,7 +1746,7 @@ data:
       kind: "Service"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/hubot-irc/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/hubot-irc/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
@@ -1775,7 +1775,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/hubot-letschat/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/hubot-letschat/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -1802,7 +1802,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/hubot-notifier/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/hubot-notifier/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -1830,7 +1830,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/hubot-notifier/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/hubot-notifier/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -1858,7 +1858,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/hubot-notifier/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/hubot-notifier/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -1888,7 +1888,7 @@ data:
           fabric8.io/app-menu: "development"
           api.service.kubernetes.io/path: "/blue"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/jenkins/src/main/fabric8/icon.svg"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/jenkins/src/main/fabric8/icon.svg"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -1919,7 +1919,7 @@ data:
           fabric8.io/app-menu: "development"
           api.service.kubernetes.io/path: "/blue"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/jenkins/src/main/fabric8/icon.svg"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/jenkins/src/main/fabric8/icon.svg"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -1948,7 +1948,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/jenkins/src/main/fabric8/icon.svg"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/jenkins/src/main/fabric8/icon.svg"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -1977,7 +1977,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/jenkins/src/main/fabric8/icon.svg"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/jenkins/src/main/fabric8/icon.svg"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -2005,7 +2005,7 @@ data:
       kind: "Service"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-ipaas/master/kafka/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-ipaas/kafka/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "500219733b1151415686940f4b893d7add206822"
           fabric8.io/git-branch: "release-v2.2.153"
           fabric8.io/build-id: "2"
@@ -2037,7 +2037,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/keycloak/src/main/fabric8/icon.svg"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/keycloak/src/main/fabric8/icon.svg"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -2067,7 +2067,7 @@ data:
         annotations:
           fabric8.io/app-menu: "management"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/kibana/src/main/fabric8/icon.svg"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/kibana/src/main/fabric8/icon.svg"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -2097,7 +2097,7 @@ data:
         annotations:
           fabric8.io/app-menu: "management"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/kibana/src/main/fabric8/icon.svg"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/kibana/src/main/fabric8/icon.svg"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -2127,7 +2127,7 @@ data:
         annotations:
           fabric8.io/app-menu: "management"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/kibana/src/main/fabric8/icon.svg"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/kibana/src/main/fabric8/icon.svg"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -2156,7 +2156,7 @@ data:
       metadata:
         annotations:
           fabric8.io/app-menu: "development"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/kiwiirc/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/kiwiirc/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
@@ -2186,7 +2186,7 @@ data:
         annotations:
           fabric8.io/app-menu: "development"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/letschat/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/letschat/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -2215,7 +2215,7 @@ data:
         annotations:
           fabric8.io/app-menu: "development"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/letschat/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/letschat/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -2242,7 +2242,7 @@ data:
       kind: "Service"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/manageiq/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/manageiq/src/main/fabric8/icon.png"
           fabric8.io/app-menu: "management"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
@@ -2326,7 +2326,7 @@ data:
       metadata:
         annotations:
           fabric8.io/app-menu: "development"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/nexus/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/nexus/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
@@ -2355,7 +2355,7 @@ data:
       metadata:
         annotations:
           fabric8.io/app-menu: "development"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/nexus/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/nexus/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
@@ -2384,7 +2384,7 @@ data:
       metadata:
         annotations:
           fabric8.io/app-menu: "development"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/orion/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/orion/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
@@ -2415,7 +2415,7 @@ data:
           prometheus.io/scrape: "true"
           fabric8.io/app-menu: "management"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/prometheus/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/prometheus/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -2446,7 +2446,7 @@ data:
           prometheus.io/scrape: "true"
           fabric8.io/app-menu: "management"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/prometheus/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/prometheus/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -2477,7 +2477,7 @@ data:
           prometheus.io/scrape: "true"
           fabric8.io/app-menu: "management"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/prometheus/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/prometheus/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -2507,7 +2507,7 @@ data:
         annotations:
           fabric8.io/app-menu: "development"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/taiga/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/taiga/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -2535,7 +2535,7 @@ data:
         annotations:
           fabric8.io/app-menu: "development"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/taiga/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/taiga/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -2562,7 +2562,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/taiga/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/taiga/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -2588,7 +2588,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/taiga/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/taiga/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
         finalizers: []
         labels:
@@ -2738,7 +2738,7 @@ data:
       kind: "Service"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-ipaas/master/zookeeper/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-ipaas/zookeeper/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "0b90360981bed67ebde7b71cc6a96d34cca3dcc6"
           fabric8.io/git-branch: "release-v2.2.168"
         finalizers: []
@@ -2766,7 +2766,7 @@ data:
       kind: "Service"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-ipaas/master/zookeeper/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-ipaas/zookeeper/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "500219733b1151415686940f4b893d7add206822"
           fabric8.io/git-branch: "release-v2.2.153"
           fabric8.io/build-id: "2"
@@ -2796,7 +2796,7 @@ data:
       kind: "Service"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-ipaas/master/zookeeper/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-ipaas/zookeeper/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "0b90360981bed67ebde7b71cc6a96d34cca3dcc6"
           fabric8.io/git-branch: "release-v2.2.168"
         finalizers: []
@@ -3403,7 +3403,7 @@ data:
           fabric8.chaos-monkey/summary: "Kills random pods for chaos fun!"
           description: "Randomly kills pods to help check your environment can withstand\
             \ failures"
-          fabric8.chaos-monkey/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/chaos-monkey/src/main/fabric8/icon.png"
+          fabric8.chaos-monkey/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/chaos-monkey/src/main/fabric8/icon.png"
           fabric8.io/json-schema: "{\n  \"type\" : \"object\",\n  \"properties\" : {\n\
             \    \"CHAOS_MONKEY_INCLUDES\" : {\n      \"type\" : \"string\",\n      \"\
             description\" : \"Comma separated list of patterns for pods which should be\
@@ -3447,7 +3447,7 @@ data:
         annotations:
           fabric8.fabric8-forge/summary: "Fabric8 :: Forge"
           description: "Fabric8 :: Forge"
-          fabric8.fabric8-forge/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-forge/master/fabric8-forge/src/main/fabric8/icon.svg"
+          fabric8.fabric8-forge/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-forge/fabric8-forge/src/main/fabric8/icon.svg"
           fabric8.io/yaml-schema: "type: object\nproperties:\n  jenkinsfile-library-git-repository:\n\
             \    type: string\n    description: The git clone URL for the library of Jenkinsfiles\
             \ used to associate CD pipelines with projects\n      reused across projects\n\
@@ -3485,7 +3485,7 @@ data:
         annotations:
           fabric8.fabric8-forge/summary: "Fabric8 :: Forge"
           description: "Fabric8 :: Forge"
-          fabric8.fabric8-forge/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-forge/master/fabric8-forge/src/main/fabric8/icon.svg"
+          fabric8.fabric8-forge/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-forge/fabric8-forge/src/main/fabric8/icon.svg"
           fabric8.io/yaml-schema: "type: object\nproperties:\n  jenkinsfile-library-git-repository:\n\
             \    type: string\n    description: The git clone URL for the library of Jenkinsfiles\
             \ used to associate CD pipelines with projects\n      reused across projects\n\
@@ -3559,7 +3559,7 @@ data:
             \ to the master Git repository, rather than requiring all approved changes\
             \ to be merged in by hand by the project maintainer. This functionality enables\
             \ a more centralized usage of Git.\n\n[https://www.gerritcodereview.com/](https://www.gerritcodereview.com/)"
-          fabric8.gerrit/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/gerrit/src/main/fabric8/icon.png"
+          fabric8.gerrit/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/gerrit/src/main/fabric8/icon.png"
           fabric8.io/json-schema: "{\n  \"type\" : \"object\",\n  \"properties\" : {\n\
             \    \"GERRIT_ADMIN_PWD\" : {\n      \"type\" : \"string\",\n      \"description\"\
             \ : \"Admin password\",\n      \"default\" : \"secret\"\n    },\n    \"GERRIT_INITIAL_COMMIT\"\
@@ -3624,7 +3624,7 @@ data:
             \ in Go"
           description: "Gogs is a self-hosted Git service written in Go.\n\nMore details\
             \ on the <a href=\"http://gogs.io/\" target=\"gogs\">Gogs home page</a>.\n"
-          fabric8.gogs/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/gogs/src/main/fabric8/icon.png"
+          fabric8.gogs/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/gogs/src/main/fabric8/icon.png"
           expose.config.fabric8.io/url-key: "gogs-server--root-url"
           expose.config.fabric8.io/oauth-authorize-url-key: "oauth-authorize-uri"
           fabric8.io/json-schema: "{\n  \"type\" : \"object\",\n  \"properties\" : {\n\
@@ -3692,7 +3692,7 @@ data:
             \ in Go"
           description: "Gogs is a self-hosted Git service written in Go.\n\nMore details\
             \ on the <a href=\"http://gogs.io/\" target=\"gogs\">Gogs home page</a>.\n"
-          fabric8.gogs/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/gogs/src/main/fabric8/icon.png"
+          fabric8.gogs/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/gogs/src/main/fabric8/icon.png"
           expose.config.fabric8.io/url-key: "gogs-server--root-url"
           expose.config.fabric8.io/oauth-authorize-url-key: "oauth-authorize-uri"
           fabric8.io/json-schema: "{\n  \"type\" : \"object\",\n  \"properties\" : {\n\
@@ -3759,7 +3759,7 @@ data:
           fabric8.hubot-irc/summary: "[Hubot](http://hubot.github.com) IRC chat bot"
           description: "Chat bot app using [Hubot](https://hubot.github.com/) and an IRC\
             \ server to communicate with fabric8."
-          fabric8.hubot-irc/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/hubot-irc/src/main/fabric8/icon.png"
+          fabric8.hubot-irc/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/hubot-irc/src/main/fabric8/icon.png"
           fabric8.io/json-schema: "{\n  \"type\" : \"object\",\n  \"properties\" : {\n\
             \    \"HUBOT_IRC_USESSL\" : {\n      \"type\" : \"string\",\n      \"description\"\
             \ : \"Use SSL\",\n      \"default\" : \"1\"\n    },\n    \"HUBOT_GRAFANA_API_KEY\"\
@@ -3811,7 +3811,7 @@ data:
             \ Lets Chat"
           description: "Chat bot app using [Hubot](https://hubot.github.com/) for [Lets\
             \ Chat](http://sdelements.github.io/lets-chat/)"
-          fabric8.hubot-letschat/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/hubot-letschat/src/main/fabric8/icon.png"
+          fabric8.hubot-letschat/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/hubot-letschat/src/main/fabric8/icon.png"
           fabric8.io/json-schema: "{\n  \"type\" : \"object\",\n  \"properties\" : {\n\
             \    \"HUBOT_GRAFANA_API_KEY\" : {\n      \"type\" : \"string\",\n      \"\
             description\" : \"API key for a particular user\"\n    },\n    \"LETSCHAT_HUBOT_PASSWORD\"\
@@ -3854,7 +3854,7 @@ data:
             \ Hubot of events such as builds completing or failing"
           description: "Watches the OpenShift environment and notifies Hubot of events\
             \ such as builds completing or failing."
-          fabric8.hubot-notifier/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/hubot-notifier/src/main/fabric8/icon.png"
+          fabric8.hubot-notifier/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/hubot-notifier/src/main/fabric8/icon.png"
           fabric8.io/json-schema: "{\n  \"type\" : \"object\",\n  \"properties\" : {\n\
             \    \"HUBOT_USERNAME\" : {\n      \"type\" : \"string\",\n      \"description\"\
             \ : \"The username for Hubot to login to the chat service\",\n      \"default\"\
@@ -3884,7 +3884,7 @@ data:
             \ Hubot of events such as builds completing or failing"
           description: "Watches the OpenShift environment and notifies Hubot of events\
             \ such as builds completing or failing."
-          fabric8.hubot-notifier/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/hubot-notifier/src/main/fabric8/icon.png"
+          fabric8.hubot-notifier/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/hubot-notifier/src/main/fabric8/icon.png"
           fabric8.io/json-schema: "{\n  \"type\" : \"object\",\n  \"properties\" : {\n\
             \    \"HUBOT_USERNAME\" : {\n      \"type\" : \"string\",\n      \"description\"\
             \ : \"The username for Hubot to login to the chat service\",\n      \"default\"\
@@ -3914,7 +3914,7 @@ data:
             \ Hubot of events such as builds completing or failing"
           description: "Watches the OpenShift environment and notifies Hubot of events\
             \ such as builds completing or failing."
-          fabric8.hubot-notifier/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/hubot-notifier/src/main/fabric8/icon.png"
+          fabric8.hubot-notifier/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/hubot-notifier/src/main/fabric8/icon.png"
           fabric8.io/json-schema: "{\n  \"type\" : \"object\",\n  \"properties\" : {\n\
             \    \"HUBOT_USERNAME\" : {\n      \"type\" : \"string\",\n      \"description\"\
             \ : \"The username for Hubot to login to the chat service\",\n      \"default\"\
@@ -3974,7 +3974,7 @@ data:
           description: "Jenkins CI is a leading open-source continuous integration server.\
             \ Built with Java, it provides 985 plugins to support building and testing\
             \ virtually any project.\n\n[http://jenkins-ci.org/](http://jenkins-ci.org/)"
-          fabric8.jenkins/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/jenkins/src/main/fabric8/icon.svg"
+          fabric8.jenkins/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/jenkins/src/main/fabric8/icon.svg"
           fabric8.io/json-schema: "{\n  \"type\" : \"object\",\n  \"properties\" : {\n\
             \    \"PIPELINE_ELASTICSEARCH_PROTOCOL\" : {\n      \"type\" : \"string\"\
             ,\n      \"description\" : \"Protocol used to connect to elasticsearch\",\n\
@@ -4013,7 +4013,7 @@ data:
           description: "Jenkins CI is a leading open-source continuous integration server.\
             \ Built with Java, it provides 985 plugins to support building and testing\
             \ virtually any project.\n\n[http://jenkins-ci.org/](http://jenkins-ci.org/)"
-          fabric8.jenkins/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/jenkins/src/main/fabric8/icon.svg"
+          fabric8.jenkins/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/jenkins/src/main/fabric8/icon.svg"
           fabric8.io/json-schema: "{\n  \"type\" : \"object\",\n  \"properties\" : {\n\
             \    \"PIPELINE_ELASTICSEARCH_PROTOCOL\" : {\n      \"type\" : \"string\"\
             ,\n      \"description\" : \"Protocol used to connect to elasticsearch\",\n\
@@ -4597,7 +4597,7 @@ data:
       kind: "DaemonSet"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/fluentd/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/fluentd/src/main/fabric8/icon.png"
         finalizers: []
         labels:
           provider: "fabric8"
@@ -4668,7 +4668,7 @@ data:
       kind: "DaemonSet"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/fluentd/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/fluentd/src/main/fabric8/icon.png"
         finalizers: []
         labels:
           provider: "fabric8"
@@ -4739,7 +4739,7 @@ data:
       kind: "DaemonSet"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/fluentd/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/fluentd/src/main/fabric8/icon.png"
         finalizers: []
         labels:
           provider: "fabric8"
@@ -4810,7 +4810,7 @@ data:
       kind: "DaemonSet"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/prometheus-node-exporter/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/prometheus-node-exporter/src/main/fabric8/icon.png"
         finalizers: []
         labels:
           provider: "fabric8"
@@ -4873,7 +4873,7 @@ data:
       kind: "DaemonSet"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/prometheus-node-exporter/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/prometheus-node-exporter/src/main/fabric8/icon.png"
         finalizers: []
         labels:
           provider: "fabric8"
@@ -4936,7 +4936,7 @@ data:
       kind: "DaemonSet"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/prometheus-node-exporter/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/prometheus-node-exporter/src/main/fabric8/icon.png"
         finalizers: []
         labels:
           provider: "fabric8"
@@ -4999,7 +4999,7 @@ data:
       kind: "Deployment"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-ipaas/master/apiman/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-ipaas/apiman/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "0b90360981bed67ebde7b71cc6a96d34cca3dcc6"
           fabric8.io/git-branch: "release-v2.2.168"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=apiman&var-version=2.2.168"
@@ -5024,7 +5024,7 @@ data:
         template:
           metadata:
             annotations:
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-ipaas/master/apiman/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-ipaas/apiman/src/main/fabric8/icon.png"
               fabric8.io/git-commit: "0b90360981bed67ebde7b71cc6a96d34cca3dcc6"
               fabric8.io/git-branch: "release-v2.2.168"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=apiman&var-version=2.2.168"
@@ -5079,7 +5079,7 @@ data:
       kind: "Deployment"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-ipaas/master/apiman/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-ipaas/apiman/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "0b90360981bed67ebde7b71cc6a96d34cca3dcc6"
           fabric8.io/git-branch: "release-v2.2.168"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=apiman&var-version=2.2.168"
@@ -5104,7 +5104,7 @@ data:
         template:
           metadata:
             annotations:
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-ipaas/master/apiman/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-ipaas/apiman/src/main/fabric8/icon.png"
               fabric8.io/git-commit: "0b90360981bed67ebde7b71cc6a96d34cca3dcc6"
               fabric8.io/git-branch: "release-v2.2.168"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=apiman&var-version=2.2.168"
@@ -5159,7 +5159,7 @@ data:
       kind: "Deployment"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-ipaas/master/apiman-gateway/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-ipaas/apiman-gateway/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "0b90360981bed67ebde7b71cc6a96d34cca3dcc6"
           fabric8.io/git-branch: "release-v2.2.168"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=apiman-gateway&var-version=2.2.168"
@@ -5184,7 +5184,7 @@ data:
         template:
           metadata:
             annotations:
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-ipaas/master/apiman-gateway/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-ipaas/apiman-gateway/src/main/fabric8/icon.png"
               fabric8.io/git-commit: "0b90360981bed67ebde7b71cc6a96d34cca3dcc6"
               fabric8.io/git-branch: "release-v2.2.168"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=apiman-gateway&var-version=2.2.168"
@@ -5239,7 +5239,7 @@ data:
       kind: "Deployment"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-ipaas/master/apiman-gateway/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-ipaas/apiman-gateway/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "0b90360981bed67ebde7b71cc6a96d34cca3dcc6"
           fabric8.io/git-branch: "release-v2.2.168"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=apiman-gateway&var-version=2.2.168"
@@ -5264,7 +5264,7 @@ data:
         template:
           metadata:
             annotations:
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-ipaas/master/apiman-gateway/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-ipaas/apiman-gateway/src/main/fabric8/icon.png"
               fabric8.io/git-commit: "0b90360981bed67ebde7b71cc6a96d34cca3dcc6"
               fabric8.io/git-branch: "release-v2.2.168"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=apiman-gateway&var-version=2.2.168"
@@ -5319,7 +5319,7 @@ data:
       kind: "Deployment"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/artifactory/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/artifactory/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=artifactory&var-version=2.2.311"
@@ -5342,7 +5342,7 @@ data:
         template:
           metadata:
             annotations:
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/artifactory/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/artifactory/src/main/fabric8/icon.png"
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=artifactory&var-version=2.2.311"
@@ -5381,7 +5381,7 @@ data:
       kind: "Deployment"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/chaos-monkey/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/chaos-monkey/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=chaos-monkey&var-version=2.2.311"
@@ -5404,7 +5404,7 @@ data:
         template:
           metadata:
             annotations:
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/chaos-monkey/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/chaos-monkey/src/main/fabric8/icon.png"
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=chaos-monkey&var-version=2.2.311"
@@ -5476,7 +5476,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/configmapcontroller/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/configmapcontroller/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=configmapcontroller&var-version=2.2.311"
         finalizers: []
@@ -5499,7 +5499,7 @@ data:
           metadata:
             annotations:
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/configmapcontroller/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/configmapcontroller/src/main/fabric8/icon.png"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=configmapcontroller&var-version=2.2.311"
             finalizers: []
@@ -5529,7 +5529,7 @@ data:
       kind: "Deployment"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/content-repository/src/main/fabric8/icon.svg"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/content-repository/src/main/fabric8/icon.svg"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=content-repository&var-version=2.2.311"
@@ -5552,7 +5552,7 @@ data:
         template:
           metadata:
             annotations:
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/content-repository/src/main/fabric8/icon.svg"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/content-repository/src/main/fabric8/icon.svg"
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=content-repository&var-version=2.2.311"
@@ -5597,7 +5597,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/elasticsearch/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/elasticsearch/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=elasticsearch&var-version=2.2.311"
         finalizers: []
@@ -5620,7 +5620,7 @@ data:
           metadata:
             annotations:
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/elasticsearch/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/elasticsearch/src/main/fabric8/icon.png"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=elasticsearch&var-version=2.2.311"
               pod.alpha.kubernetes.io/init-containers: "[{\"image\":\"busybox\",\"imagePullPolicy\"\
@@ -5681,7 +5681,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/elasticsearch/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/elasticsearch/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=elasticsearch&var-version=2.2.311"
         finalizers: []
@@ -5704,7 +5704,7 @@ data:
           metadata:
             annotations:
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/elasticsearch/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/elasticsearch/src/main/fabric8/icon.png"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=elasticsearch&var-version=2.2.311"
               pod.alpha.kubernetes.io/init-containers: "[{\"image\":\"busybox\",\"imagePullPolicy\"\
@@ -5765,7 +5765,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/elasticsearch/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/elasticsearch/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=elasticsearch&var-version=2.2.311"
         finalizers: []
@@ -5788,7 +5788,7 @@ data:
           metadata:
             annotations:
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/elasticsearch/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/elasticsearch/src/main/fabric8/icon.png"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=elasticsearch&var-version=2.2.311"
               pod.alpha.kubernetes.io/init-containers: "[{\"image\":\"busybox\",\"imagePullPolicy\"\
@@ -5848,7 +5848,7 @@ data:
       kind: "Deployment"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-ipaas/master/elasticsearch/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-ipaas/elasticsearch/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "0b90360981bed67ebde7b71cc6a96d34cca3dcc6"
           fabric8.io/git-branch: "release-v2.2.168"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=elasticsearch-v1&var-version=2.2.168"
@@ -5871,7 +5871,7 @@ data:
         template:
           metadata:
             annotations:
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-ipaas/master/elasticsearch/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-ipaas/elasticsearch/src/main/fabric8/icon.png"
               fabric8.io/git-commit: "0b90360981bed67ebde7b71cc6a96d34cca3dcc6"
               fabric8.io/git-branch: "release-v2.2.168"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=elasticsearch-v1&var-version=2.2.168"
@@ -5931,7 +5931,7 @@ data:
       kind: "Deployment"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-ipaas/master/elasticsearch/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-ipaas/elasticsearch/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "0b90360981bed67ebde7b71cc6a96d34cca3dcc6"
           fabric8.io/git-branch: "release-v2.2.168"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=elasticsearch-v1&var-version=2.2.168"
@@ -5954,7 +5954,7 @@ data:
         template:
           metadata:
             annotations:
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-ipaas/master/elasticsearch/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-ipaas/elasticsearch/src/main/fabric8/icon.png"
               fabric8.io/git-commit: "0b90360981bed67ebde7b71cc6a96d34cca3dcc6"
               fabric8.io/git-branch: "release-v2.2.168"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=elasticsearch-v1&var-version=2.2.168"
@@ -6016,7 +6016,7 @@ data:
         annotations:
           configmap.fabric8.io/update-on-change: "exposecontroller"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/exposecontroller/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/exposecontroller/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=exposecontroller&var-version=2.2.311"
         finalizers: []
@@ -6039,7 +6039,7 @@ data:
           metadata:
             annotations:
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/exposecontroller/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/exposecontroller/src/main/fabric8/icon.png"
               configmap.fabric8.io/update-on-change: "exposecontroller"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=exposecontroller&var-version=2.2.311"
@@ -6082,7 +6082,7 @@ data:
       kind: "Deployment"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/fabric8-docker-registry/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/fabric8-docker-registry/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=fabric8-docker-registry&var-version=2.2.311"
@@ -6105,7 +6105,7 @@ data:
         template:
           metadata:
             annotations:
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/fabric8-docker-registry/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/fabric8-docker-registry/src/main/fabric8/icon.png"
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=fabric8-docker-registry&var-version=2.2.311"
@@ -6155,7 +6155,7 @@ data:
       kind: "Deployment"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/fabric8-docker-registry/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/fabric8-docker-registry/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=fabric8-docker-registry&var-version=2.2.311"
@@ -6178,7 +6178,7 @@ data:
         template:
           metadata:
             annotations:
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/fabric8-docker-registry/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/fabric8-docker-registry/src/main/fabric8/icon.png"
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=fabric8-docker-registry&var-version=2.2.311"
@@ -6228,7 +6228,7 @@ data:
       kind: "Deployment"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-forge/master/fabric8-forge/src/main/fabric8/icon.svg"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-forge/fabric8-forge/src/main/fabric8/icon.svg"
           fabric8.io/git-commit: "bad661f3285ecbcd6b7a9373e194bda075d832eb"
           fabric8.io/git-branch: "release-v2.3.88"
           fabric8.io/metrics-path: "dashboard/file/camel-routes.json/?var-project=fabric8-forge&var-version=2.3.88"
@@ -6251,7 +6251,7 @@ data:
         template:
           metadata:
             annotations:
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-forge/master/fabric8-forge/src/main/fabric8/icon.svg"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-forge/fabric8-forge/src/main/fabric8/icon.svg"
               fabric8.io/git-commit: "bad661f3285ecbcd6b7a9373e194bda075d832eb"
               fabric8.io/git-branch: "release-v2.3.88"
               fabric8.io/metrics-path: "dashboard/file/camel-routes.json/?var-project=fabric8-forge&var-version=2.3.88"
@@ -6350,7 +6350,7 @@ data:
       kind: "Deployment"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-forge/master/fabric8-forge/src/main/fabric8/icon.svg"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-forge/fabric8-forge/src/main/fabric8/icon.svg"
           fabric8.io/git-commit: "bad661f3285ecbcd6b7a9373e194bda075d832eb"
           fabric8.io/git-branch: "release-v2.3.88"
           fabric8.io/metrics-path: "dashboard/file/camel-routes.json/?var-project=fabric8-forge&var-version=2.3.88"
@@ -6373,7 +6373,7 @@ data:
         template:
           metadata:
             annotations:
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-forge/master/fabric8-forge/src/main/fabric8/icon.svg"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-forge/fabric8-forge/src/main/fabric8/icon.svg"
               fabric8.io/git-commit: "bad661f3285ecbcd6b7a9373e194bda075d832eb"
               fabric8.io/git-branch: "release-v2.3.88"
               fabric8.io/metrics-path: "dashboard/file/camel-routes.json/?var-project=fabric8-forge&var-version=2.3.88"
@@ -6594,7 +6594,7 @@ data:
       kind: "Deployment"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/gerrit/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/gerrit/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=gerrit&var-version=2.2.311"
@@ -6617,7 +6617,7 @@ data:
         template:
           metadata:
             annotations:
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/gerrit/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/gerrit/src/main/fabric8/icon.png"
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
               fabric8.io/secret-ssh-key: "gerrit-admin-ssh"
               fabric8.io/git-branch: "release-v2.2.311"
@@ -6796,7 +6796,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/gitlab/src/main/fabric8/icon.svg"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/gitlab/src/main/fabric8/icon.svg"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=gitlab&var-version=2.2.311"
         finalizers: []
@@ -6819,7 +6819,7 @@ data:
           metadata:
             annotations:
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/gitlab/src/main/fabric8/icon.svg"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/gitlab/src/main/fabric8/icon.svg"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=gitlab&var-version=2.2.311"
             finalizers: []
@@ -6863,7 +6863,7 @@ data:
       metadata:
         annotations:
           configmap.fabric8.io/update-on-change: "gogs"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/gogs/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/gogs/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=gogs&var-version=2.2.311"
@@ -6886,7 +6886,7 @@ data:
         template:
           metadata:
             annotations:
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/gogs/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/gogs/src/main/fabric8/icon.png"
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
               configmap.fabric8.io/update-on-change: "gogs"
               fabric8.io/git-branch: "release-v2.2.311"
@@ -6971,7 +6971,7 @@ data:
       metadata:
         annotations:
           configmap.fabric8.io/update-on-change: "gogs"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/gogs/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/gogs/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=gogs&var-version=2.2.311"
@@ -6994,7 +6994,7 @@ data:
         template:
           metadata:
             annotations:
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/gogs/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/gogs/src/main/fabric8/icon.png"
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
               configmap.fabric8.io/update-on-change: "gogs"
               fabric8.io/git-branch: "release-v2.2.311"
@@ -7079,7 +7079,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/grafana/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/grafana/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=grafana&var-version=2.2.311"
         finalizers: []
@@ -7102,7 +7102,7 @@ data:
           metadata:
             annotations:
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/grafana/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/grafana/src/main/fabric8/icon.png"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=grafana&var-version=2.2.311"
               pod.alpha.kubernetes.io/init-containers: "[{\"image\":\"busybox\",\"imagePullPolicy\"\
@@ -7151,7 +7151,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/grafana/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/grafana/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=grafana&var-version=2.2.311"
         finalizers: []
@@ -7174,7 +7174,7 @@ data:
           metadata:
             annotations:
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/grafana/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/grafana/src/main/fabric8/icon.png"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=grafana&var-version=2.2.311"
               pod.alpha.kubernetes.io/init-containers: "[{\"image\":\"busybox\",\"imagePullPolicy\"\
@@ -7223,7 +7223,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/grafana/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/grafana/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=grafana&var-version=2.2.311"
         finalizers: []
@@ -7246,7 +7246,7 @@ data:
           metadata:
             annotations:
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/grafana/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/grafana/src/main/fabric8/icon.png"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=grafana&var-version=2.2.311"
               pod.alpha.kubernetes.io/init-containers: "[{\"image\":\"busybox\",\"imagePullPolicy\"\
@@ -7294,7 +7294,7 @@ data:
       kind: "Deployment"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/hubot-irc/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/hubot-irc/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=hubot-irc&var-version=2.2.311"
@@ -7317,7 +7317,7 @@ data:
         template:
           metadata:
             annotations:
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/hubot-irc/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/hubot-irc/src/main/fabric8/icon.png"
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=hubot-irc&var-version=2.2.311"
@@ -7411,7 +7411,7 @@ data:
       kind: "Deployment"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/hubot-letschat/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/hubot-letschat/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=hubot-letschat&var-version=2.2.311"
@@ -7434,7 +7434,7 @@ data:
         template:
           metadata:
             annotations:
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/hubot-letschat/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/hubot-letschat/src/main/fabric8/icon.png"
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=hubot-letschat&var-version=2.2.311"
@@ -7508,7 +7508,7 @@ data:
       kind: "Deployment"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/hubot-notifier/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/hubot-notifier/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=hubot-notifier&var-version=2.2.311"
@@ -7531,7 +7531,7 @@ data:
         template:
           metadata:
             annotations:
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/hubot-notifier/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/hubot-notifier/src/main/fabric8/icon.png"
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=hubot-notifier&var-version=2.2.311"
@@ -7588,7 +7588,7 @@ data:
       kind: "Deployment"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/hubot-notifier/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/hubot-notifier/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=hubot-notifier&var-version=2.2.311"
@@ -7611,7 +7611,7 @@ data:
         template:
           metadata:
             annotations:
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/hubot-notifier/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/hubot-notifier/src/main/fabric8/icon.png"
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=hubot-notifier&var-version=2.2.311"
@@ -7668,7 +7668,7 @@ data:
       kind: "Deployment"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/hubot-notifier/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/hubot-notifier/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=hubot-notifier&var-version=2.2.311"
@@ -7691,7 +7691,7 @@ data:
         template:
           metadata:
             annotations:
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/hubot-notifier/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/hubot-notifier/src/main/fabric8/icon.png"
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=hubot-notifier&var-version=2.2.311"
@@ -7749,7 +7749,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/hubot-slack/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/hubot-slack/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=hubot-slack&var-version=2.2.311"
         finalizers: []
@@ -7774,7 +7774,7 @@ data:
           metadata:
             annotations:
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/hubot-slack/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/hubot-slack/src/main/fabric8/icon.png"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=hubot-slack&var-version=2.2.311"
             finalizers: []
@@ -7826,7 +7826,7 @@ data:
         annotations:
           configmap.fabric8.io/update-on-change: "nginx-config"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/ingress-nginx/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/ingress-nginx/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=ingress-nginx&var-version=2.2.311"
         finalizers: []
@@ -7850,7 +7850,7 @@ data:
           metadata:
             annotations:
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/ingress-nginx/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/ingress-nginx/src/main/fabric8/icon.png"
               configmap.fabric8.io/update-on-change: "nginx-config"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=ingress-nginx&var-version=2.2.311"
@@ -7888,7 +7888,7 @@ data:
       kind: "Deployment"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/jenkins/src/main/fabric8/icon.svg"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/jenkins/src/main/fabric8/icon.svg"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=jenkins&var-version=2.2.311"
@@ -7916,7 +7916,7 @@ data:
               fabric8.io/secret-ssh-config: "jenkins-ssh-config"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=jenkins&var-version=2.2.311"
               fabric8.io/secret-gpg-key: "jenkins-release-gpg"
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/jenkins/src/main/fabric8/icon.svg"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/jenkins/src/main/fabric8/icon.svg"
               fabric8.io/secret-maven-settings: "jenkins-maven-settings"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/secret-hub-api-token: "jenkins-hub-api-token"
@@ -8024,7 +8024,7 @@ data:
       kind: "Deployment"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/jenkins/src/main/fabric8/icon.svg"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/jenkins/src/main/fabric8/icon.svg"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=jenkins&var-version=2.2.311"
@@ -8052,7 +8052,7 @@ data:
               fabric8.io/secret-ssh-config: "jenkins-ssh-config"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=jenkins&var-version=2.2.311"
               fabric8.io/secret-gpg-key: "jenkins-release-gpg"
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/jenkins/src/main/fabric8/icon.svg"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/jenkins/src/main/fabric8/icon.svg"
               fabric8.io/secret-maven-settings: "jenkins-maven-settings"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/secret-hub-api-token: "jenkins-hub-api-token"
@@ -8160,7 +8160,7 @@ data:
       kind: "Deployment"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-ipaas/master/kafka/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-ipaas/kafka/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "500219733b1151415686940f4b893d7add206822"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=kafka&var-version=2.2.153"
           fabric8.io/build-id: "2"
@@ -8190,7 +8190,7 @@ data:
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=kafka&var-version=2.2.153"
               fabric8.io/build-id: "2"
               fabric8.io/build-url: "http://jenkins.ux.fabric8.io/job/oss-parent/2"
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-ipaas/master/kafka/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-ipaas/kafka/src/main/fabric8/icon.png"
               fabric8.io/git-branch: "release-v2.2.153"
               fabric8.io/git-url: "http://gogs.ux.fabric8.io/gogsadmin/oss-parent/commit/500219733b1151415686940f4b893d7add206822"
             finalizers: []
@@ -8240,7 +8240,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/keycloak/src/main/fabric8/icon.svg"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/keycloak/src/main/fabric8/icon.svg"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=keycloak&var-version=2.2.311"
         finalizers: []
@@ -8263,7 +8263,7 @@ data:
           metadata:
             annotations:
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/keycloak/src/main/fabric8/icon.svg"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/keycloak/src/main/fabric8/icon.svg"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=keycloak&var-version=2.2.311"
               pod.alpha.kubernetes.io/init-containers: "[{\"image\":\"busybox\",\"imagePullPolicy\"\
@@ -8317,7 +8317,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/kibana/src/main/fabric8/icon.svg"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/kibana/src/main/fabric8/icon.svg"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=kibana&var-version=2.2.311"
         finalizers: []
@@ -8340,7 +8340,7 @@ data:
           metadata:
             annotations:
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/kibana/src/main/fabric8/icon.svg"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/kibana/src/main/fabric8/icon.svg"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=kibana&var-version=2.2.311"
             finalizers: []
@@ -8394,7 +8394,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/kibana/src/main/fabric8/icon.svg"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/kibana/src/main/fabric8/icon.svg"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=kibana&var-version=2.2.311"
         finalizers: []
@@ -8417,7 +8417,7 @@ data:
           metadata:
             annotations:
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/kibana/src/main/fabric8/icon.svg"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/kibana/src/main/fabric8/icon.svg"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=kibana&var-version=2.2.311"
             finalizers: []
@@ -8471,7 +8471,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/kibana/src/main/fabric8/icon.svg"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/kibana/src/main/fabric8/icon.svg"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=kibana&var-version=2.2.311"
         finalizers: []
@@ -8494,7 +8494,7 @@ data:
           metadata:
             annotations:
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/kibana/src/main/fabric8/icon.svg"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/kibana/src/main/fabric8/icon.svg"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=kibana&var-version=2.2.311"
             finalizers: []
@@ -8547,7 +8547,7 @@ data:
       kind: "Deployment"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/kiwiirc/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/kiwiirc/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=kiwiirc&var-version=2.2.311"
@@ -8570,7 +8570,7 @@ data:
         template:
           metadata:
             annotations:
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/kiwiirc/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/kiwiirc/src/main/fabric8/icon.png"
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=kiwiirc&var-version=2.2.311"
@@ -8611,7 +8611,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/letschat/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/letschat/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=letschat&var-version=2.2.311"
         finalizers: []
@@ -8636,7 +8636,7 @@ data:
           metadata:
             annotations:
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/letschat/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/letschat/src/main/fabric8/icon.png"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=letschat&var-version=2.2.311"
             finalizers: []
@@ -8712,7 +8712,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/letschat/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/letschat/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=letschat&var-version=2.2.311"
         finalizers: []
@@ -8737,7 +8737,7 @@ data:
           metadata:
             annotations:
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/letschat/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/letschat/src/main/fabric8/icon.png"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=letschat&var-version=2.2.311"
             finalizers: []
@@ -8812,7 +8812,7 @@ data:
       kind: "Deployment"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/manageiq/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/manageiq/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=manageiq&var-version=2.2.311"
@@ -8835,7 +8835,7 @@ data:
         template:
           metadata:
             annotations:
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/manageiq/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/manageiq/src/main/fabric8/icon.png"
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=manageiq&var-version=2.2.311"
@@ -9251,7 +9251,7 @@ data:
       kind: "Deployment"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/nexus/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/nexus/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=nexus&var-version=2.2.311"
@@ -9274,7 +9274,7 @@ data:
         template:
           metadata:
             annotations:
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/nexus/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/nexus/src/main/fabric8/icon.png"
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=nexus&var-version=2.2.311"
@@ -9340,7 +9340,7 @@ data:
       kind: "Deployment"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/nexus/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/nexus/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=nexus&var-version=2.2.311"
@@ -9363,7 +9363,7 @@ data:
         template:
           metadata:
             annotations:
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/nexus/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/nexus/src/main/fabric8/icon.png"
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=nexus&var-version=2.2.311"
@@ -9429,7 +9429,7 @@ data:
       kind: "Deployment"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/orion/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/orion/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=orion&var-version=2.2.311"
@@ -9452,7 +9452,7 @@ data:
         template:
           metadata:
             annotations:
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/orion/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/orion/src/main/fabric8/icon.png"
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=orion&var-version=2.2.311"
@@ -9493,7 +9493,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/prometheus/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/prometheus/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=prometheus&var-version=2.2.311"
         finalizers: []
@@ -9516,7 +9516,7 @@ data:
           metadata:
             annotations:
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/prometheus/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/prometheus/src/main/fabric8/icon.png"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=prometheus&var-version=2.2.311"
               pod.alpha.kubernetes.io/init-containers: "[{\"image\":\"busybox\",\"imagePullPolicy\"\
@@ -9584,7 +9584,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/prometheus/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/prometheus/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=prometheus&var-version=2.2.311"
         finalizers: []
@@ -9607,7 +9607,7 @@ data:
           metadata:
             annotations:
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/prometheus/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/prometheus/src/main/fabric8/icon.png"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=prometheus&var-version=2.2.311"
               pod.alpha.kubernetes.io/init-containers: "[{\"image\":\"busybox\",\"imagePullPolicy\"\
@@ -9675,7 +9675,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/prometheus/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/prometheus/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=prometheus&var-version=2.2.311"
         finalizers: []
@@ -9698,7 +9698,7 @@ data:
           metadata:
             annotations:
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/prometheus/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/prometheus/src/main/fabric8/icon.png"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=prometheus&var-version=2.2.311"
               pod.alpha.kubernetes.io/init-containers: "[{\"image\":\"busybox\",\"imagePullPolicy\"\
@@ -9766,7 +9766,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/prometheus-blackbox-exporter/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/prometheus-blackbox-exporter/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=prometheus-blackbox-exporter&var-version=2.2.311"
         finalizers: []
@@ -9789,7 +9789,7 @@ data:
           metadata:
             annotations:
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/prometheus-blackbox-exporter/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/prometheus-blackbox-exporter/src/main/fabric8/icon.png"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=prometheus-blackbox-exporter&var-version=2.2.311"
             finalizers: []
@@ -9833,7 +9833,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/prometheus-blackbox-exporter/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/prometheus-blackbox-exporter/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=prometheus-blackbox-exporter&var-version=2.2.311"
         finalizers: []
@@ -9856,7 +9856,7 @@ data:
           metadata:
             annotations:
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/prometheus-blackbox-exporter/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/prometheus-blackbox-exporter/src/main/fabric8/icon.png"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=prometheus-blackbox-exporter&var-version=2.2.311"
             finalizers: []
@@ -9900,7 +9900,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/prometheus-blackbox-exporter/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/prometheus-blackbox-exporter/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=prometheus-blackbox-exporter&var-version=2.2.311"
         finalizers: []
@@ -9923,7 +9923,7 @@ data:
           metadata:
             annotations:
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/prometheus-blackbox-exporter/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/prometheus-blackbox-exporter/src/main/fabric8/icon.png"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=prometheus-blackbox-exporter&var-version=2.2.311"
             finalizers: []
@@ -9967,7 +9967,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/taiga/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/taiga/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=taiga&var-version=2.2.311"
         finalizers: []
@@ -9990,7 +9990,7 @@ data:
           metadata:
             annotations:
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/taiga/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/taiga/src/main/fabric8/icon.png"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=taiga&var-version=2.2.311"
               pod.alpha.kubernetes.io/init-containers: "[{\"image\":\"busybox\",\"imagePullPolicy\"\
@@ -10100,7 +10100,7 @@ data:
       metadata:
         annotations:
           fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/taiga/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/taiga/src/main/fabric8/icon.png"
           fabric8.io/git-branch: "release-v2.2.311"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=taiga&var-version=2.2.311"
         finalizers: []
@@ -10123,7 +10123,7 @@ data:
           metadata:
             annotations:
               fabric8.io/git-commit: "2b9f7ce19493fe6d18392ac4f4be16f5e1a76fa3"
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-devops/master/taiga/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-devops/taiga/src/main/fabric8/icon.png"
               fabric8.io/git-branch: "release-v2.2.311"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=taiga&var-version=2.2.311"
               pod.alpha.kubernetes.io/init-containers: "[{\"image\":\"busybox\",\"imagePullPolicy\"\
@@ -10552,7 +10552,7 @@ data:
       kind: "Deployment"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-ipaas/master/zookeeper/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-ipaas/zookeeper/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "0b90360981bed67ebde7b71cc6a96d34cca3dcc6"
           fabric8.io/git-branch: "release-v2.2.168"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=zookeeper&var-version=2.2.168"
@@ -10576,7 +10576,7 @@ data:
         template:
           metadata:
             annotations:
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-ipaas/master/zookeeper/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-ipaas/zookeeper/src/main/fabric8/icon.png"
               fabric8.io/git-commit: "0b90360981bed67ebde7b71cc6a96d34cca3dcc6"
               fabric8.io/git-branch: "release-v2.2.168"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=zookeeper&var-version=2.2.168"
@@ -10634,7 +10634,7 @@ data:
       kind: "Deployment"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-ipaas/master/zookeeper/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-ipaas/zookeeper/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "500219733b1151415686940f4b893d7add206822"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=zookeeper&var-version=2.2.153"
           fabric8.io/build-id: "2"
@@ -10665,7 +10665,7 @@ data:
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=zookeeper&var-version=2.2.153"
               fabric8.io/build-id: "2"
               fabric8.io/build-url: "http://jenkins.ux.fabric8.io/job/oss-parent/2"
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-ipaas/master/zookeeper/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-ipaas/zookeeper/src/main/fabric8/icon.png"
               fabric8.io/git-branch: "release-v2.2.153"
               fabric8.io/git-url: "http://gogs.ux.fabric8.io/gogsadmin/oss-parent/commit/500219733b1151415686940f4b893d7add206822"
             finalizers: []
@@ -10722,7 +10722,7 @@ data:
       kind: "Deployment"
       metadata:
         annotations:
-          fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-ipaas/master/zookeeper/src/main/fabric8/icon.png"
+          fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-ipaas/zookeeper/src/main/fabric8/icon.png"
           fabric8.io/git-commit: "0b90360981bed67ebde7b71cc6a96d34cca3dcc6"
           fabric8.io/git-branch: "release-v2.2.168"
           fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=zookeeper&var-version=2.2.168"
@@ -10746,7 +10746,7 @@ data:
         template:
           metadata:
             annotations:
-              fabric8.io/iconUrl: "https://cdn.rawgit.com/fabric8io/fabric8-ipaas/master/zookeeper/src/main/fabric8/icon.png"
+              fabric8.io/iconUrl: "https://cdn.jsdelivr.net/gh/fabric8io/fabric8-ipaas/zookeeper/src/main/fabric8/icon.png"
               fabric8.io/git-commit: "0b90360981bed67ebde7b71cc6a96d34cca3dcc6"
               fabric8.io/git-branch: "release-v2.2.168"
               fabric8.io/metrics-path: "dashboard/file/kubernetes-pods.json/?var-project=zookeeper&var-version=2.2.168"
